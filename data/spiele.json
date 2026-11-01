@@ -1,0 +1,96 @@
+{
+  "_info": "Alle Spiele des Nordend-Spieleverleihs für das wechselnde Werbebanner auf gude-laune.de. Spiele ohne 'quelle' (Foto) werden übersprungen. Der automatische Bau lädt die Fotos nach ads/spiele/.",
+  "spiele": [
+    {
+      "id": "xxl-jenga",
+      "name": "XXL-Jenga",
+      "text": "Der Riesenturm aus Hartholz: Klotz ziehen, oben drauflegen – bis alles wackelt.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/PXL_20260927_141536547.PORTRAIT-scaled.jpg",
+      "alt": "XXL-Jenga-Turm aus Holz im Park"
+    },
+    {
+      "id": "cornhole",
+      "name": "Cornhole",
+      "text": "Säckchen werfen, Loch treffen: der Party-Trend aus den USA für Groß und Klein.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.15.34.jpeg",
+      "alt": "Zwei Cornhole-Bretter mit Wurfsäckchen auf einer Wiese"
+    },
+    {
+      "id": "spikeball",
+      "name": "Spikeball (Roundnet)",
+      "text": "Das Trendspiel für den Park: Action und Auspowern rund ums Netz.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.18.47.jpeg",
+      "alt": "Gelbes Roundnet-Netz auf einer Wiese"
+    },
+    {
+      "id": "moelkky",
+      "name": "Mölkky",
+      "text": "Das finnische Wurfspiel mit Suchtfaktor – wer schafft genau 50 Punkte?",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.22.27.jpeg",
+      "alt": "Nummerierte Mölkky-Kegel mit Wurfstab auf einer Wiese"
+    },
+    {
+      "id": "stakk",
+      "name": "STAKK",
+      "text": "Werfen, stapeln, umwerfen: Taktik und Treffsicherheit aus Holz.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.25.22.jpeg",
+      "alt": "Gestapelte STAKK-Holzsteine auf einer Wiese"
+    },
+    {
+      "id": "kubb",
+      "name": "Wikingerschach (Kubb)",
+      "text": "Strategie und Teamgeist: Wer wirft zuerst alle Knechte und dann den König um?",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.27.32.jpeg",
+      "alt": "Kubb-Spiel aus Holz im Grünen"
+    },
+    {
+      "id": "leitergolf",
+      "name": "Leitergolf",
+      "text": "Bolas schwingen und an die Sprossen hängen – der Klassiker für Jung und Alt.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.29.43.jpeg",
+      "alt": "Kind wirft Bolas auf ein Leitergolf-Spiel im Park"
+    },
+    {
+      "id": "brio",
+      "name": "BRIO-Eisenbahn-Kiste",
+      "text": "Die XXL-Spielkiste mit Holzschienen – ein ganzes Schienennetz für die Kleinen.",
+      "quelle": "",
+      "alt": "BRIO-Holzeisenbahn"
+    },
+    {
+      "id": "schwungtuch",
+      "name": "Schwungtuch mit Bällen",
+      "text": "Bunt, groß, gemeinsam: Kinder lieben das Schwungtuch mit 12 Schlaufen.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/Wurftuch-Halle-scaled.jpg",
+      "alt": "Kinder und Erwachsene spielen mit einem Schwungtuch"
+    },
+    {
+      "id": "froebelturm",
+      "name": "Fröbelturm",
+      "text": "Teambuilding für Groß und Klein: gemeinsam an Schnüren einen Holzturm bauen.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/kleienr-froebelturm.png",
+      "alt": "Kinder bauen mit Schnüren einen Fröbelturm aus Holz"
+    },
+    {
+      "id": "spieletisch",
+      "name": "Geschenke- & Spieletisch",
+      "text": "Kein Kuchen im Gras: der stylische Event-Tisch für jedes Fest im Freien.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/Gemini_Generated_Image_3wp7jm3wp7jm3wp7.jpg",
+      "alt": "Klappbarer Bambustisch mit Geschenken im Park"
+    },
+    {
+      "id": "beerpong",
+      "name": "Beerpong",
+      "text": "Für die Großen: der Party-Klassiker fürs Sommerfest – auch mit Wasser ein Hit.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/09/WhatsApp-Image-2026-09-28-at-14.37.33-1.jpeg",
+      "alt": "Aufgebautes Beerpong-Spiel mit Bechern"
+    },
+    {
+      "id": "flitzpuck",
+      "name": "Flitzpuck",
+      "text": "Duell am Brett: Scheiben blitzschnell durchs Loch flitschen lassen.",
+      "quelle": "https://nordend-spieleverleih.de/wp-content/uploads/2026/10/NORDEND-Holz-Schiebebrett-mit-Spielscheiben.png",
+      "alt": "Flitzpuck-Holzbrett mit Spielscheiben"
+    }
+  ]
+}

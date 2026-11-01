@@ -19,7 +19,7 @@ jobs:
           python-version: "3.12"
       - name: Playwright installieren
         run: |
-          pip install playwright
+          pip install playwright pillow
           python -m playwright install --with-deps chromium
       - name: Ausgabe bauen (Wetter, Bilder, PNG)
         run: python build/build.py --wetter --fonts --bilder --png

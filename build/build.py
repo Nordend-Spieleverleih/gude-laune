@@ -16,6 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 D = json.loads((ROOT / "data/ausgabe.json").read_text(encoding="utf-8"))
 ADS = json.loads((ROOT / "data/anzeigen.json").read_text(encoding="utf-8"))
+SPIELE = json.loads((ROOT / "data/spiele.json").read_text(encoding="utf-8"))["spiele"] if (ROOT / "data/spiele.json").exists() else []
 ARGS = set(sys.argv[1:])
 
 B, A, PAPER = "#1B3B73", "#E25D4A", "#F5F2EA"
@@ -43,6 +44,22 @@ def wetter_holen():
     D["wetter_echt"] = True
 
 # ---------------------------------------------------------------- Bilder
+def spiele_laden():
+    """Lädt die Fotos aller Spiele vom Spieleverleih nach ads/spiele/ (verkleinert)."""
+    from io import BytesIO
+    from PIL import Image
+    ziel = ROOT / "ads" / "spiele"; ziel.mkdir(parents=True, exist_ok=True)
+    for sp in SPIELE:
+        f = ziel / f'{sp["id"]}.jpg'
+        if not sp.get("quelle") or f.exists(): continue
+        try:
+            req = urllib.request.Request(sp["quelle"], headers={"User-Agent": "GudeLauneBot/1.0 (gude-laune.de)"})
+            with urllib.request.urlopen(req, timeout=40) as r:
+                im = Image.open(BytesIO(r.read())).convert("RGB")
+            im.thumbnail((700, 700)); im.save(f, quality=82, optimize=True)
+        except Exception as ex:
+            print("Spiel-Foto nicht geladen:", sp["id"], ex)
+
 def bilder_laden():
     (ROOT / "img").mkdir(exist_ok=True)
     for tag in ("samstag", "sonntag"):
@@ -399,6 +416,55 @@ def archivieren(png_vorhanden):
 <body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>Archiv</h1><p>Alle bisherigen Ausgaben der Wochenzeitung für Frankfurter Familien.</p><ul>{liste}</ul>
 <p><a href="./">← Zur aktuellen Ausgabe</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
 
+def teilen_menue(url, png):
+    text = urllib.parse.quote(f"Gude Laune – die Kinder-Events der Woche in Frankfurt: {url}")
+    u = urllib.parse.quote(url, safe="")
+    return f"""<div class="sharebox"><button class="btn share" type="button" aria-haspopup="true" aria-expanded="false" id="teilen">Teilen</button>
+<div class="sharemenu" id="teilenmenue" role="menu">
+<button type="button" role="menuitem" id="bildteilen" hidden>Wochenbild teilen (Handy) …</button>
+<a role="menuitem" href="https://wa.me/?text={text}" target="_blank" rel="noopener">In einem WhatsApp-Chat teilen</a>
+<a role="menuitem" href="https://www.facebook.com/sharer/sharer.php?u={u}" target="_blank" rel="noopener">Auf Facebook teilen</a>
+<a role="menuitem" href="https://t.me/share/url?url={u}&amp;text={urllib.parse.quote('Gude Laune – Kinder-Events in Frankfurt')}" target="_blank" rel="noopener">Bei Telegram teilen</a>
+<a role="menuitem" href="mailto:?subject={urllib.parse.quote('Kinder-Events in Frankfurt diese Woche')}&amp;body={text}">Per E-Mail teilen</a>
+<button type="button" role="menuitem" id="linkkopieren">Link kopieren</button>
+<small>Für Instagram: „Wochenbild herunterladen“ und als Story posten – oder am Handy „Wochenbild teilen“.</small>
+</div></div>"""
+
+def rotation_js(png):
+    """Wechselndes Werbebanner (alle 5 Sekunden ein anderes Spiel) + Teilen-Menü."""
+    spiele = [dict(id=sp["id"], name=sp["name"], text=sp["text"], alt=sp["alt"], bild=f'ads/spiele/{sp["id"]}.jpg')
+              for sp in SPIELE if (ROOT / "ads" / "spiele" / f'{sp["id"]}.jpg').exists()]
+    return f"""<script>
+(function(){{
+var SP={json.dumps(spiele, ensure_ascii=False)};
+var ad=document.querySelector('.ad');
+if(ad&&SP.length>1){{
+ for(var i=SP.length-1;i>0;i--){{var j=Math.floor(Math.random()*(i+1));var t=SP[i];SP[i]=SP[j];SP[j]=t;}}
+ SP.forEach(function(s){{var im=new Image();im.src=s.bild;}});
+ var n=0,pause=false;ad.addEventListener('mouseenter',function(){{pause=true}});ad.addEventListener('mouseleave',function(){{pause=false}});
+ ad.href='https://nordend-spieleverleih.de/spieleauswahl/';
+ setInterval(function(){{
+  if(pause||document.hidden)return;var s=SP[n++%SP.length];ad.classList.add('wechsel');
+  setTimeout(function(){{var b=ad.querySelector('.adimg');b.style.backgroundImage='url('+s.bild+')';b.setAttribute('aria-label',s.alt);
+   ad.querySelector('.adh').textContent=s.name;ad.querySelector('.adx').textContent=s.text+' Im Paket mit weiteren Spielen ab 75 €.';ad.classList.remove('wechsel');}},350);
+ }},5000);
+}}
+var btn=document.getElementById('teilen'),m=document.getElementById('teilenmenue');
+if(btn){{
+ btn.addEventListener('click',function(ev){{ev.stopPropagation();var o=m.classList.toggle('offen');btn.setAttribute('aria-expanded',o);}});
+ document.addEventListener('click',function(){{m.classList.remove('offen');btn.setAttribute('aria-expanded','false');}});
+ var url=document.querySelector('link[rel=canonical]').href;
+ document.getElementById('linkkopieren').addEventListener('click',function(ev){{ev.stopPropagation();
+  (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){{ev.target.textContent='Link kopiert ✓';}},function(){{window.prompt('Link kopieren:',url);}});}});
+ var bt=document.getElementById('bildteilen');
+ if(navigator.share){{bt.hidden=false;bt.addEventListener('click',function(ev){{ev.stopPropagation();
+  fetch('{png}').then(function(r){{return r.blob()}}).then(function(bl){{var f=new File([bl],'gude-laune-wochenausgabe.png',{{type:'image/png'}});
+   var d={{title:'Gude Laune',text:'Die Kinder-Events der Woche in Frankfurt: '+url}};
+   if(navigator.canShare&&navigator.canShare({{files:[f]}}))d.files=[f];else d.url=url;return navigator.share(d);}}).catch(function(){{}});}});}}
+}}
+}})();
+</script>"""
+
 def seite_web(base='', png='ausgabe.png', canonical=SITE):
     von, bis = d(D["von"]), d(D["bis"])
     titel = f"Gude Laune – Kinder-Events in Frankfurt, {von.day}.–{bis.day}. {MON[bis.month]} {bis.year}"
@@ -413,7 +479,14 @@ body{{background:#E9E4D8}}
 .paper{{box-shadow:0 2px 18px rgba(0,0,0,.08)}}
 .ad{{margin-top:16px}}
 .dl{{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 12px 0}}
-.btn{{background:{B};color:#fff;font-weight:800;padding:11px 18px;border-radius:8px}} .btn.alt{{background:#25A366}}
+.btn{{background:{B};color:#fff;font-weight:800;padding:11px 18px;border-radius:8px;border:0;font:inherit;font-weight:800;font-size:16px;cursor:pointer}} .btn.alt{{background:#25A366}} .btn.share{{background:{A}}}
+.sharebox{{position:relative;display:inline-block}}
+.sharemenu{{display:none;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);background:#fff;border:1px solid #D8D2C6;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);padding:6px;min-width:230px;z-index:10;text-align:left}}
+.sharemenu.offen{{display:block}} .sharemenu [hidden]{{display:none}}
+.sharemenu a,.sharemenu button{{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:6px;font:inherit;font-weight:700;font-size:15px;color:#161616;background:none;border:0;cursor:pointer}}
+.sharemenu a:hover,.sharemenu button:hover{{background:#F5F2EA}}
+.sharemenu small{{display:block;padding:6px 12px 4px;color:#777;font-size:11.5px;line-height:1.35}}
+.ad{{transition:opacity .35s}} .ad.wechsel{{opacity:.15}}
 .legal{{text-align:center;font-size:12px;color:#666;margin-top:22px}} .legal a{{text-decoration:underline}}
 .strip{{display:block;background:{B};color:#fff;text-align:center;font-weight:700;font-size:14px;padding:9px 12px;border-radius:6px;margin:0 0 12px}}
 .strip b{{color:#FFC9BF}}
@@ -430,17 +503,17 @@ body{{background:#E9E4D8}}
  .paper{{padding:18px 14px}} .mast{{grid-template-columns:1fr}} .ear{{display:none}} .logo{{font-size:60px}}
  .dateline{{flex-direction:column;align-items:center;text-align:center}} .weather{{gap:1px}} .wd span{{display:block}}
  .wgrid,.wkgrid{{grid-template-columns:1fr}} .wcol+.wcol{{padding-left:0;border-left:0;border-top:1px solid #D8D2C6;margin-top:12px;padding-top:12px}} .wcol:first-child{{padding-right:0}}
- .ad{{grid-template-columns:110px 1fr}} .banners{{grid-template-columns:1fr}} .wrap{{padding:10px 8px 30px}}
+ .ad{{grid-template-columns:110px 1fr}} .banners{{grid-template-columns:1fr}} .sharemenu{{left:auto;right:0;transform:none}} .wrap{{padding:10px 8px 30px}}
 }}
 </style></head><body><div class="wrap">
 <a class="strip" href="https://nordend-spieleverleih.de/">Kindergeburtstag oder Sommerfest geplant? <b>Outdoor-Spiele ausleihen beim Nordend-Spieleverleih →</b></a>
 {zeitung()}
-<div class="dl"><a class="btn" href="{png}" download>Wochenbild herunterladen</a><a class="btn alt" href="{WHATSAPP}">WhatsApp-Kanal folgen</a></div>
+<div class="dl"><a class="btn" href="{png}" download>Wochenbild herunterladen</a><a class="btn alt" href="{WHATSAPP}">WhatsApp-Kanal folgen</a>{teilen_menue(canonical, png)}</div>
 {banner()}
 <div class="archivlink"><a href="archiv/">Alle bisherigen Ausgaben im Archiv →</a></div>
 {themen_links()}
 <div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
-</div></body></html>'''
+</div>{rotation_js(png)}</body></html>'''
 
 if __name__ == "__main__":
     if "--wetter" in ARGS:
@@ -449,7 +522,9 @@ if __name__ == "__main__":
     if "--fonts" in ARGS:
         try: fonts_laden(); FONTS = fonts_link()
         except Exception as ex: print("Schriften nicht geladen:", ex)
-    if "--bilder" in ARGS: bilder_laden()
+    if "--bilder" in ARGS:
+        bilder_laden()
+        spiele_laden()
     (ROOT / "ausgabe.html").write_text(seite_bild(), encoding="utf-8")
     (ROOT / "index.html").write_text(seite_web(), encoding="utf-8")
     if "--png" in ARGS:

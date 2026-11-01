@@ -19,3 +19,5 @@ Ein Angebot von [Nordend-Spieleverleih](https://nordend-spieleverleih.de/).
 - `impressum.html`, `datenschutz.html` – Rechtstexte (werden mitgebaut)
 - `fonts/` – Schriften werden selbst ausgeliefert (keine Verbindung zu Google Fonts)
 - Werbebanner für den Nordend-Spieleverleih auf der Webseite (Funktion `banner()` in `build/build.py`), Link zum WhatsApp-Kanal: `WHATSAPP` in `build/build.py`
+- `data/spiele.json` – alle Spiele des Spieleverleihs für das wechselnde Werbebanner (alle 5 Sekunden ein anderes Spiel, nur auf der Webseite). Fotos lädt der Bau nach `ads/spiele/`.
+- Teilen-Button mit Menü (WhatsApp, Facebook, Telegram, E-Mail, Link kopieren, am Handy: Wochenbild direkt teilen)

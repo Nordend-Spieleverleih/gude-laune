@@ -47,7 +47,14 @@ body{background:#E9E4D8}
 .paper{box-shadow:0 2px 18px rgba(0,0,0,.08)}
 .ad{margin-top:16px}
 .dl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 12px 0}
-.btn{background:#1B3B73;color:#fff;font-weight:800;padding:11px 18px;border-radius:8px} .btn.alt{background:#25A366}
+.btn{background:#1B3B73;color:#fff;font-weight:800;padding:11px 18px;border-radius:8px;border:0;font:inherit;font-weight:800;font-size:16px;cursor:pointer} .btn.alt{background:#25A366} .btn.share{background:#E25D4A}
+.sharebox{position:relative;display:inline-block}
+.sharemenu{display:none;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(100% + 8px);background:#fff;border:1px solid #D8D2C6;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.15);padding:6px;min-width:230px;z-index:10;text-align:left}
+.sharemenu.offen{display:block} .sharemenu [hidden]{display:none}
+.sharemenu a,.sharemenu button{display:block;width:100%;text-align:left;padding:10px 12px;border-radius:6px;font:inherit;font-weight:700;font-size:15px;color:#161616;background:none;border:0;cursor:pointer}
+.sharemenu a:hover,.sharemenu button:hover{background:#F5F2EA}
+.sharemenu small{display:block;padding:6px 12px 4px;color:#777;font-size:11.5px;line-height:1.35}
+.ad{transition:opacity .35s} .ad.wechsel{opacity:.15}
 .legal{text-align:center;font-size:12px;color:#666;margin-top:22px} .legal a{text-decoration:underline}
 .strip{display:block;background:#1B3B73;color:#fff;text-align:center;font-weight:700;font-size:14px;padding:9px 12px;border-radius:6px;margin:0 0 12px}
 .strip b{color:#FFC9BF}
@@ -64,7 +71,7 @@ body{background:#E9E4D8}
  .paper{padding:18px 14px} .mast{grid-template-columns:1fr} .ear{display:none} .logo{font-size:60px}
  .dateline{flex-direction:column;align-items:center;text-align:center} .weather{gap:1px} .wd span{display:block}
  .wgrid,.wkgrid{grid-template-columns:1fr} .wcol+.wcol{padding-left:0;border-left:0;border-top:1px solid #D8D2C6;margin-top:12px;padding-top:12px} .wcol:first-child{padding-right:0}
- .ad{grid-template-columns:110px 1fr} .banners{grid-template-columns:1fr} .wrap{padding:10px 8px 30px}
+ .ad{grid-template-columns:110px 1fr} .banners{grid-template-columns:1fr} .sharemenu{left:auto;right:0;transform:none} .wrap{padding:10px 8px 30px}
 }
 </style></head><body><div class="wrap">
 <a class="strip" href="https://nordend-spieleverleih.de/">Kindergeburtstag oder Sommerfest geplant? <b>Outdoor-Spiele ausleihen beim Nordend-Spieleverleih →</b></a>
@@ -75,7 +82,7 @@ body{background:#E9E4D8}
 <div class="ear r"><div class="k blue">Gratis</div><div class="ex">zum Weiterleiten in die Kita-Gruppe</div></div>
 </div>
 <div class="dateline"><span>Ausgabe Nr. 45 / 2026</span><span>Montag, 2. bis Sonntag, 8. November 2026</span><span>Frankfurt am Main</span></div>
-<div class="weather"><div class="wt"><div class="wd">Mo <span>2.11.</span></div><div class="tp">10°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Di <span>3.11.</span></div><div class="tp">10°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Mi <span>4.11.</span></div><div class="tp">10°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Do <span>5.11.</span></div><div class="tp">8°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Fr <span>6.11.</span></div><div class="tp">7°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">Sa <span>7.11.</span></div><div class="tp">8°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">So <span>8.11.</span></div><div class="tp">8°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="regen" role="img"><path d="M8 21h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/><g stroke="#1B3B73" stroke-width="2" stroke-linecap="round"><path d="M11 25l-1 4M17 25l-1 4M23 25l-1 4"/></g></svg></div></div>
+<div class="weather"><div class="wt"><div class="wd">Mo <span>2.11.</span></div><div class="tp">10°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="regen" role="img"><path d="M8 21h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/><g stroke="#1B3B73" stroke-width="2" stroke-linecap="round"><path d="M11 25l-1 4M17 25l-1 4M23 25l-1 4"/></g></svg></div><div class="wt"><div class="wd">Di <span>3.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Mi <span>4.11.</span></div><div class="tp">8°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="regen" role="img"><path d="M8 21h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/><g stroke="#1B3B73" stroke-width="2" stroke-linecap="round"><path d="M11 25l-1 4M17 25l-1 4M23 25l-1 4"/></g></svg></div><div class="wt"><div class="wd">Do <span>5.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Fr <span>6.11.</span></div><div class="tp">11°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">Sa <span>7.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">So <span>8.11.</span></div><div class="tp">11°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="sonne" role="img"><circle cx="16" cy="13" r="6" fill="#E25D4A"/><g stroke="#E25D4A" stroke-width="2" stroke-linecap="round"><path d="M16 2v3M16 21v3M5 13h3M24 13h3M8 5l2 2M22 19l2 2M24 5l-2 2M10 19l-2 2"/></g></svg></div></div>
 <div class="weekend">
 <div class="wehead"><span class="brush">Das Wochenende</span><span class="k">Samstag, 7. &amp; Sonntag, 8. November</span></div>
 <div class="wgrid"><div class="wcol"><div class="k acc">Samstag · Bornheim</div><div class="pic"><img src="img/eissporthalle.jpg" alt="Family on Ice"></div><div class="credit">Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons</div><div class="wh"><a href="https://www.eissporthalle-ffm.de/">Family on Ice</a> <span class="gratis">GRATIS</span></div><div class="t">Tag der offenen Tür in der Eissporthalle: Eiskunstlauf, Eishockey und Curling zum Reinschnuppern. Ab 9 Uhr.</div><div class="more"><div class="mt"><a href="https://soundport-frankfurt.com/">Donnerblech und Fliegenfang</a> <span style='font-weight:600;color:#666;font-size:13px'>· Ostend</span></div><div class="mx">Konzert zum Mitmachen für 3- bis 6-Jährige, 10 &amp; 11.30 Uhr, Kind 5 €, mit Reservierung.</div></div></div><div class="wcol"><div class="k acc">Sonntag · Westend</div><div class="pic"><img src="img/papageno.jpg" alt="Frau Holle im Papageno"></div><div class="credit">Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons</div><div class="wh"><a href="https://papageno-theater.de/">Frau Holle im Papageno</a></div><div class="t">Das Grimm-Märchen als Musiktheater am Palmengarten, 16 Uhr, Karten ab 20,05 €.</div><div class="more"><div class="mt"><a href="https://www.kinderverein-kalbach.de/">Herr Müller und seine Gitarre</a> <span style='font-weight:600;color:#666;font-size:13px'>· Kalbach</span></div><div class="mx">Mitsing-Konzert ab 3 Jahren, Einlass 10.30 Uhr, Erw. 4 €, Kind 2 €.</div></div><div class="more"><div class="mt"><a href="https://www.mvp.de/frankfurt-am-main/veranstaltungen/der-kleine-wassermann-frankfurt-am-main/">Der kleine Wassermann</a> <span style='font-weight:600;color:#666;font-size:13px'>· Nordweststadt</span></div><div class="mx">Kindertheater im Titusforum, 16 Uhr, ab 18,95 €.</div></div></div></div>
@@ -85,9 +92,18 @@ body{background:#E9E4D8}
 <div class="wkgrid"><div><div class="wk"><div class="k blue">Montag · Westend</div><div class="kh"><a href="https://museumfrankfurt.senckenberg.de/">Dinosaurier im Senckenberg</a></div><div class="kx">Der Klassiker für graue Tage, 9–17 Uhr.</div></div><div class="wk"><div class="k blue">Dienstag · Altstadt</div><div class="kh"><a href="https://www.struwwelpeter-museum.de/sonderausstellungen/">Bilderbücher zum Anfassen</a></div><div class="kx">Pop-up-Bücher im Struwwelpeter-Museum, 8 / 4 €.</div></div><div class="wk"><div class="k blue">Mittwoch · Sachsenhausen</div><div class="kh"><a href="https://www.mfk-frankfurt.de/">Offene Kinderwerkstatt</a></div><div class="kx">Museum für Kommunikation, ab 4, 15–17 Uhr.</div></div></div><div><div class="wk"><div class="k blue">Donnerstag · Altstadt</div><div class="kh"><a href="https://junges-museum-frankfurt.de/">Junges Museum am Römer</a> <span class="gratis">GRATIS</span></div><div class="kx">Mitmach-Ausstellungen, bis 18 Jahre gratis.</div></div><div class="wk"><div class="k blue">Freitag · Bornheim</div><div class="kh"><a href="https://www.kindaling.de/veranstaltungen/frankfurt">TechnoTHEK in der KiBi</a> <span class="gratis">GRATIS</span></div><div class="kx">Technik ausprobieren, ab 6, 15 Uhr, gratis.</div></div><div class="floh"><div class="k acc">Flohmarkt-Ecke</div><div class="fh">Sa 7.11. · <a href="https://www.kindaling.de/flohmaerkte/frankfurt">Flohmarkt am Mainufer</a></div><div class="fx">Schaumainkai, ab 9 Uhr – oft auch Spielzeug und Kinderkleidung.</div><div class="fx">Weitere Flohmärkte auf gude-laune.de</div></div></div></div>
 </div>
 <a class="ad" href="https://nordend-spieleverleih.de/"><div class="adimg" role="img" aria-label="Gestapelte STAKK-Holzklötze auf einer Wiese" style="background-image:url(ads/stakk.jpg)"></div><div class="adt"><div class="k" style="opacity:.8">Anzeige · Nordend-Spieleverleih</div><div class="adh">STAKK: umwerfen ausdrücklich erlaubt</div><div class="adx">Der Wurf-Spaß aus Holz für Garten und Park. Im Paket mit weiteren Spielen ab 75 €.</div><div class="adl">nordend-spieleverleih.de</div></div></a>
-<div class="foot"><span>Alle Termine: gude-laune.de</span><span>Angaben ohne Gewähr</span></div>
+<div class="foot"><span>Alle Termine: gude-laune.de</span><span>Wetter: Beispielwerte · Angaben ohne Gewähr</span></div>
 </div>
-<div class="dl"><a class="btn" href="ausgabe.png" download>Wochenbild herunterladen</a><a class="btn alt" href="https://whatsapp.com/channel/0029VbDjF5W4inos5DFyo101">WhatsApp-Kanal folgen</a></div>
+<div class="dl"><a class="btn" href="ausgabe.png" download>Wochenbild herunterladen</a><a class="btn alt" href="https://whatsapp.com/channel/0029VbDjF5W4inos5DFyo101">WhatsApp-Kanal folgen</a><div class="sharebox"><button class="btn share" type="button" aria-haspopup="true" aria-expanded="false" id="teilen">Teilen</button>
+<div class="sharemenu" id="teilenmenue" role="menu">
+<button type="button" role="menuitem" id="bildteilen" hidden>Wochenbild teilen (Handy) …</button>
+<a role="menuitem" href="https://wa.me/?text=Gude%20Laune%20%E2%80%93%20die%20Kinder-Events%20der%20Woche%20in%20Frankfurt%3A%20https%3A//gude-laune.de/" target="_blank" rel="noopener">In einem WhatsApp-Chat teilen</a>
+<a role="menuitem" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgude-laune.de%2F" target="_blank" rel="noopener">Auf Facebook teilen</a>
+<a role="menuitem" href="https://t.me/share/url?url=https%3A%2F%2Fgude-laune.de%2F&amp;text=Gude%20Laune%20%E2%80%93%20Kinder-Events%20in%20Frankfurt" target="_blank" rel="noopener">Bei Telegram teilen</a>
+<a role="menuitem" href="mailto:?subject=Kinder-Events%20in%20Frankfurt%20diese%20Woche&amp;body=Gude%20Laune%20%E2%80%93%20die%20Kinder-Events%20der%20Woche%20in%20Frankfurt%3A%20https%3A//gude-laune.de/">Per E-Mail teilen</a>
+<button type="button" role="menuitem" id="linkkopieren">Link kopieren</button>
+<small>Für Instagram: „Wochenbild herunterladen“ und als Story posten – oder am Handy „Wochenbild teilen“.</small>
+</div></div></div>
 <div class="banners">
 <a class="bn" href="https://nordend-spieleverleih.de/spieleauswahl/"><div class="bi" role="img" aria-label="Mölkky-Wurfspiel aus Holz auf einer Wiese" style="background-image:url(ads/moelkky.jpg)"></div>
 <div class="bt"><div class="k blue">Nordend-Spieleverleih</div><div class="bh">Spiele für Geburtstag &amp; Gartenfest</div><div class="bx">Cornhole, Mölkky, Kubb &amp; mehr – im Paket ab 75 €, Abholung im Nordend oder Lieferung.</div><span class="bc">Zur Spieleauswahl →</span></div></a>
@@ -97,4 +113,33 @@ body{background:#E9E4D8}
 <div class="archivlink"><a href="archiv/">Alle bisherigen Ausgaben im Archiv →</a></div>
 <div class="themen"><b>Themen:</b> <a href="flohmaerkte-frankfurt.html">Flohmärkte</a> <a href="gratis-kinder-events-frankfurt.html">Gratis</a> <a href="regentag-mit-kind-frankfurt.html">Bei Regen</a> <a href="stadtteil-altstadt.html">Altstadt</a> <a href="stadtteil-bornheim.html">Bornheim</a> <a href="stadtteil-sachsenhausen.html">Sachsenhausen</a> <a href="stadtteil-westend.html">Westend</a></div>
 <div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
-</div></body></html>
+</div><script>
+(function(){
+var SP=[];
+var ad=document.querySelector('.ad');
+if(ad&&SP.length>1){
+ for(var i=SP.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=SP[i];SP[i]=SP[j];SP[j]=t;}
+ SP.forEach(function(s){var im=new Image();im.src=s.bild;});
+ var n=0,pause=false;ad.addEventListener('mouseenter',function(){pause=true});ad.addEventListener('mouseleave',function(){pause=false});
+ ad.href='https://nordend-spieleverleih.de/spieleauswahl/';
+ setInterval(function(){
+  if(pause||document.hidden)return;var s=SP[n++%SP.length];ad.classList.add('wechsel');
+  setTimeout(function(){var b=ad.querySelector('.adimg');b.style.backgroundImage='url('+s.bild+')';b.setAttribute('aria-label',s.alt);
+   ad.querySelector('.adh').textContent=s.name;ad.querySelector('.adx').textContent=s.text+' Im Paket mit weiteren Spielen ab 75 €.';ad.classList.remove('wechsel');},350);
+ },5000);
+}
+var btn=document.getElementById('teilen'),m=document.getElementById('teilenmenue');
+if(btn){
+ btn.addEventListener('click',function(ev){ev.stopPropagation();var o=m.classList.toggle('offen');btn.setAttribute('aria-expanded',o);});
+ document.addEventListener('click',function(){m.classList.remove('offen');btn.setAttribute('aria-expanded','false');});
+ var url=document.querySelector('link[rel=canonical]').href;
+ document.getElementById('linkkopieren').addEventListener('click',function(ev){ev.stopPropagation();
+  (navigator.clipboard?navigator.clipboard.writeText(url):Promise.reject()).then(function(){ev.target.textContent='Link kopiert ✓';},function(){window.prompt('Link kopieren:',url);});});
+ var bt=document.getElementById('bildteilen');
+ if(navigator.share){bt.hidden=false;bt.addEventListener('click',function(ev){ev.stopPropagation();
+  fetch('ausgabe.png').then(function(r){return r.blob()}).then(function(bl){var f=new File([bl],'gude-laune-wochenausgabe.png',{type:'image/png'});
+   var d={title:'Gude Laune',text:'Die Kinder-Events der Woche in Frankfurt: '+url};
+   if(navigator.canShare&&navigator.canShare({files:[f]}))d.files=[f];else d.url=url;return navigator.share(d);}).catch(function(){});});}
+}
+})();
+</script></body></html>
