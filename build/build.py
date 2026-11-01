@@ -173,17 +173,122 @@ a{{color:inherit;text-decoration:none}}
 .adt{{padding:12px 16px}} .adh{{font-weight:800;font-size:23px;line-height:1.1;margin:5px 0}} .adx{{font-size:13.5px;line-height:1.4}} .adl{{font-weight:800;font-size:12.5px;margin-top:6px;color:#FFC9BF}}
 .foot{{margin-top:8px;display:flex;justify-content:space-between;font-size:11px;color:#555;gap:8px}}
 '''
-FONTS = '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Libre+Caslon+Text:ital@1&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">'
+GOOGLE_CSS = "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Libre+Caslon+Text:ital@1&family=Nunito:wght@400;600;700;800;900&display=swap"
+
+def fonts_laden():
+    """Lädt die Schriften einmalig nach fonts/ – danach werden sie von gude-laune.de selbst ausgeliefert (keine Verbindung zu Google)."""
+    ua = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"}
+    with urllib.request.urlopen(urllib.request.Request(GOOGLE_CSS, headers=ua), timeout=30) as r:
+        css = r.read().decode()
+    (ROOT / "fonts").mkdir(exist_ok=True)
+    def ersetze(m):
+        url = m.group(1)
+        name = hashlib.sha1(url.encode()).hexdigest()[:12] + ".woff2"
+        ziel = ROOT / "fonts" / name
+        if not ziel.exists():
+            with urllib.request.urlopen(urllib.request.Request(url, headers=ua), timeout=30) as r:
+                ziel.write_bytes(r.read())
+        return f"url({name})"
+    css = re.sub(r"url\((https://fonts\.gstatic\.com/[^)]+)\)", ersetze, css)
+    (ROOT / "fonts" / "fonts.css").write_text(css, encoding="utf-8")
+
+def fonts_link():
+    if (ROOT / "fonts" / "fonts.css").exists():
+        return '<link href="fonts/fonts.css" rel="stylesheet">'
+    return f'<link href="{GOOGLE_CSS}" rel="stylesheet">'
+
+FONTS = fonts_link()
 
 def seite_bild():
     return f'''<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">{FONTS}<style>{CSS}
 body{{width:800px;height:1130px}} .paper{{width:800px;height:1130px}}</style></head><body>{zeitung()}</body></html>'''
 
-def seite_web():
+
+WHATSAPP = "#"  # Link zum WhatsApp-Kanal hier eintragen
+
+def banner():
+    """Zwei feste Werbebanner für den Nordend-Spieleverleih (nur auf der Webseite)."""
+    keys = [k for k in ADS["reihenfolge"] if k != "schnitzeljagd"]
+    a = ADS["anzeigen"][keys[(D["nr"] + 1) % len(keys)]]  # anderes Spiel als in der Zeitungs-Anzeige
+    return f"""<div class="banners">
+<a class="bn" href="https://nordend-spieleverleih.de/spieleauswahl/"><div class="bi" role="img" aria-label="{e(a["alt"])}" style="background-image:url({e(a["bild"])})"></div>
+<div class="bt"><div class="k blue">Nordend-Spieleverleih</div><div class="bh">Spiele für Geburtstag &amp; Gartenfest</div><div class="bx">Cornhole, Mölkky, Kubb &amp; mehr – im Paket ab 75 €, Abholung im Nordend oder Lieferung.</div><span class="bc">Zur Spieleauswahl →</span></div></a>
+<a class="bn sj" href="https://nordend-spieleverleih.de/"><div class="bi">Schnitzel-<br>jagd</div>
+<div class="bt"><div class="k acc">Bald erhältlich</div><div class="bh">Schnitzeljagden für Frankfurter Parks</div><div class="bx">Rätsel und Stationen für den nächsten Kindergeburtstag – los geht's im Günthersburgpark.</div><span class="bc">Mehr erfahren →</span></div></a>
+</div>"""
+
+RECHT_CSS = f"""*{{box-sizing:border-box}} body{{margin:0;background:#E9E4D8;font-family:Nunito,system-ui,sans-serif;color:#161616}}
+.r{{max-width:760px;margin:20px auto;background:{PAPER};padding:30px 36px;border-radius:4px;line-height:1.55;font-size:15px}}
+.r h1{{font-size:28px;margin:0 0 4px}} .r h2{{font-size:18px;margin:24px 0 6px}} .r a{{color:{B}}}
+.r a.logo{{font-family:'Caveat Brush',cursive;font-size:48px;color:{A};text-decoration:none;display:inline-block;transform:rotate(-3deg)}}
+@media (max-width:640px){{.r{{margin:0;padding:20px 16px}}}}"""
+
+def rechtsseite(titel, inhalt):
+    return f"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{titel} – Gude Laune</title><meta name="robots" content="noindex">{FONTS}<style>{RECHT_CSS}</style></head>
+<body><div class="r"><a class="logo" href="./">Gude Laune</a>{inhalt}
+<p style="margin-top:30px"><a href="./">← Zur aktuellen Ausgabe</a></p></div></body></html>"""
+
+IMPRESSUM = """<h1>Impressum</h1>
+<h2>Angaben gemäß § 5 DDG</h2>
+<p>Sebastian Widuch<br>Nordend-Spieleverleih<br>Vogelsbergstraße 18<br>60316 Frankfurt am Main</p>
+<h2>Kontakt</h2>
+<p>Telefon: 069-87201148<br>E-Mail: <a href="mailto:info@nordend-spieleverleih.de">info@nordend-spieleverleih.de</a><br>Website: <a href="https://nordend-spieleverleih.de/">www.nordend-spieleverleih.de</a></p>
+<h2>Steuerangaben</h2>
+<p>W-IdNr.: DE465238783<br>Umsatzsteuer wird aufgrund der Kleinunternehmerregelung gemäß § 19 UStG nicht ausgewiesen.</p>
+<h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+<p>Sebastian Widuch, Vogelsbergstraße 18, 60316 Frankfurt am Main</p>
+<h2>Hinweis zu den Terminen</h2>
+<p>Alle Termine werden sorgfältig recherchiert, trotzdem ohne Gewähr. Maßgeblich sind die Angaben der jeweiligen Veranstalter, auf deren Seiten wir verlinken. Für die Inhalte verlinkter Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+<h2>Bildnachweise</h2>
+<p>Fotos zu Veranstaltungen stammen, soweit angegeben, von Wikimedia Commons und stehen unter der jeweils genannten freien Lizenz (Urheber und Lizenz stehen direkt am Bild). Produktfotos: Nordend-Spieleverleih.</p>"""
+
+DATENSCHUTZ = """<h1>Datenschutzerklärung</h1>
+<p>Stand: November 2026</p>
+<h2>1. Verantwortlicher</h2>
+<p>Sebastian Widuch, Nordend-Spieleverleih, Vogelsbergstraße 18, 60316 Frankfurt am Main<br>E-Mail: <a href="mailto:info@nordend-spieleverleih.de">info@nordend-spieleverleih.de</a>, Telefon: 069-87201148</p>
+<h2>2. Das Wichtigste in Kürze</h2>
+<p>gude-laune.de ist eine reine Informationsseite. Wir setzen keine Cookies, kein Tracking, keine Analyse-Tools und keine Werbenetzwerke ein. Es gibt keine Formulare und keine Benutzerkonten. Schriften und Bilder werden direkt von dieser Seite geladen, nicht von Drittanbietern.</p>
+<h2>3. Hosting und Server-Logfiles</h2>
+<p>Die Seite wird über GitHub Pages bereitgestellt (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, ein Unternehmen der Microsoft Corporation). Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, die aufgerufene Seite und Angaben zum Browser, um die Seite auszuliefern und die Sicherheit des Dienstes zu gewährleisten. Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Seite (Art. 6 Abs. 1 lit. f DSGVO). Dabei kann eine Übermittlung in die USA erfolgen; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
+<h2>4. Kontakt per E-Mail oder Telefon</h2>
+<p>Wenn Sie uns kontaktieren, verarbeiten wir Ihre Angaben nur, um Ihre Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. f DSGVO), und löschen sie, sobald sie dafür nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+<h2>5. WhatsApp-Kanal und externe Links</h2>
+<p>Auf dieser Seite verlinken wir auf unseren WhatsApp-Kanal sowie auf Seiten von Veranstaltern und auf nordend-spieleverleih.de. Erst wenn Sie einen solchen Link anklicken, werden Daten an den jeweiligen Anbieter übertragen; dafür gelten dessen Datenschutzbestimmungen. Für den WhatsApp-Kanal ist das die WhatsApp Ireland Limited (Meta). Als Betreiber des Kanals sehen wir die Telefonnummern der Abonnenten nicht.</p>
+<h2>6. Ihre Rechte</h2>
+<p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 15–21 DSGVO). Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Hessischen Beauftragten für Datenschutz und Informationsfreiheit, Gustav-Stresemann-Ring 1, 65189 Wiesbaden.</p>"""
+
+def archivieren(png_vorhanden):
+    """Speichert die aktuelle Ausgabe dauerhaft unter archiv/ und baut die Archiv-Übersicht."""
+    global D
+    arch = ROOT / "archiv"; arch.mkdir(exist_ok=True)
+    key = f'{D["jahr"]}-{D["nr"]:02d}'
+    (arch / f"{key}.json").write_text(json.dumps(D, ensure_ascii=False, indent=1), encoding="utf-8")
+    if png_vorhanden and (ROOT / "ausgabe.png").exists():
+        (arch / f"{key}.png").write_bytes((ROOT / "ausgabe.png").read_bytes())
+    aktuell = D
+    eintraege = []
+    for f in sorted(arch.glob("*.json"), reverse=True):
+        D = json.loads(f.read_text(encoding="utf-8"))
+        k = f.stem
+        png = f"archiv/{k}.png" if (arch / f"{k}.png").exists() else "ausgabe.png"
+        (arch / f"{k}.html").write_text(seite_web(base="../", png=png), encoding="utf-8")
+        von, bis = d(D["von"]), d(D["bis"])
+        sa = D["wochenende"]["samstag"]["titel"]; so = D["wochenende"]["sonntag"]["titel"]
+        eintraege.append(f'<li><a href="{k}.html"><b>Ausgabe {D["nr"]} / {D["jahr"]}</b> · {von.day}.{von.month}. – {bis.day}.{bis.month}.{bis.year}</a><br><span>Wochenende: {e(sa)} · {e(so)}</span></li>')
+    D = aktuell
+    liste = "".join(eintraege)
+    (arch / "index.html").write_text(f"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<base href="../"><title>Archiv – Gude Laune</title><meta name="description" content="Alle bisherigen Ausgaben von Gude Laune, der Wochenzeitung für Frankfurter Familien.">{FONTS}
+<style>{RECHT_CSS} .r ul{{list-style:none;padding:0}} .r li{{padding:10px 0;border-bottom:1px solid #D8D2C6}} .r li span{{font-size:13px;color:#555}} .r li a{{text-decoration:none}}</style></head>
+<body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>Archiv</h1><p>Alle bisherigen Ausgaben der Wochenzeitung für Frankfurter Familien.</p><ul>{liste}</ul>
+<p><a href="./">← Zur aktuellen Ausgabe</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
+
+def seite_web(base='', png='ausgabe.png'):
     von, bis = d(D["von"]), d(D["bis"])
     titel = f"Gude Laune – Kinder-Events in Frankfurt, {von.day}.–{bis.day}. {MON[bis.month]} {bis.year}"
     return f'''<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{e(titel)}</title>
+{f'<base href="{base}">' if base else ""}<title>{e(titel)}</title>
 <meta name="description" content="Was ist los mit Kindern in Frankfurt? Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter – jede Woche neu, nach Stadtteilen.">
 <meta property="og:title" content="{e(titel)}"><meta property="og:image" content="https://gude-laune.de/ausgabe.png">
 {FONTS}<style>{CSS}
@@ -194,22 +299,38 @@ body{{background:#E9E4D8}}
 .dl{{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 12px 0}}
 .btn{{background:{B};color:#fff;font-weight:800;padding:11px 18px;border-radius:8px}} .btn.alt{{background:#25A366}}
 .legal{{text-align:center;font-size:12px;color:#666;margin-top:22px}} .legal a{{text-decoration:underline}}
+.strip{{display:block;background:{B};color:#fff;text-align:center;font-weight:700;font-size:14px;padding:9px 12px;border-radius:6px;margin:0 0 12px}}
+.strip b{{color:#FFC9BF}}
+.banners{{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0 0}}
+.bn{{display:grid;grid-template-columns:120px 1fr;background:#fff;border:2px solid {B};border-radius:8px;overflow:hidden;min-height:130px}}
+.bn .bi{{background-size:cover;background-position:center}}
+.bn .bt{{padding:12px 14px}} .bn .bh{{font-weight:900;font-size:19px;line-height:1.15;margin:4px 0}} .bn .bx{{font-size:13px;line-height:1.4}}
+.bn .bc{{display:inline-block;margin-top:8px;font-weight:800;font-size:13px;color:{A}}}
+.bn.sj{{border-color:{A}}} .bn.sj .bi{{background:{A};display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Caveat Brush',cursive;font-size:30px;line-height:1;text-align:center;padding:8px}}
+.archivlink{{text-align:center;margin-top:16px;font-weight:800}} .archivlink a{{color:{B};text-decoration:underline}}
 .wk a:hover,.wh a:hover,.mt a:hover{{text-decoration:underline}}
 @media (max-width:640px){{
  .paper{{padding:18px 14px}} .mast{{grid-template-columns:1fr}} .ear{{display:none}} .logo{{font-size:60px}}
  .dateline{{flex-direction:column;align-items:center;text-align:center}} .weather{{gap:1px}} .wd span{{display:block}}
  .wgrid,.wkgrid{{grid-template-columns:1fr}} .wcol+.wcol{{padding-left:0;border-left:0;border-top:1px solid #D8D2C6;margin-top:12px;padding-top:12px}} .wcol:first-child{{padding-right:0}}
- .ad{{grid-template-columns:110px 1fr}}
+ .ad{{grid-template-columns:110px 1fr}} .banners{{grid-template-columns:1fr}} .wrap{{padding:10px 8px 30px}}
 }}
-</style></head><body><div class="wrap">{zeitung()}
-<div class="dl"><a class="btn" href="ausgabe.png" download>Wochenbild herunterladen</a><a class="btn alt" href="#">WhatsApp-Kanal folgen</a></div>
-<div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="https://nordend-spieleverleih.de/impressum/">Impressum</a> · <a href="https://nordend-spieleverleih.de/datenschutz/">Datenschutz</a></div>
+</style></head><body><div class="wrap">
+<a class="strip" href="https://nordend-spieleverleih.de/">Kindergeburtstag oder Sommerfest geplant? <b>Outdoor-Spiele ausleihen beim Nordend-Spieleverleih →</b></a>
+{zeitung()}
+<div class="dl"><a class="btn" href="{png}" download>Wochenbild herunterladen</a><a class="btn alt" href="{WHATSAPP}">WhatsApp-Kanal folgen</a></div>
+{banner()}
+<div class="archivlink"><a href="archiv/">Alle bisherigen Ausgaben im Archiv →</a></div>
+<div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
 </div></body></html>'''
 
 if __name__ == "__main__":
     if "--wetter" in ARGS:
         try: wetter_holen()
         except Exception as ex: print("Wetter nicht geladen:", ex)
+    if "--fonts" in ARGS:
+        try: fonts_laden(); FONTS = fonts_link()
+        except Exception as ex: print("Schriften nicht geladen:", ex)
     if "--bilder" in ARGS: bilder_laden()
     (ROOT / "ausgabe.html").write_text(seite_bild(), encoding="utf-8")
     (ROOT / "index.html").write_text(seite_web(), encoding="utf-8")
@@ -224,4 +345,7 @@ if __name__ == "__main__":
             pg.wait_for_timeout(500)
             pg.screenshot(path=str(ROOT / "ausgabe.png"))
             b.close()
+    (ROOT / "impressum.html").write_text(rechtsseite("Impressum", IMPRESSUM), encoding="utf-8")
+    (ROOT / "datenschutz.html").write_text(rechtsseite("Datenschutz", DATENSCHUTZ), encoding="utf-8")
+    archivieren("--png" in ARGS)
     print("Ausgabe", D["nr"], "gebaut")
