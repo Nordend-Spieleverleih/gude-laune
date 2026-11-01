@@ -1,0 +1,9 @@
+{
+  "reihenfolge": ["cornhole", "moelkky", "stakk", "schnitzeljagd"],
+  "anzeigen": {
+    "cornhole": {"titel": "Cornhole fürs Kinderfest", "text": "Das Wurfspiel für Groß und Klein. Im Paket mit weiteren Spielen ab 75 €, abholen oder liefern lassen.", "bild": "ads/cornhole.jpg", "alt": "Cornhole-Bretter auf einer Wiese"},
+    "moelkky": {"titel": "Mölkky – das finnische Wurfspiel", "text": "Kegeln, zählen, jubeln – schon ab 5 Jahren spielbar. Im Paket mit weiteren Spielen ab 75 €.", "bild": "ads/moelkky.jpg", "alt": "Mölkky-Wurfspiel aus Holz auf einer Wiese"},
+    "stakk": {"titel": "STAKK: umwerfen ausdrücklich erlaubt", "text": "Der Wurf-Spaß aus Holz für Garten und Park. Im Paket mit weiteren Spielen ab 75 €.", "bild": "ads/stakk.jpg", "alt": "Gestapelte STAKK-Holzklötze auf einer Wiese"},
+    "schnitzeljagd": {"titel": "Schnitzeljagd im Günthersburgpark", "text": "Rätsel und Stationen für den nächsten Kindergeburtstag – bald zum Ausdrucken.", "bild": "ads/cornhole.jpg", "alt": "Spiel auf einer Wiese"}
+  }
+}

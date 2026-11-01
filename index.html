@@ -1,207 +1,79 @@
-<!DOCTYPE html>
-<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gude Laune – Kinder-Events in Frankfurt (Entwurf)</title>
-<meta name="description" content="Was ist los mit Kindern in Frankfurt? Die besten Kinder-Events der Woche, nach Tagen sortiert – kurz, übersichtlich, jede Woche neu.">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@700;800&display=swap" rel="stylesheet">
-<style>
-:root{--ink:#1F2A2E;--mute:#5E6B70;--line:#E7E2D8;--bg:#FFFBF3;--sun:#FFC83D;--green:#1E7A5A;--card:#fff}
-*{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 Nunito,system-ui,sans-serif}
-.wrap{max-width:760px;margin:0 auto;padding:0 18px}
-header{padding:28px 0 8px}
-.logo{font:800 30px/1 Poppins,sans-serif;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
-.logo i{width:34px;height:34px;border-radius:50%;background:var(--sun);display:inline-block;box-shadow:0 0 0 6px #FFE9A8}
-.tag{color:var(--mute);margin:8px 0 0;font-weight:600}
-.draft{background:#FFF1C9;border:1px dashed #E0B341;border-radius:12px;padding:10px 14px;font-size:14px;margin:16px 0 0}
-.week{display:flex;justify-content:space-between;align-items:end;margin:26px 0 10px;gap:12px;flex-wrap:wrap}
-.week h1{font:800 26px/1.15 Poppins,sans-serif;margin:0} .week small{color:var(--mute);font-weight:700}
-.chips{display:flex;gap:8px;flex-wrap:wrap;margin:6px 0 18px;position:sticky;top:0;background:var(--bg);padding:10px 0;z-index:5}
-.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font:700 14px Nunito,sans-serif;cursor:pointer;color:var(--ink)}
-.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
-.wa{display:flex;gap:14px;align-items:center;background:#E7F6EE;border-radius:16px;padding:14px 16px;margin:0 0 22px}
-.wa b{display:block} .wa a{margin-left:auto;background:#25A366;color:#fff;text-decoration:none;font-weight:800;padding:9px 14px;border-radius:10px;white-space:nowrap}
-.day h2{font:800 19px Poppins,sans-serif;margin:28px 0 12px;padding-bottom:6px;border-bottom:2px solid var(--line)} .day h2 span{color:var(--green)}
-.ev{display:grid;grid-template-columns:110px 1fr;gap:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:14px;margin:0 0 12px}
-.pic{position:relative} .pic svg{width:110px;height:101px;display:block}
-.cat{display:block;text-align:center;font-size:12px;color:var(--mute);font-weight:700;margin-top:4px}
-.time{font-weight:800;color:var(--green);font-size:14px}
-.ev h3{margin:2px 0 2px;font:700 18px/1.25 Poppins,sans-serif}
-.place{color:var(--mute);font-size:14px} .ev p{margin:8px 0 10px;font-size:15px}
-.badges{display:flex;gap:6px;flex-wrap:wrap} .b{font-size:12.5px;font-weight:700;background:#F3EFE6;border-radius:8px;padding:3px 8px}
-.b.free{background:#DDF3E6;color:#14603F} .b.in{background:#E3EEF9;color:#24527E} .b.warn{background:#FFE3D6;color:#9A3B12}
-.src{display:inline-block;margin-top:10px;font-weight:800;color:var(--ink);font-size:14px}
-.ad{background:linear-gradient(135deg,#FFE48A,#FFC83D);border-radius:18px;padding:18px 20px;margin:18px 0 4px}
-.adk{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;opacity:.7}
-.ad h3{font:800 21px Poppins,sans-serif;margin:4px 0} .ad p{margin:0 0 10px} .ad a{font-weight:800;color:var(--ink)}
-.empty{display:none;color:var(--mute);text-align:center;padding:30px}
-footer{color:var(--mute);font-size:13.5px;padding:34px 0 50px;border-top:1px solid var(--line);margin-top:30px} footer a{color:var(--mute)}
-@media (max-width:520px){.ev{grid-template-columns:76px 1fr;gap:12px} .pic svg{width:76px;height:70px} .cat{display:none} .wa{flex-wrap:wrap} .wa a{margin-left:0}}
-</style></head><body><div class="wrap">
-<header>
-  <div class="logo"><i></i>Gude Laune</div>
-  <p class="tag">Kinder-Events in Frankfurt – jede Woche frisch, ohne Schnickschnack.</p>
-  <div class="draft"><b>Entwurf / Probelauf.</b> Alle Termine wurden automatisch recherchiert. Einträge mit „⚠ prüfen“ haben unsichere Angaben und würden vor Veröffentlichung kontrolliert.</div>
-</header>
-<div class="week"><h1>Diese Woche mit Kind</h1><small>2.–8. November 2026 · 14 Tipps</small></div>
-<div class="wa"><div><b>Die Wochentipps aufs Handy</b>Jeden Donnerstag eine Übersicht als Bild – zum Weiterleiten in die Kita-Gruppe.</div><a href="#">WhatsApp-Kanal folgen</a></div>
-<div class="chips" role="group" aria-label="Filter">
-  <button class="chip" data-f="all" aria-pressed="true">Alle</button>
-  <button class="chip" data-f="we" aria-pressed="false">Wochenende</button>
-  <button class="chip" data-f="free" aria-pressed="false">Kostenlos</button>
-  <button class="chip" data-f="in" aria-pressed="false">Bei Regen (drinnen)</button>
-  <button class="chip" data-f="small" aria-pressed="false">Unter 3</button>
-  <button class="chip" data-f="kita" aria-pressed="false">Kita-Alter</button>
+<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gude Laune – Kinder-Events in Frankfurt, 2.–8. November 2026</title>
+<meta name="description" content="Was ist los mit Kindern in Frankfurt? Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter – jede Woche neu, nach Stadtteilen.">
+<meta property="og:title" content="Gude Laune – Kinder-Events in Frankfurt, 2.–8. November 2026"><meta property="og:image" content="https://gude-laune.de/ausgabe.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Libre+Caslon+Text:ital@1&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"><style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Nunito,system-ui,sans-serif;color:#161616}
+a{color:inherit;text-decoration:none}
+.paper{background:#F5F2EA;padding:30px 40px;display:flex;flex-direction:column}
+.k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.blue{color:#1B3B73} .acc{color:#E25D4A} .grey{color:#666}
+.mast{display:grid;grid-template-columns:140px 1fr 140px;align-items:center;gap:14px}
+.ear{border:1px solid #161616;border-radius:4px;padding:8px 10px} .ear.r{text-align:right}
+.ex{font-size:13px;line-height:1.35;margin-top:4px}
+.logo-wrap{text-align:center}
+.logo{font-family:'Caveat Brush',cursive;font-size:78px;line-height:.95;color:#E25D4A;transform:rotate(-3deg);display:inline-block;letter-spacing:.5px}
+.claim{font-family:'Libre Caslon Text',Georgia,serif;font-style:italic;font-size:15px;color:#1B3B73}
+.dateline{margin-top:12px;border-top:3px solid #161616;border-bottom:1px solid #161616;padding:5px 0;display:flex;justify-content:space-between;font-size:12px;font-weight:700;gap:8px}
+.weather{margin-top:10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;border-bottom:1px solid #161616;padding-bottom:8px}
+.wt{text-align:center;padding:6px 0;border-radius:4px} .wt.we{background:#FBE3DE}
+.wd{font-size:12px;font-weight:800} .wd span{font-weight:400} .wt.we .wd{color:#E25D4A}
+.tp{font-size:17px;font-weight:800;margin:2px 0} .wi{display:block;margin:0 auto}
+.weekend{margin-top:14px;border:2.5px solid #E25D4A;border-radius:6px;background:#fff;padding-bottom:14px}
+.wehead{background:#E25D4A;color:#fff;padding:6px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.brush{font-family:'Caveat Brush',cursive;font-size:30px;line-height:1}
+.wgrid{display:grid;grid-template-columns:1fr 1fr;padding:12px 14px 0}
+.wcol:first-child{padding-right:14px} .wcol+.wcol{padding-left:14px;border-left:1px solid #D8D2C6}
+.pic{margin:6px 0 4px;border-radius:4px;overflow:hidden;height:120px} .pic img{width:100%;height:120px;object-fit:cover;display:block}
+.credit{font-size:9.5px;color:#777;margin-bottom:6px}
+.wh{font-weight:800;font-size:21px;line-height:1.15}
+.t{font-size:13.5px;line-height:1.45;margin-top:4px}
+.more{border-top:1px dashed #B9B3A6;margin-top:10px;padding-top:8px} .mt{font-weight:800;font-size:16px;line-height:1.2} .mx{font-size:13px;line-height:1.4}
+.gratis{font-size:11px;font-weight:800;color:#fff;background:#1B3B73;border-radius:3px;padding:2px 6px;vertical-align:3px;letter-spacing:.04em}
+.week{margin-top:14px;margin-bottom:10px}
+.weekhead{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid #161616;padding-bottom:4px} .weekhead .h{font-weight:800;font-size:19px}
+.wkgrid{display:grid;grid-template-columns:1fr 1fr;column-gap:22px}
+.wk{padding:7px 0;border-bottom:1px solid #C9C4B8} .kh{font-weight:800;font-size:17px;line-height:1.2;margin:3px 0 2px} .kx{font-size:13px;line-height:1.4}
+.floh{margin-top:9px;background:#EFEAE0;border-radius:4px;padding:9px 11px} .fh{font-weight:800;font-size:15px;line-height:1.25;margin:3px 0 2px} .fx{font-size:12.5px;line-height:1.4}
+.ad{flex-shrink:0;margin-top:auto;background:#1B3B73;color:#fff;border-radius:4px;display:grid;grid-template-columns:150px 1fr;overflow:hidden}
+.adimg{background-size:cover;background-position:center;min-height:118px}
+.adt{padding:12px 16px} .adh{font-weight:800;font-size:23px;line-height:1.1;margin:5px 0} .adx{font-size:13.5px;line-height:1.4} .adl{font-weight:800;font-size:12.5px;margin-top:6px;color:#FFC9BF}
+.foot{margin-top:8px;display:flex;justify-content:space-between;font-size:11px;color:#555;gap:8px}
+
+body{background:#E9E4D8}
+.wrap{max-width:800px;margin:0 auto;padding:16px 0 40px}
+.paper{box-shadow:0 2px 18px rgba(0,0,0,.08)}
+.ad{margin-top:16px}
+.dl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 12px 0}
+.btn{background:#1B3B73;color:#fff;font-weight:800;padding:11px 18px;border-radius:8px} .btn.alt{background:#25A366}
+.legal{text-align:center;font-size:12px;color:#666;margin-top:22px} .legal a{text-decoration:underline}
+.wk a:hover,.wh a:hover,.mt a:hover{text-decoration:underline}
+@media (max-width:640px){
+ .paper{padding:18px 14px} .mast{grid-template-columns:1fr} .ear{display:none} .logo{font-size:60px}
+ .dateline{flex-direction:column;align-items:center;text-align:center} .weather{gap:1px} .wd span{display:block}
+ .wgrid,.wkgrid{grid-template-columns:1fr} .wcol+.wcol{padding-left:0;border-left:0;border-top:1px solid #D8D2C6;margin-top:12px;padding-top:12px} .wcol:first-child{padding-right:0}
+ .ad{grid-template-columns:110px 1fr}
+}
+</style></head><body><div class="wrap"><div class="paper">
+<div class="mast">
+<div class="ear"><div class="k blue">Diese Woche</div><div class="ex">10 Tipps,<br>davon 4 gratis</div></div>
+<div class="logo-wrap"><div class="logo">Gude Laune</div><div class="claim">Die Wochenzeitung für Frankfurter Familien</div></div>
+<div class="ear r"><div class="k blue">Gratis</div><div class="ex">zum Weiterleiten in die Kita-Gruppe</div></div>
 </div>
-<main><section class="day" data-date="2026-11-04"><h2><span>Mittwoch</span> 4. November</h2><article class="ev" data-free="0" data-in="1" data-we="0" data-age="ab 4">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#FCE7C8"/><circle cx="30" cy="66" r="9" fill="none" stroke="#D9822B" stroke-width="5"/><circle cx="50" cy="70" r="9" fill="none" stroke="#D9822B" stroke-width="5"/><path d="M35 58l28-40M46 62l8-44" stroke="#8C5A2B" stroke-width="4"/><rect x="66" y="30" width="10" height="44" rx="3" transform="rotate(20 71 52)" fill="#E5677F"/><circle cx="78" cy="22" r="5" fill="#4CAF8E"/></svg><span class="cat">Basteln</span></div>
-  <div class="body">
-    <div class="time">15:00–17:00</div>
-    <h3>Offene Kinderwerkstatt</h3>
-    <div class="place">Museum für Kommunikation, Schaumainkai 53 · <b>Sachsenhausen</b></div>
-    <p>Materialien und Techniken selbst ausprobieren – ein Team gibt eine kurze Einführung und hilft, wenn&#x27;s hakt. Zwei Slots à eine Stunde, Tickets vor Ort.</p>
-    <div class="badges"><span class="b">ab 4</span><span class="b ">4 € pro Kind + Museumseintritt</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.mfk-frankfurt.de/mc-events/offene-kinderwerkstatt-13/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article></section><section class="day" data-date="2026-11-06"><h2><span>Freitag</span> 6. November</h2><article class="ev" data-free="0" data-in="1" data-we="0" data-age="Familien">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#E4E0F5"/><path d="M50 14l36 18H14z" fill="#6A5ACD"/><rect x="18" y="34" width="64" height="5" fill="#8B7FE0"/><rect x="22" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="38" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="55" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="71" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="14" y="74" width="72" height="7" fill="#6A5ACD"/></svg><span class="cat">Museum & Wissen</span></div>
-  <div class="body">
-    <div class="time">11:00–18:00 · Di–Sa bis 17.01.2027</div>
-    <h3>Ausstellung „Beyond Paper Plane“</h3>
-    <div class="place">Struwwelpeter Museum, Hinter dem Lämmchen 2–4 · <b>Altstadt</b></div>
-    <p>Bilderbücher zum Anfassen: Pop-up-Bücher, Papierarchitektur und eine Leseecke mit tschechischen Kinderbüchern. Läuft noch bis 17. Januar (Di–Sa).</p>
-    <div class="badges"><span class="b">Familien</span><span class="b ">8 € / erm. 4 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.struwwelpeter-museum.de/sonderausstellungen/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="1" data-in="1" data-we="0" data-age="ab 6">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#E4E0F5"/><path d="M50 14l36 18H14z" fill="#6A5ACD"/><rect x="18" y="34" width="64" height="5" fill="#8B7FE0"/><rect x="22" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="38" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="55" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="71" y="42" width="7" height="30" fill="#FFFFFF"/><rect x="14" y="74" width="72" height="7" fill="#6A5ACD"/></svg><span class="cat">Museum & Wissen</span></div>
-  <div class="body">
-    <div class="time">15:00</div>
-    <h3>TechnoTHEK in der Kinderbibliothek</h3>
-    <div class="place">KiBi – Zentrale Kinder- und Jugendbibliothek · <b>Bornheim/Ostend</b></div>
-    <p>Technik zum Ausprobieren in der zentralen Kinderbibliothek – ein guter Freitagnachmittag für kleine Tüftler.</p>
-    <div class="badges"><span class="b">ab 6</span><span class="b free">kostenlos</span><span class="b in">drinnen</span><span class="b warn" title="Diese Angabe vor Veröffentlichung prüfen">⚠ prüfen</span></div>
-    <a class="src" href="https://www.kindaling.de/veranstaltungen/frankfurt" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article></section><section class="day" data-date="2026-11-07"><h2><span>Samstag</span> 7. November</h2><article class="ev" data-free="0" data-in="1" data-we="1" data-age="3–6 J.">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#D9E8F7"/><path d="M38 26l34-8v40" stroke="#2F5D8A" stroke-width="5" fill="none"/><path d="M38 26v44" stroke="#2F5D8A" stroke-width="5"/><ellipse cx="31" cy="71" rx="9" ry="7" fill="#2F5D8A"/><ellipse cx="65" cy="60" rx="9" ry="7" fill="#2F5D8A"/><circle cx="80" cy="30" r="4" fill="#F2A541"/><circle cx="22" cy="36" r="3" fill="#E5677F"/></svg><span class="cat">Musik</span></div>
-  <div class="body">
-    <div class="time">10:00 &amp; 11:30</div>
-    <h3>Donnerblech und Fliegenfang</h3>
-    <div class="place">Ensemble Modern (Deutsche Ensemble Akademie), Schwedlerstraße 2–4 · <b>Ostend</b></div>
-    <p>Inszeniertes Konzert für die Kleinsten: Klänge, Bewegung und kleine Szenen. Reservierung per E-Mail nötig. Auch am Sonntag.</p>
-    <div class="badges"><span class="b">3–6 J.</span><span class="b ">Kind 5 €, Erw. 10 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://soundport-frankfurt.com/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="Kinder">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#F6D6DE"/><path d="M8 10h84v10H8z" fill="#B23A5B"/><path d="M8 20c10 0 14 30 6 62H8z" fill="#D2557A"/><path d="M92 20c-10 0-14 30-6 62h6z" fill="#D2557A"/><circle cx="42" cy="52" r="13" fill="#FFF6E5"/><circle cx="37" cy="49" r="2" fill="#3A2A2F"/><circle cx="47" cy="49" r="2" fill="#3A2A2F"/><path d="M36 56q6 6 12 0" stroke="#3A2A2F" stroke-width="2" fill="none"/><circle cx="60" cy="60" r="11" fill="#FFD25E"/><circle cx="56" cy="58" r="1.8" fill="#3A2A2F"/><circle cx="64" cy="58" r="1.8" fill="#3A2A2F"/><path d="M55 66q5-4 10 0" stroke="#3A2A2F" stroke-width="2" fill="none"/></svg><span class="cat">Theater</span></div>
-  <div class="body">
-    <div class="time">16:00</div>
-    <h3>Mona ist ein Vampir</h3>
-    <div class="place">Kinder- und Jugendtheater im Titusforum, Walter-Möller-Platz 2 · <b>Nordweststadt</b></div>
-    <p>Ein Mädchen mit sehr viel Fantasie – Kindertheater zum Halloween-Ausklang. Letzte Vorstellung am 14.11.</p>
-    <div class="badges"><span class="b">Kinder</span><span class="b ">ab 18,95 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.mvp.de/frankfurt-am-main/veranstaltungen/mona-ist-ein-vampir-frankfurt-am-main/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="1" data-in="1" data-we="1" data-age="alle">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#D6F0EE"/><path d="M30 22h22v22l20 8c6 3 8 7 8 12v4H30z" fill="#1F8A84"/><path d="M36 30h10M36 37h10" stroke="#9AD3CF" stroke-width="3"/><path d="M24 74h60" stroke="#2C3E50" stroke-width="4" stroke-linecap="round"/><path d="M38 68v6M70 68v6" stroke="#2C3E50" stroke-width="3"/><circle cx="80" cy="22" r="6" fill="#F2A541"/></svg><span class="cat">Sport</span></div>
-  <div class="body">
-    <div class="time">ab 9:00</div>
-    <h3>Family on Ice</h3>
-    <div class="place">Eissporthalle Frankfurt, Am Bornheimer Hang 4 · <b>Bornheim</b></div>
-    <p>Familientag mit Tag der offenen Tür: Vereine für Eiskunstlauf, Eishockey, Curling &amp; Co. stellen sich vor. Das genaue Programm veröffentlicht das Sportamt noch.</p>
-    <div class="badges"><span class="b">alle</span><span class="b free">Eintritt frei</span><span class="b in">drinnen</span><span class="b warn" title="Diese Angabe vor Veröffentlichung prüfen">⚠ prüfen</span></div>
-    <a class="src" href="https://www.eissporthalle-ffm.de/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="1" data-in="0" data-we="1" data-age="alle">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#E6EFD3"/><rect x="18" y="46" width="64" height="32" rx="3" fill="#C98B4E"/><path d="M18 46l8-10h48l8 10z" fill="#E0A96D"/><circle cx="42" cy="36" r="10" fill="#B07A4A"/><circle cx="34" cy="28" r="4" fill="#B07A4A"/><circle cx="50" cy="28" r="4" fill="#B07A4A"/><circle cx="39" cy="35" r="1.5" fill="#2B1D12"/><circle cx="45" cy="35" r="1.5" fill="#2B1D12"/><rect x="58" y="26" width="16" height="20" rx="2" fill="#5B8C3A"/></svg><span class="cat">Flohmarkt</span></div>
-  <div class="body">
-    <div class="time">ab 9:00</div>
-    <h3>Samstagsflohmarkt am Mainufer</h3>
-    <div class="place">Schaumainkai · <b>Sachsenhausen</b></div>
-    <p>Der große Frankfurter Flohmarkt – mit etwas Glück auch Spielzeug, Bücher und Kinderkleidung.</p>
-    <div class="badges"><span class="b">alle</span><span class="b free">Eintritt frei</span></div>
-    <a class="src" href="https://www.kindaling.de/flohmaerkte/frankfurt" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article></section><aside class="ad"><div class="adk">Anzeige · aus dem Nordend</div><h3>Kindergeburtstag im Park?</h3><p>Bald gibt es hier fertige Schnitzeljagden für Frankfurter Parks – zum Ausdrucken, mit Rätseln und Stationen. Den Anfang macht der Günthersburgpark.</p><a href="https://nordend-spieleverleih.de/" target="_blank" rel="noopener">Spiele für Feste ausleihen: nordend-spieleverleih.de →</a></aside><section class="day" data-date="2026-11-08"><h2><span>Sonntag</span> 8. November</h2><article class="ev" data-free="0" data-in="1" data-we="1" data-age="3–6 J.">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#D9E8F7"/><path d="M38 26l34-8v40" stroke="#2F5D8A" stroke-width="5" fill="none"/><path d="M38 26v44" stroke="#2F5D8A" stroke-width="5"/><ellipse cx="31" cy="71" rx="9" ry="7" fill="#2F5D8A"/><ellipse cx="65" cy="60" rx="9" ry="7" fill="#2F5D8A"/><circle cx="80" cy="30" r="4" fill="#F2A541"/><circle cx="22" cy="36" r="3" fill="#E5677F"/></svg><span class="cat">Musik</span></div>
-  <div class="body">
-    <div class="time">10:00 &amp; 11:30</div>
-    <h3>Donnerblech und Fliegenfang</h3>
-    <div class="place">Ensemble Modern (Deutsche Ensemble Akademie), Schwedlerstraße 2–4 · <b>Ostend</b></div>
-    <p>Wiederholung vom Samstag – Reservierung per E-Mail.</p>
-    <div class="badges"><span class="b">3–6 J.</span><span class="b ">Kind 5 €, Erw. 10 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://soundport-frankfurt.com/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="0–3 J.">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#D9E8F7"/><path d="M38 26l34-8v40" stroke="#2F5D8A" stroke-width="5" fill="none"/><path d="M38 26v44" stroke="#2F5D8A" stroke-width="5"/><ellipse cx="31" cy="71" rx="9" ry="7" fill="#2F5D8A"/><ellipse cx="65" cy="60" rx="9" ry="7" fill="#2F5D8A"/><circle cx="80" cy="30" r="4" fill="#F2A541"/><circle cx="22" cy="36" r="3" fill="#E5677F"/></svg><span class="cat">Musik</span></div>
-  <div class="body">
-    <div class="time">10:00–10:45</div>
-    <h3>Babykonzert: Leo Löwe und die vier Jahreszeiten</h3>
-    <div class="place">Main-e-Oper, Kleyerstraße 15 · <b>Gallus</b></div>
-    <p>Kinderlieder und Klaviermusik zum Mitmachen – mit Spielen und Bewegung zu jedem Stück. Tickets nur online, Picknickdecke mitbringen.</p>
-    <div class="badges"><span class="b">0–3 J.</span><span class="b ">Erw. 19 €, Kind 7,45 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://main-e-oper.de/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="ab 4">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#FCE7C8"/><circle cx="30" cy="66" r="9" fill="none" stroke="#D9822B" stroke-width="5"/><circle cx="50" cy="70" r="9" fill="none" stroke="#D9822B" stroke-width="5"/><path d="M35 58l28-40M46 62l8-44" stroke="#8C5A2B" stroke-width="4"/><rect x="66" y="30" width="10" height="44" rx="3" transform="rotate(20 71 52)" fill="#E5677F"/><circle cx="78" cy="22" r="5" fill="#4CAF8E"/></svg><span class="cat">Basteln</span></div>
-  <div class="body">
-    <div class="time">10:15–13:15</div>
-    <h3>Offene Kinderwerkstatt</h3>
-    <div class="place">Museum für Kommunikation, Schaumainkai 53 · <b>Sachsenhausen</b></div>
-    <p>Basteln, ausprobieren, Neues entdecken – perfekt für einen grauen Sonntagvormittag.</p>
-    <div class="badges"><span class="b">ab 4</span><span class="b ">4 € pro Kind + Museumseintritt</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.mfk-frankfurt.de/mc-events/offene-kinderwerkstatt-13/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="ab 3">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#D9E8F7"/><path d="M38 26l34-8v40" stroke="#2F5D8A" stroke-width="5" fill="none"/><path d="M38 26v44" stroke="#2F5D8A" stroke-width="5"/><ellipse cx="31" cy="71" rx="9" ry="7" fill="#2F5D8A"/><ellipse cx="65" cy="60" rx="9" ry="7" fill="#2F5D8A"/><circle cx="80" cy="30" r="4" fill="#F2A541"/><circle cx="22" cy="36" r="3" fill="#E5677F"/></svg><span class="cat">Musik</span></div>
-  <div class="body">
-    <div class="time">11:00</div>
-    <h3>Herr Müller und seine Gitarre</h3>
-    <div class="place">Alte Turnhalle Kalbach, Grubweg 6 · <b>Kalbach</b></div>
-    <p>Mitsing-Konzert „Schräge Typen“ bei der Kinderbuchmesse Kalbach-Riedberg. Einlass 10:30 Uhr, Vorverkauf im KiJu Kalbach.</p>
-    <div class="badges"><span class="b">ab 3</span><span class="b ">Erw. 4 €, Kind 2 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.kinderverein-kalbach.de/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="ab 4">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#F6D6DE"/><path d="M8 10h84v10H8z" fill="#B23A5B"/><path d="M8 20c10 0 14 30 6 62H8z" fill="#D2557A"/><path d="M92 20c-10 0-14 30-6 62h6z" fill="#D2557A"/><circle cx="42" cy="52" r="13" fill="#FFF6E5"/><circle cx="37" cy="49" r="2" fill="#3A2A2F"/><circle cx="47" cy="49" r="2" fill="#3A2A2F"/><path d="M36 56q6 6 12 0" stroke="#3A2A2F" stroke-width="2" fill="none"/><circle cx="60" cy="60" r="11" fill="#FFD25E"/><circle cx="56" cy="58" r="1.8" fill="#3A2A2F"/><circle cx="64" cy="58" r="1.8" fill="#3A2A2F"/><path d="M55 66q5-4 10 0" stroke="#3A2A2F" stroke-width="2" fill="none"/></svg><span class="cat">Theater</span></div>
-  <div class="body">
-    <div class="time">15:00</div>
-    <h3>KISSEN – sonst nix</h3>
-    <div class="place">Haus am Dom, Domplatz 3 · <b>Altstadt</b></div>
-    <p>Figurentheater mit unzähligen Kissen zwischen Traum und Fantasie – mit Gebärdensprachdolmetscher. Dauer 45 Minuten.</p>
-    <div class="badges"><span class="b">ab 4</span><span class="b ">siehe Veranstalter</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.regioactive.de/vortrag/kissen-sonst-nix-termine-tickets-1a52947c34a3" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="Kinder">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#F6D6DE"/><path d="M8 10h84v10H8z" fill="#B23A5B"/><path d="M8 20c10 0 14 30 6 62H8z" fill="#D2557A"/><path d="M92 20c-10 0-14 30-6 62h6z" fill="#D2557A"/><circle cx="42" cy="52" r="13" fill="#FFF6E5"/><circle cx="37" cy="49" r="2" fill="#3A2A2F"/><circle cx="47" cy="49" r="2" fill="#3A2A2F"/><path d="M36 56q6 6 12 0" stroke="#3A2A2F" stroke-width="2" fill="none"/><circle cx="60" cy="60" r="11" fill="#FFD25E"/><circle cx="56" cy="58" r="1.8" fill="#3A2A2F"/><circle cx="64" cy="58" r="1.8" fill="#3A2A2F"/><path d="M55 66q5-4 10 0" stroke="#3A2A2F" stroke-width="2" fill="none"/></svg><span class="cat">Theater</span></div>
-  <div class="body">
-    <div class="time">16:00</div>
-    <h3>Der kleine Wassermann</h3>
-    <div class="place">Kinder- und Jugendtheater im Titusforum, Walter-Möller-Platz 2 · <b>Nordweststadt</b></div>
-    <p>Der Kinderbuchklassiker von Otfried Preußler auf der Bühne.</p>
-    <div class="badges"><span class="b">Kinder</span><span class="b ">ab 18,95 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://www.mvp.de/frankfurt-am-main/veranstaltungen/der-kleine-wassermann-frankfurt-am-main/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article><article class="ev" data-free="0" data-in="1" data-we="1" data-age="Kinder">
-  <div class="pic"><svg viewBox="0 0 100 92" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="100" height="92" rx="14" fill="#F6D6DE"/><path d="M8 10h84v10H8z" fill="#B23A5B"/><path d="M8 20c10 0 14 30 6 62H8z" fill="#D2557A"/><path d="M92 20c-10 0-14 30-6 62h6z" fill="#D2557A"/><circle cx="42" cy="52" r="13" fill="#FFF6E5"/><circle cx="37" cy="49" r="2" fill="#3A2A2F"/><circle cx="47" cy="49" r="2" fill="#3A2A2F"/><path d="M36 56q6 6 12 0" stroke="#3A2A2F" stroke-width="2" fill="none"/><circle cx="60" cy="60" r="11" fill="#FFD25E"/><circle cx="56" cy="58" r="1.8" fill="#3A2A2F"/><circle cx="64" cy="58" r="1.8" fill="#3A2A2F"/><path d="M55 66q5-4 10 0" stroke="#3A2A2F" stroke-width="2" fill="none"/></svg><span class="cat">Theater</span></div>
-  <div class="body">
-    <div class="time">16:00</div>
-    <h3>Frau Holle</h3>
-    <div class="place">Papageno Musiktheater am Palmengarten, Zeppelinallee (neben Nr. 8) · <b>Westend</b></div>
-    <p>Das Grimm-Märchen als Musiktheater – passend zur ersten kalten Jahreszeit.</p>
-    <div class="badges"><span class="b">Kinder</span><span class="b ">ab 20,05 €</span><span class="b in">drinnen</span></div>
-    <a class="src" href="https://papageno-theater.de/" target="_blank" rel="noopener">Zum Veranstalter →</a>
-  </div>
-</article></section><div class="empty">Für diesen Filter gibt es diese Woche nichts – probier einen anderen.</div></main>
-<footer>Alle Angaben ohne Gewähr – bitte vor dem Besuch beim Veranstalter prüfen. Texte sind eigene Zusammenfassungen, Bilder sind Symbolbilder.<br>
-Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · Impressum · Datenschutz</footer>
+<div class="dateline"><span>Ausgabe Nr. 45 / 2026</span><span>Montag, 2. bis Sonntag, 8. November 2026</span><span>Frankfurt am Main</span></div>
+<div class="weather"><div class="wt"><div class="wd">Mo <span>2.11.</span></div><div class="tp">10°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="regen" role="img"><path d="M8 21h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/><g stroke="#1B3B73" stroke-width="2" stroke-linecap="round"><path d="M11 25l-1 4M17 25l-1 4M23 25l-1 4"/></g></svg></div><div class="wt"><div class="wd">Di <span>3.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Mi <span>4.11.</span></div><div class="tp">8°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="regen" role="img"><path d="M8 21h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/><g stroke="#1B3B73" stroke-width="2" stroke-linecap="round"><path d="M11 25l-1 4M17 25l-1 4M23 25l-1 4"/></g></svg></div><div class="wt"><div class="wd">Do <span>5.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="wolke" role="img"><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt"><div class="wd">Fr <span>6.11.</span></div><div class="tp">11°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">Sa <span>7.11.</span></div><div class="tp">9°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="heiter" role="img"><circle cx="12" cy="11" r="6" fill="#E25D4A"/><path d="M8 24h16a5 5 0 0 0 0-10 7 7 0 0 0-13 2 4 4 0 0 0-3 8z" fill="#FFFFFF" stroke="#161616" stroke-width="1.5"/></svg></div><div class="wt we"><div class="wd">So <span>8.11.</span></div><div class="tp">11°</div><svg class="wi" width="30" height="30" viewBox="0 0 32 32" aria-label="sonne" role="img"><circle cx="16" cy="13" r="6" fill="#E25D4A"/><g stroke="#E25D4A" stroke-width="2" stroke-linecap="round"><path d="M16 2v3M16 21v3M5 13h3M24 13h3M8 5l2 2M22 19l2 2M24 5l-2 2M10 19l-2 2"/></g></svg></div></div>
+<div class="weekend">
+<div class="wehead"><span class="brush">Das Wochenende</span><span class="k">Samstag, 7. &amp; Sonntag, 8. November</span></div>
+<div class="wgrid"><div class="wcol"><div class="k acc">Samstag · Bornheim</div><div class="pic"><img src="img/eissporthalle.jpg" alt="Family on Ice"></div><div class="credit">Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons</div><div class="wh"><a href="https://www.eissporthalle-ffm.de/">Family on Ice</a> <span class="gratis">GRATIS</span></div><div class="t">Tag der offenen Tür in der Eissporthalle: Eiskunstlauf, Eishockey und Curling zum Reinschnuppern. Ab 9 Uhr.</div><div class="more"><div class="mt"><a href="https://soundport-frankfurt.com/">Donnerblech und Fliegenfang · Ostend</a></div><div class="mx">Konzert zum Mitmachen für 3- bis 6-Jährige, 10 &amp; 11.30 Uhr, Kind 5 €, mit Reservierung.</div></div></div><div class="wcol"><div class="k acc">Sonntag · Westend</div><div class="pic"><img src="img/papageno.jpg" alt="Frau Holle im Papageno"></div><div class="credit">Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons</div><div class="wh"><a href="https://papageno-theater.de/">Frau Holle im Papageno</a></div><div class="t">Das Grimm-Märchen als Musiktheater am Palmengarten, 16 Uhr, Karten ab 20,05 €.</div><div class="more"><div class="mt"><a href="https://www.kinderverein-kalbach.de/">Außerdem am Sonntag</a></div><div class="mx">11 Uhr Herr Müller und seine Gitarre in Kalbach · 16 Uhr Der kleine Wassermann im Titusforum.</div></div></div></div>
 </div>
-<script>
-const chips=[...document.querySelectorAll('.chip')];
-function ok(el,f){const a=el.dataset.age;
- if(f==='all')return true; if(f==='we')return el.dataset.we==='1'; if(f==='free')return el.dataset.free==='1'; if(f==='in')return el.dataset.in==='1';
- if(f==='small')return /0–3|alle|Familien/.test(a); if(f==='kita')return /3–6|ab 3|ab 4|alle|Familien|Kinder/.test(a); return true}
-chips.forEach(c=>c.addEventListener('click',()=>{chips.forEach(x=>x.setAttribute('aria-pressed',x===c));const f=c.dataset.f;let n=0;
- document.querySelectorAll('.day').forEach(s=>{let v=0;s.querySelectorAll('.ev').forEach(e=>{const s2=ok(e,f);e.style.display=s2?'':'none';v+=s2});s.style.display=v?'':'none';n+=v});
- document.querySelector('.empty').style.display=n?'none':'block'}));
-</script></body></html>
+<div class="week">
+<div class="weekhead"><span class="h">Unter der Woche</span><span class="k grey">Montag bis Freitag</span></div>
+<div class="wkgrid"><div><div class="wk"><div class="k blue">Montag · Westend</div><div class="kh"><a href="https://museumfrankfurt.senckenberg.de/">Dinosaurier im Senckenberg</a></div><div class="kx">Der Klassiker für graue Tage, 9–17 Uhr.</div></div><div class="wk"><div class="k blue">Dienstag · Altstadt</div><div class="kh"><a href="https://www.struwwelpeter-museum.de/sonderausstellungen/">Bilderbücher zum Anfassen</a></div><div class="kx">Pop-up-Bücher im Struwwelpeter-Museum, 8 / 4 €.</div></div><div class="wk"><div class="k blue">Mittwoch · Sachsenhausen</div><div class="kh"><a href="https://www.mfk-frankfurt.de/">Offene Kinderwerkstatt</a></div><div class="kx">Museum für Kommunikation, ab 4, 15–17 Uhr.</div></div></div><div><div class="wk"><div class="k blue">Donnerstag · Altstadt</div><div class="kh"><a href="https://junges-museum-frankfurt.de/">Junges Museum am Römer</a> <span class="gratis">GRATIS</span></div><div class="kx">Mitmach-Ausstellungen, bis 18 Jahre gratis.</div></div><div class="wk"><div class="k blue">Freitag · Bornheim</div><div class="kh"><a href="https://www.kindaling.de/veranstaltungen/frankfurt">TechnoTHEK in der KiBi</a> <span class="gratis">GRATIS</span></div><div class="kx">Technik ausprobieren, ab 6, 15 Uhr, gratis.</div></div><div class="floh"><div class="k acc">Flohmarkt-Ecke</div><div class="fh">Sa 7.11. · <a href="https://www.kindaling.de/flohmaerkte/frankfurt">Flohmarkt am Mainufer</a></div><div class="fx">Schaumainkai, ab 9 Uhr – oft auch Spielzeug und Kinderkleidung.</div><div class="fx">Weitere Flohmärkte auf gude-laune.de</div></div></div></div>
+</div>
+<a class="ad" href="https://nordend-spieleverleih.de/"><div class="adimg" role="img" aria-label="Gestapelte STAKK-Holzklötze auf einer Wiese" style="background-image:url(ads/stakk.jpg)"></div><div class="adt"><div class="k" style="opacity:.8">Anzeige · Nordend-Spieleverleih</div><div class="adh">STAKK: umwerfen ausdrücklich erlaubt</div><div class="adx">Der Wurf-Spaß aus Holz für Garten und Park. Im Paket mit weiteren Spielen ab 75 €.</div><div class="adl">nordend-spieleverleih.de</div></div></a>
+<div class="foot"><span>Alle Termine: gude-laune.de</span><span>Wetter: Beispielwerte · Angaben ohne Gewähr</span></div>
+</div>
+<div class="dl"><a class="btn" href="ausgabe.png" download>Wochenbild herunterladen</a><a class="btn alt" href="#">WhatsApp-Kanal folgen</a></div>
+<div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="https://nordend-spieleverleih.de/impressum/">Impressum</a> · <a href="https://nordend-spieleverleih.de/datenschutz/">Datenschutz</a></div>
+</div></body></html>

@@ -1,8 +1,15 @@
-# Gude Laune – Kinder-Events in Frankfurt
+# Gude Laune – Die Wochenzeitung für Frankfurter Familien
 
-Schlichte Wochenübersicht mit Kinder-Events in Frankfurt, nach Tagen sortiert.
+Wöchentliche Kinder-Events in Frankfurt als Zeitungsseite (WhatsApp-Bild) und Webseite.
 Ein Angebot von [Nordend-Spieleverleih](https://nordend-spieleverleih.de/).
 
-- `events.json` – die Termine der Woche (wird wöchentlich aktualisiert)
-- `build.py` – erzeugt daraus `index.html` (Webseite) und `whatsapp.html` (Wochenbild)
-- `shot.py` – macht aus `whatsapp.html` das PNG für den WhatsApp-Kanal
+## So funktioniert's
+1. `data/ausgabe.json` enthält die Termine der Woche (wird wöchentlich neu geschrieben).
+2. Bei jeder Änderung baut GitHub automatisch (`.github/workflows/ausgabe.yml`):
+   echtes Wetter von Open-Meteo holen, Bilder laden, `ausgabe.png` und `index.html` erzeugen.
+3. Das Wochenbild liegt danach unter https://gude-laune.de/ausgabe.png
+
+- `data/anzeigen.json` – die Anzeigen für den Spieleverleih (wechseln wöchentlich)
+- `ads/` – Produktfotos aus dem Shop
+- `img/` – Bilder der Wochenend-Tipps (nur freie Lizenzen oder eigene Fotos, mit Quellenangabe)
+- `build/build.py` – die Vorlage
