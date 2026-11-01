@@ -15,11 +15,14 @@
    "bildquelle": "Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons",
    "weitere": [
     {
-     "titel": "Donnerblech und Fliegenfang · Ostend",
+     "titel": "Donnerblech und Fliegenfang",
      "text": "Konzert zum Mitmachen für 3- bis 6-Jährige, 10 & 11.30 Uhr, Kind 5 €, mit Reservierung.",
-     "link": "https://soundport-frankfurt.com/"
+     "link": "https://soundport-frankfurt.com/",
+     "drinnen": true,
+     "stadtteil": "Ostend"
     }
-   ]
+   ],
+   "drinnen": true
   },
   "sonntag": {
    "stadtteil": "Westend",
@@ -31,11 +34,21 @@
    "bildquelle": "Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons",
    "weitere": [
     {
-     "titel": "Außerdem am Sonntag",
-     "text": "11 Uhr Herr Müller und seine Gitarre in Kalbach · 16 Uhr Der kleine Wassermann im Titusforum.",
-     "link": "https://www.kinderverein-kalbach.de/"
+     "titel": "Herr Müller und seine Gitarre",
+     "stadtteil": "Kalbach",
+     "text": "Mitsing-Konzert ab 3 Jahren, Einlass 10.30 Uhr, Erw. 4 €, Kind 2 €.",
+     "link": "https://www.kinderverein-kalbach.de/",
+     "drinnen": true
+    },
+    {
+     "titel": "Der kleine Wassermann",
+     "stadtteil": "Nordweststadt",
+     "text": "Kindertheater im Titusforum, 16 Uhr, ab 18,95 €.",
+     "link": "https://www.mvp.de/frankfurt-am-main/veranstaltungen/der-kleine-wassermann-frankfurt-am-main/",
+     "drinnen": true
     }
-   ]
+   ],
+   "drinnen": true
   }
  },
  "woche": [
@@ -45,7 +58,8 @@
    "titel": "Dinosaurier im Senckenberg",
    "text": "Der Klassiker für graue Tage, 9–17 Uhr.",
    "gratis": false,
-   "link": "https://museumfrankfurt.senckenberg.de/"
+   "link": "https://museumfrankfurt.senckenberg.de/",
+   "drinnen": true
   },
   {
    "datum": "2026-11-03",
@@ -53,7 +67,8 @@
    "titel": "Bilderbücher zum Anfassen",
    "text": "Pop-up-Bücher im Struwwelpeter-Museum, 8 / 4 €.",
    "gratis": false,
-   "link": "https://www.struwwelpeter-museum.de/sonderausstellungen/"
+   "link": "https://www.struwwelpeter-museum.de/sonderausstellungen/",
+   "drinnen": true
   },
   {
    "datum": "2026-11-04",
@@ -61,7 +76,8 @@
    "titel": "Offene Kinderwerkstatt",
    "text": "Museum für Kommunikation, ab 4, 15–17 Uhr.",
    "gratis": false,
-   "link": "https://www.mfk-frankfurt.de/"
+   "link": "https://www.mfk-frankfurt.de/",
+   "drinnen": true
   },
   {
    "datum": "2026-11-05",
@@ -69,7 +85,8 @@
    "titel": "Junges Museum am Römer",
    "text": "Mitmach-Ausstellungen, bis 18 Jahre gratis.",
    "gratis": true,
-   "link": "https://junges-museum-frankfurt.de/"
+   "link": "https://junges-museum-frankfurt.de/",
+   "drinnen": true
   },
   {
    "datum": "2026-11-06",
@@ -77,7 +94,8 @@
    "titel": "TechnoTHEK in der KiBi",
    "text": "Technik ausprobieren, ab 6, 15 Uhr, gratis.",
    "gratis": true,
-   "link": "https://www.kindaling.de/veranstaltungen/frankfurt"
+   "link": "https://www.kindaling.de/veranstaltungen/frankfurt",
+   "drinnen": true
   }
  ],
  "flohmarkt": [
@@ -86,45 +104,46 @@
    "titel": "Flohmarkt am Mainufer",
    "text": "Schaumainkai, ab 9 Uhr – oft auch Spielzeug und Kinderkleidung.",
    "gratis": true,
-   "link": "https://www.kindaling.de/flohmaerkte/frankfurt"
+   "link": "https://www.kindaling.de/flohmaerkte/frankfurt",
+   "drinnen": false,
+   "stadtteil": "Sachsenhausen"
   }
  ],
  "wetter": [
   {
    "datum": "2026-11-02",
    "temp": 10,
-   "symbol": "wolke"
+   "symbol": "regen"
   },
   {
    "datum": "2026-11-03",
-   "temp": 10,
+   "temp": 9,
    "symbol": "wolke"
   },
   {
    "datum": "2026-11-04",
-   "temp": 10,
-   "symbol": "heiter"
+   "temp": 8,
+   "symbol": "regen"
   },
   {
    "datum": "2026-11-05",
-   "temp": 8,
-   "symbol": "heiter"
+   "temp": 9,
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-06",
-   "temp": 7,
+   "temp": 11,
    "symbol": "heiter"
   },
   {
    "datum": "2026-11-07",
-   "temp": 8,
-   "symbol": "wolke"
+   "temp": 9,
+   "symbol": "heiter"
   },
   {
    "datum": "2026-11-08",
-   "temp": 8,
-   "symbol": "regen"
+   "temp": 11,
+   "symbol": "sonne"
   }
- ],
- "wetter_echt": true
+ ]
 }

@@ -81,7 +81,7 @@ def wetterleiste():
     return "".join(out)
 
 def wochenend_spalte(tag, ev, dt):
-    weitere = "".join(f'<div class="more"><div class="mt">{link(x, e(x["titel"]))}</div><div class="mx">{e(x["text"])}</div></div>' for x in ev.get("weitere", []))
+    weitere = "".join(f'<div class="more"><div class="mt">{link(x, e(x["titel"]))}{(" <span style='font-weight:600;color:#666;font-size:13px'>· " + e(x["stadtteil"]) + "</span>") if x.get("stadtteil") else ""}</div><div class="mx">{e(x["text"])}</div></div>' for x in ev.get("weitere", []))
     bild = (f'<div class="pic"><img src="{e(ev["bild"])}" alt="{e(ev["titel"])}"></div><div class="credit">{e(ev.get("bildquelle"))}</div>'
             if ev.get("bild") else "")
     return (f'<div class="wcol"><div class="k acc">{tag} · {e(ev["stadtteil"])}</div>{bild}'
@@ -258,6 +258,115 @@ DATENSCHUTZ = """<h1>Datenschutzerklärung</h1>
 <h2>6. Ihre Rechte</h2>
 <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 15–21 DSGVO). Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Hessischen Beauftragten für Datenschutz und Informationsfreiheit, Gustav-Stresemann-Ring 1, 65189 Wiesbaden.</p>"""
 
+
+SITE = "https://gude-laune.de/"
+
+def slug(t):
+    t = t.lower().replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss")
+    return re.sub(r"[^a-z0-9]+", "-", t).strip("-")
+
+def alle_termine(ausgabe):
+    """Alle Termine einer Ausgabe als flache Liste (mit Art)."""
+    out = []
+    for tag in ("samstag", "sonntag"):
+        h = ausgabe["wochenende"][tag]
+        datum = ausgabe["bis"] if tag == "sonntag" else (d(ausgabe["bis"]) - datetime.timedelta(days=1)).isoformat()
+        out.append(dict(h, datum=h.get("datum", datum), art="wochenende"))
+        for w in h.get("weitere", []):
+            out.append(dict(w, datum=w.get("datum", datum), stadtteil=w.get("stadtteil", h.get("stadtteil", "")), art="wochenende"))
+    out += [dict(x, art="woche") for x in ausgabe.get("woche", [])]
+    out += [dict(x, art="flohmarkt", stadtteil=x.get("stadtteil", "")) for x in ausgabe.get("flohmarkt", [])]
+    return out
+
+def jsonld():
+    """Strukturierte Daten (schema.org/Event) für Google."""
+    items = []
+    for t in alle_termine(D):
+        ev = {"@type": "Event", "name": t["titel"], "startDate": t["datum"], "description": t.get("text", ""),
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled",
+              "location": {"@type": "Place", "name": f'{t.get("stadtteil") or "Frankfurt"}, Frankfurt am Main',
+                           "address": {"@type": "PostalAddress", "addressLocality": "Frankfurt am Main", "addressRegion": "Hessen", "addressCountry": "DE"}}}
+        if t.get("link"): ev["url"] = t["link"]
+        if t.get("gratis"): ev["isAccessibleForFree"] = True
+        if t.get("bild") and not str(t["bild"]).startswith("http"): ev["image"] = SITE + t["bild"]
+        items.append(ev)
+    data = [{"@context": "https://schema.org", "@type": "WebSite", "name": "Gude Laune", "url": SITE,
+             "description": "Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter."}]
+    data.append({"@context": "https://schema.org", "@type": "ItemList", "name": f'Kinder-Events in Frankfurt, Ausgabe {D["nr"]}/{D["jahr"]}',
+                 "itemListElement": [{"@type": "ListItem", "position": i + 1, "item": ev} for i, ev in enumerate(items)]})
+    return json.dumps(data, ensure_ascii=False).replace("</", "<\\/")
+
+THEMEN = {}  # wird in archivieren() gefüllt: datei -> (titel, ...)
+
+def themen_links():
+    if not THEMEN: return ""
+    links = " ".join(f'<a href="{f}">{e(v[0])}</a>' for f, v in THEMEN.items())
+    return f'<div class="themen"><b>Themen:</b> {links}</div>'
+
+def themen_seiten(ausgaben):
+    """Dauerhafte Themenseiten, die mit jeder Ausgabe wachsen."""
+    heute = datetime.date.today().isoformat()
+    alle = []
+    seen = set()
+    for a in ausgaben:
+        for t in alle_termine(a):
+            k = (t["datum"], t["titel"])
+            if k in seen: continue
+            seen.add(k); alle.append(t)
+    alle.sort(key=lambda t: t["datum"])
+    def liste(ts):
+        kommend = [t for t in ts if t["datum"] >= heute]
+        vorbei = [t for t in reversed(ts) if t["datum"] < heute][:30]
+        def li(t):
+            dt_ = d(t["datum"])
+            titel = f'<a href="{e(t["link"])}" rel="nofollow">{e(t["titel"])}</a>' if t.get("link") else e(t["titel"])
+            return (f'<li><span class="dt">{WD[dt_.weekday()]}, {dt_.day}.{dt_.month}.{dt_.year}</span> · <b>{titel}</b>'
+                    f'{" <span class=g>gratis</span>" if t.get("gratis") else ""}<br><span class="st">{e(t.get("stadtteil",""))}</span> – {e(t.get("text",""))}</li>')
+        h = '<h2>Demnächst</h2><ul>' + ("".join(li(t) for t in kommend) or "<li>Neue Termine erscheinen jeden Montag.</li>") + "</ul>"
+        if vorbei: h += '<h2>Zuletzt bei Gude Laune</h2><ul class="alt">' + "".join(li(t) for t in vorbei) + "</ul>"
+        return h
+    seiten = {
+        "flohmaerkte-frankfurt.html": ("Flohmärkte", "Kinderflohmärkte in Frankfurt – aktuelle Termine",
+            "Kinderflohmärkte und Flohmärkte mit Kindersachen in Frankfurt am Main: Termine nach Datum, mit Stadtteil.",
+            "Kinderkleidung, Spielzeug, Bücher und Fahrräder aus zweiter Hand: Hier sammeln wir jede Woche die Kinder- und Kindersachen-Flohmärkte in Frankfurt – von Kita-Basaren bis zum großen Flohmarkt am Mainufer.",
+            [t for t in alle if t["art"] == "flohmarkt"]),
+        "gratis-kinder-events-frankfurt.html": ("Gratis", "Kostenlose Kinder-Events in Frankfurt",
+            "Kostenlose Veranstaltungen für Kinder und Familien in Frankfurt am Main – jede Woche neu zusammengestellt.",
+            "Gute Ausflüge müssen nichts kosten: Museen mit freiem Eintritt für Kinder, Feste, Bibliotheken und Mitmach-Aktionen in Frankfurt, bei denen der Eintritt frei ist.",
+            [t for t in alle if t.get("gratis")]),
+    }
+    drinnen = [t for t in alle if t.get("drinnen")]
+    if drinnen:
+        seiten["regentag-mit-kind-frankfurt.html"] = ("Bei Regen", "Mit Kind bei Regen in Frankfurt – Indoor-Tipps",
+            "Was tun mit Kindern bei Regenwetter in Frankfurt? Indoor-Veranstaltungen, Museen und Theater für Familien.",
+            "Wenn es draußen grau ist: Theater, Museen, Werkstätten und Konzerte für Kinder in Frankfurt, die drinnen stattfinden.", drinnen)
+    stadtteile = sorted({t.get("stadtteil") for t in alle if t.get("stadtteil")})
+    for st in stadtteile:
+        ts = [t for t in alle if t.get("stadtteil") == st]
+        if len(ts) < 2: continue
+        seiten[f"stadtteil-{slug(st)}.html"] = (st, f"Kinder-Events in {st} – Frankfurt am Main",
+            f"Veranstaltungen für Kinder und Familien in Frankfurt-{st}: aktuelle Termine von Gude Laune.",
+            f"Was ist los mit Kindern in {st}? Hier stehen alle Tipps aus Frankfurt-{st}, die bei Gude Laune erschienen sind – Theater, Museen, Feste und Flohmärkte.", ts)
+    THEMEN.clear()
+    for datei, (kurz, titel, desc, intro, ts) in seiten.items():
+        THEMEN[datei] = (kurz,)
+        (ROOT / datei).write_text(f"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(titel)} | Gude Laune</title><meta name="description" content="{e(desc)}"><link rel="canonical" href="{SITE}{datei}">{FONTS}
+<style>{RECHT_CSS} .r ul{{list-style:none;padding:0}} .r li{{padding:10px 0;border-bottom:1px solid #D8D2C6;font-size:14px}} .r .alt li{{opacity:.75}}
+.dt{{color:{A};font-weight:800}} .st{{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:{B}}} .g{{font-size:11px;font-weight:800;color:#fff;background:{B};border-radius:3px;padding:1px 5px}}</style></head>
+<body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>{e(titel)}</h1><p>{e(intro)}</p>{liste(ts)}
+<p style="margin-top:24px"><a href="./">Zur aktuellen Wochenausgabe</a> · <a href="archiv/">Archiv</a></p>
+<p style="font-size:12px;color:#666">Alle Angaben ohne Gewähr. Maßgeblich sind die Seiten der Veranstalter. · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
+
+def sitemap(archiv_keys):
+    heute = datetime.date.today().isoformat()
+    urls = [(SITE, "weekly", "1.0"), (SITE + "archiv/", "weekly", "0.6")]
+    urls += [(SITE + f, "weekly", "0.8") for f in THEMEN]
+    urls += [(SITE + f"archiv/{k}.html", "yearly", "0.4") for k in archiv_keys]
+    body = "".join(f"<url><loc>{u}</loc><lastmod>{heute}</lastmod><changefreq>{c}</changefreq><priority>{p}</priority></url>" for u, c, p in urls)
+    (ROOT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{body}</urlset>', encoding="utf-8")
+    (ROOT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nDisallow: /ausgabe.html\nDisallow: /data/\nDisallow: /build/\n\nSitemap: {SITE}sitemap.xml\n", encoding="utf-8")
+
 def archivieren(png_vorhanden):
     """Speichert die aktuelle Ausgabe dauerhaft unter archiv/ und baut die Archiv-Übersicht."""
     global D
@@ -267,30 +376,37 @@ def archivieren(png_vorhanden):
     if png_vorhanden and (ROOT / "ausgabe.png").exists():
         (arch / f"{key}.png").write_bytes((ROOT / "ausgabe.png").read_bytes())
     aktuell = D
+    ausgaben = [json.loads(f.read_text(encoding="utf-8")) for f in sorted(arch.glob("*.json"))]
+    themen_seiten(ausgaben)
     eintraege = []
+    keys = []
     for f in sorted(arch.glob("*.json"), reverse=True):
         D = json.loads(f.read_text(encoding="utf-8"))
         k = f.stem
         png = f"archiv/{k}.png" if (arch / f"{k}.png").exists() else "ausgabe.png"
-        (arch / f"{k}.html").write_text(seite_web(base="../", png=png), encoding="utf-8")
+        keys.append(k)
+        (arch / f"{k}.html").write_text(seite_web(base="../", png=png, canonical=f"{SITE}archiv/{k}.html"), encoding="utf-8")
         von, bis = d(D["von"]), d(D["bis"])
         sa = D["wochenende"]["samstag"]["titel"]; so = D["wochenende"]["sonntag"]["titel"]
         eintraege.append(f'<li><a href="{k}.html"><b>Ausgabe {D["nr"]} / {D["jahr"]}</b> · {von.day}.{von.month}. – {bis.day}.{bis.month}.{bis.year}</a><br><span>Wochenende: {e(sa)} · {e(so)}</span></li>')
     D = aktuell
+    (ROOT / "index.html").write_text(seite_web(), encoding="utf-8")  # neu, damit die Themen-Links drin sind
+    sitemap(keys)
     liste = "".join(eintraege)
     (arch / "index.html").write_text(f"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<base href="../"><title>Archiv – Gude Laune</title><meta name="description" content="Alle bisherigen Ausgaben von Gude Laune, der Wochenzeitung für Frankfurter Familien.">{FONTS}
+<base href="../"><title>Archiv – Gude Laune</title><link rel="canonical" href="https://gude-laune.de/archiv/"><meta name="description" content="Alle bisherigen Ausgaben von Gude Laune, der Wochenzeitung für Frankfurter Familien.">{FONTS}
 <style>{RECHT_CSS} .r ul{{list-style:none;padding:0}} .r li{{padding:10px 0;border-bottom:1px solid #D8D2C6}} .r li span{{font-size:13px;color:#555}} .r li a{{text-decoration:none}}</style></head>
 <body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>Archiv</h1><p>Alle bisherigen Ausgaben der Wochenzeitung für Frankfurter Familien.</p><ul>{liste}</ul>
 <p><a href="./">← Zur aktuellen Ausgabe</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
 
-def seite_web(base='', png='ausgabe.png'):
+def seite_web(base='', png='ausgabe.png', canonical=SITE):
     von, bis = d(D["von"]), d(D["bis"])
     titel = f"Gude Laune – Kinder-Events in Frankfurt, {von.day}.–{bis.day}. {MON[bis.month]} {bis.year}"
     return f'''<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 {f'<base href="{base}">' if base else ""}<title>{e(titel)}</title>
 <meta name="description" content="Was ist los mit Kindern in Frankfurt? Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter – jede Woche neu, nach Stadtteilen.">
-<meta property="og:title" content="{e(titel)}"><meta property="og:image" content="https://gude-laune.de/ausgabe.png">
+<link rel="canonical" href="{canonical}"><meta property="og:title" content="{e(titel)}"><meta property="og:type" content="website"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{SITE}{png}">
+<script type="application/ld+json">{jsonld()}</script>
 {FONTS}<style>{CSS}
 body{{background:#E9E4D8}}
 .wrap{{max-width:800px;margin:0 auto;padding:16px 0 40px}}
@@ -307,6 +423,7 @@ body{{background:#E9E4D8}}
 .bn .bt{{padding:12px 14px}} .bn .bh{{font-weight:900;font-size:19px;line-height:1.15;margin:4px 0}} .bn .bx{{font-size:13px;line-height:1.4}}
 .bn .bc{{display:inline-block;margin-top:8px;font-weight:800;font-size:13px;color:{A}}}
 .bn.sj{{border-color:{A}}} .bn.sj .bi{{background:{A};display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Caveat Brush',cursive;font-size:30px;line-height:1;text-align:center;padding:8px}}
+.themen{{text-align:center;font-size:13px;margin-top:10px;color:#444;line-height:1.8;padding:0 10px}} .themen a{{color:{B};text-decoration:underline;margin:0 4px}}
 .archivlink{{text-align:center;margin-top:16px;font-weight:800}} .archivlink a{{color:{B};text-decoration:underline}}
 .wk a:hover,.wh a:hover,.mt a:hover{{text-decoration:underline}}
 @media (max-width:640px){{
@@ -321,6 +438,7 @@ body{{background:#E9E4D8}}
 <div class="dl"><a class="btn" href="{png}" download>Wochenbild herunterladen</a><a class="btn alt" href="{WHATSAPP}">WhatsApp-Kanal folgen</a></div>
 {banner()}
 <div class="archivlink"><a href="archiv/">Alle bisherigen Ausgaben im Archiv →</a></div>
+{themen_links()}
 <div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
 </div></body></html>'''
 

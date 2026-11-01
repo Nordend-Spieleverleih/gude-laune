@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /ausgabe.html
+Disallow: /data/
+Disallow: /build/
+
+Sitemap: https://gude-laune.de/sitemap.xml
