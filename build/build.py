@@ -204,7 +204,7 @@ def seite_bild():
 body{{width:800px;height:1130px}} .paper{{width:800px;height:1130px}}</style></head><body>{zeitung()}</body></html>'''
 
 
-WHATSAPP = "#"  # Link zum WhatsApp-Kanal hier eintragen
+WHATSAPP = "https://whatsapp.com/channel/0029VbDjF5W4inos5DFyo101"
 
 def banner():
     """Zwei feste Werbebanner für den Nordend-Spieleverleih (nur auf der Webseite)."""
