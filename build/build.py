@@ -230,8 +230,8 @@ def banner():
     return f"""<div class="banners">
 <a class="bn" href="https://nordend-spieleverleih.de/spieleauswahl/"><div class="bi" role="img" aria-label="{e(a["alt"])}" style="background-image:url({e(a["bild"])})"></div>
 <div class="bt"><div class="k blue">Nordend-Spieleverleih</div><div class="bh">Spiele für Geburtstag &amp; Gartenfest</div><div class="bx">Cornhole, Mölkky, Kubb &amp; mehr – im Paket ab 75 €, Abholung im Nordend oder Lieferung.</div><span class="bc">Zur Spieleauswahl →</span></div></a>
-<a class="bn sj" href="https://nordend-spieleverleih.de/"><div class="bi">Schnitzel-<br>jagd</div>
-<div class="bt"><div class="k acc">Bald erhältlich</div><div class="bh">Schnitzeljagden für Frankfurter Parks</div><div class="bx">Rätsel und Stationen für den nächsten Kindergeburtstag – los geht's im Günthersburgpark.</div><span class="bc">Mehr erfahren →</span></div></a>
+<a class="bn sj" href="https://nordend-spieleverleih.de/"><div class="bi" role="img" aria-label="Titelseite einer Schnitzeljagd für den Günthersburgpark mit Fuchs" style="background-image:url(ads/schnitzeljagd-cover.jpg)"></div>
+<div class="bt"><div class="k acc">Bald erhältlich</div><div class="bh">Schnitzeljagd im Günthersburgpark</div><div class="bx">6 Themen von Feuerwehr bis Pixel-Welt, für 3–4 und 5–7 Jahre – als PDF zum Ausdrucken.</div><span class="bc">Mehr erfahren →</span></div></a>
 </div>"""
 
 RECHT_CSS = f"""*{{box-sizing:border-box}} body{{margin:0;background:#E9E4D8;font-family:Nunito,system-ui,sans-serif;color:#161616}}
@@ -495,7 +495,7 @@ body{{background:#E9E4D8}}
 .bn .bi{{background-size:cover;background-position:center}}
 .bn .bt{{padding:12px 14px}} .bn .bh{{font-weight:900;font-size:19px;line-height:1.15;margin:4px 0}} .bn .bx{{font-size:13px;line-height:1.4}}
 .bn .bc{{display:inline-block;margin-top:8px;font-weight:800;font-size:13px;color:{A}}}
-.bn.sj{{border-color:{A}}} .bn.sj .bi{{background:{A};display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Caveat Brush',cursive;font-size:30px;line-height:1;text-align:center;padding:8px}}
+.bn.sj{{border-color:{A}}} .bn.sj .bi{{background-color:#FBF3E4;background-size:cover;background-position:center top}}
 .themen{{text-align:center;font-size:13px;margin-top:10px;color:#444;line-height:1.8;padding:0 10px}} .themen a{{color:{B};text-decoration:underline;margin:0 4px}}
 .archivlink{{text-align:center;margin-top:16px;font-weight:800}} .archivlink a{{color:{B};text-decoration:underline}}
 .wk a:hover,.wh a:hover,.mt a:hover{{text-decoration:underline}}
