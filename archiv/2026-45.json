@@ -113,37 +113,38 @@
   {
    "datum": "2026-11-02",
    "temp": 10,
-   "symbol": "regen"
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-03",
-   "temp": 9,
+   "temp": 10,
    "symbol": "wolke"
   },
   {
    "datum": "2026-11-04",
-   "temp": 8,
-   "symbol": "regen"
+   "temp": 10,
+   "symbol": "heiter"
   },
   {
    "datum": "2026-11-05",
-   "temp": 9,
-   "symbol": "wolke"
+   "temp": 8,
+   "symbol": "heiter"
   },
   {
    "datum": "2026-11-06",
-   "temp": 11,
+   "temp": 7,
    "symbol": "heiter"
   },
   {
    "datum": "2026-11-07",
-   "temp": 9,
-   "symbol": "heiter"
+   "temp": 8,
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-08",
-   "temp": 11,
-   "symbol": "sonne"
+   "temp": 8,
+   "symbol": "regen"
   }
- ]
+ ],
+ "wetter_echt": true
 }
