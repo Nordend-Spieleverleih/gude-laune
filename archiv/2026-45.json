@@ -112,7 +112,7 @@
  "wetter": [
   {
    "datum": "2026-11-02",
-   "temp": 10,
+   "temp": 11,
    "symbol": "wolke"
   },
   {
@@ -122,28 +122,28 @@
   },
   {
    "datum": "2026-11-04",
-   "temp": 10,
-   "symbol": "heiter"
+   "temp": 11,
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-05",
-   "temp": 8,
+   "temp": 9,
    "symbol": "heiter"
   },
   {
    "datum": "2026-11-06",
-   "temp": 7,
-   "symbol": "heiter"
-  },
-  {
-   "datum": "2026-11-07",
    "temp": 8,
    "symbol": "wolke"
   },
   {
+   "datum": "2026-11-07",
+   "temp": 9,
+   "symbol": "wolke"
+  },
+  {
    "datum": "2026-11-08",
-   "temp": 8,
-   "symbol": "regen"
+   "temp": 9,
+   "symbol": "wolke"
   }
  ],
  "wetter_echt": true
