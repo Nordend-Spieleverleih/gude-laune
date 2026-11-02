@@ -117,10 +117,11 @@ def flohmarkt():
 def anzeige():
     key = D.get("anzeige") or ADS["reihenfolge"][D["nr"] % len(ADS["reihenfolge"])]
     a = ADS["anzeigen"][key]
-    return (f'<a class="ad" href="https://nordend-spieleverleih.de/"><div class="adimg" role="img" aria-label="{e(a["alt"])}" style="background-image:url({e(a["bild"])})"></div>'
+    ziel = a.get("link", "https://nordend-spieleverleih.de/")
+    return (f'<a class="ad" href="{e(ziel)}"><div class="adimg" role="img" aria-label="{e(a["alt"])}" style="background-image:url({e(a["bild"])})"></div>'
             f'<div class="adt"><div class="k" style="opacity:.8">Anzeige · Nordend-Spieleverleih</div>'
             f'<div class="adh">{e(a["titel"])}</div><div class="adx">{e(a["text"])}</div>'
-            f'<div class="adl">nordend-spieleverleih.de</div></div></a>')
+            f'<div class="adl">{e(a.get("linktext", "nordend-spieleverleih.de"))}</div></div></a>')
 
 def zeitung():
     von, bis = d(D["von"]), d(D["bis"])
@@ -230,8 +231,8 @@ def banner():
     return f"""<div class="banners">
 <a class="bn" href="https://nordend-spieleverleih.de/spieleauswahl/"><div class="bi" role="img" aria-label="{e(a["alt"])}" style="background-image:url({e(a["bild"])})"></div>
 <div class="bt"><div class="k blue">Nordend-Spieleverleih</div><div class="bh">Spiele für Geburtstag &amp; Gartenfest</div><div class="bx">Cornhole, Mölkky, Kubb &amp; mehr – im Paket ab 75 €, Abholung im Nordend oder Lieferung.</div><span class="bc">Zur Spieleauswahl →</span></div></a>
-<a class="bn sj" href="https://nordend-spieleverleih.de/"><div class="bi" role="img" aria-label="Titelseite einer Schnitzeljagd für den Günthersburgpark mit Fuchs" style="background-image:url(ads/schnitzeljagd-cover.jpg)"></div>
-<div class="bt"><div class="k acc">Bald erhältlich</div><div class="bh">Schnitzeljagd im Günthersburgpark</div><div class="bx">6 Themen von Feuerwehr bis Pixel-Welt, für 3–4 und 5–7 Jahre – als PDF zum Ausdrucken.</div><span class="bc">Mehr erfahren →</span></div></a>
+<a class="bn sj" href="https://nordend-spieleverleih.de/schnitzeljagd/"><div class="bi" role="img" aria-label="Titelseite einer Schnitzeljagd für den Günthersburgpark mit Fuchs" style="background-image:url(ads/schnitzeljagd-cover.jpg)"></div>
+<div class="bt"><div class="k acc">Jetzt erhältlich</div><div class="bh">Schnitzeljagd für Frankfurter Parks</div><div class="bx">Günthersburgpark und Wasserpark – als PDF zum Ausdrucken, je 12,90 €.</div><span class="bc">Zum Schnitzeljagd-Shop →</span></div></a>
 </div>"""
 
 RECHT_CSS = f"""*{{box-sizing:border-box}} body{{margin:0;background:#E9E4D8;font-family:Nunito,system-ui,sans-serif;color:#161616}}
