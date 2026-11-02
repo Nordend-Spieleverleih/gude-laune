@@ -1,0 +1,15 @@
+{
+  "_info": "Termine, die auf jeden Fall in die Ausgabe ihrer Woche sollen (vom Nutzer oder aus Hinweisen). Die wöchentliche Aufgabe übernimmt jeden Eintrag, dessen Datum in die Ausgabewoche fällt, und prüft die Angaben noch einmal beim Veranstalter.",
+  "termine": [
+    {
+      "datum": "2026-11-11",
+      "titel": "Großes Martinsfeuer im Günthersburgpark",
+      "stadtteil": "Nordend",
+      "text": "Das große Martinsfeuer am Abenteuerspielplatz Günthersburg, 18 Uhr – Treffpunkt für viele Familien aus dem Nordend. Laterne mitbringen!",
+      "gratis": true,
+      "drinnen": false,
+      "link": "https://www.rheinmain4family.de/events/show/event/martinsfeuer-1.html",
+      "hinweis": "Großes Familien-Event im Nordend – als Highlight prominent platzieren (Mittwoch-Tipp)."
+    }
+  ]
+}
