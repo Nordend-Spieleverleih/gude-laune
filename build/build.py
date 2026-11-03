@@ -241,11 +241,15 @@ RECHT_CSS = f"""*{{box-sizing:border-box}} body{{margin:0;background:#E9E4D8;fon
 .r a.logo{{font-family:'Caveat Brush',cursive;font-size:48px;color:{A};text-decoration:none;display:inline-block;transform:rotate(-3deg)}}
 @media (max-width:640px){{.r{{margin:0;padding:20px 16px}}}}"""
 
+# Cloudflare Web Analytics: cookielose Besucherzählung (Token aus dem Cloudflare-Dashboard)
+CF_TOKEN = "d1abfce8b4194aa8856f39a2c10128ce"
+BEACON = (f"""<script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{{"token": "{CF_TOKEN}"}}'></script>""" if CF_TOKEN else "")
+
 def rechtsseite(titel, inhalt):
     return f"""<!DOCTYPE html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{titel} – Gude Laune</title><meta name="robots" content="noindex">{FONTS}<style>{RECHT_CSS}</style></head>
 <body><div class="r"><a class="logo" href="./">Gude Laune</a>{inhalt}
-<p style="margin-top:30px"><a href="./">← Zur aktuellen Ausgabe</a></p></div></body></html>"""
+<p style="margin-top:30px"><a href="./">← Zur aktuellen Ausgabe</a></p></div>{BEACON}</body></html>"""
 
 IMPRESSUM = """<h1>Impressum</h1>
 <h2>Angaben gemäß § 5 DDG</h2>
@@ -266,14 +270,17 @@ DATENSCHUTZ = """<h1>Datenschutzerklärung</h1>
 <h2>1. Verantwortlicher</h2>
 <p>Sebastian Widuch, Nordend-Spieleverleih, Vogelsbergstraße 18, 60316 Frankfurt am Main<br>E-Mail: <a href="mailto:info@nordend-spieleverleih.de">info@nordend-spieleverleih.de</a>, Telefon: 069-87201148</p>
 <h2>2. Das Wichtigste in Kürze</h2>
-<p>gude-laune.de ist eine reine Informationsseite. Wir setzen keine Cookies, kein Tracking, keine Analyse-Tools und keine Werbenetzwerke ein. Es gibt keine Formulare und keine Benutzerkonten. Schriften und Bilder werden direkt von dieser Seite geladen, nicht von Drittanbietern.</p>
+<p>gude-laune.de ist eine reine Informationsseite. Wir setzen keine Cookies und keine Werbenetzwerke ein und erstellen keine Nutzerprofile. Um zu wissen, wie viele Menschen die Seite lesen, nutzen wir eine cookielose Reichweitenmessung (siehe Abschnitt 4). Es gibt keine Formulare und keine Benutzerkonten. Schriften und Bilder werden direkt von dieser Seite geladen, nicht von Drittanbietern.</p>
 <h2>3. Hosting und Server-Logfiles</h2>
 <p>Die Seite wird über GitHub Pages bereitgestellt (GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA, ein Unternehmen der Microsoft Corporation). Beim Aufruf der Seite verarbeitet GitHub technisch notwendige Daten wie Ihre IP-Adresse, Datum und Uhrzeit des Abrufs, die aufgerufene Seite und Angaben zum Browser, um die Seite auszuliefern und die Sicherheit des Dienstes zu gewährleisten. Rechtsgrundlage ist unser berechtigtes Interesse an einer sicheren und zuverlässigen Bereitstellung der Seite (Art. 6 Abs. 1 lit. f DSGVO). Dabei kann eine Übermittlung in die USA erfolgen; GitHub ist nach dem EU-US Data Privacy Framework zertifiziert. Weitere Informationen: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement">Datenschutzerklärung von GitHub</a>.</p>
-<h2>4. Kontakt per E-Mail oder Telefon</h2>
+<h2>4. Reichweitenmessung mit Cloudflare Web Analytics</h2>
+<p>Wir nutzen Cloudflare Web Analytics der Cloudflare, Inc., 101 Townsend St., San Francisco, CA 94107, USA. Beim Aufruf einer Seite lädt Ihr Browser ein kleines Skript von Cloudflare, das anonym erfasst, welche Seite aufgerufen wurde, von welcher Seite Sie kamen, ungefähre Herkunft (Land), Browser- und Gerätetyp sowie Ladezeiten. Dabei verarbeitet Cloudflare technisch bedingt Ihre IP-Adresse; sie wird nach Angaben von Cloudflare nicht für die Auswertung gespeichert. Es werden keine Cookies gesetzt, keine Daten im Browser gespeichert und kein Fingerprinting verwendet, um Sie wiederzuerkennen; wir sehen nur zusammengefasste Zahlen, nicht einzelne Personen.</p>
+<p>Zweck ist, die Reichweite der Seite zu messen und das Angebot zu verbessern. Rechtsgrundlage ist unser berechtigtes Interesse daran (Art. 6 Abs. 1 lit. f DSGVO). Dabei kann eine Übermittlung in die USA erfolgen; Cloudflare ist nach dem EU-US Data Privacy Framework zertifiziert. Sie können der Messung widersprechen, etwa indem Sie Skripte von static.cloudflareinsights.com mit einem Inhaltsblocker sperren. Weitere Informationen: <a href="https://www.cloudflare.com/de-de/privacypolicy/">Datenschutzerklärung von Cloudflare</a>.</p>
+<h2>5. Kontakt per E-Mail oder Telefon</h2>
 <p>Wenn Sie uns kontaktieren, verarbeiten wir Ihre Angaben nur, um Ihre Anfrage zu beantworten (Art. 6 Abs. 1 lit. b bzw. f DSGVO), und löschen sie, sobald sie dafür nicht mehr benötigt werden und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
-<h2>5. WhatsApp-Kanal und externe Links</h2>
+<h2>6. WhatsApp-Kanal und externe Links</h2>
 <p>Auf dieser Seite verlinken wir auf unseren WhatsApp-Kanal sowie auf Seiten von Veranstaltern und auf nordend-spieleverleih.de. Erst wenn Sie einen solchen Link anklicken, werden Daten an den jeweiligen Anbieter übertragen; dafür gelten dessen Datenschutzbestimmungen. Für den WhatsApp-Kanal ist das die WhatsApp Ireland Limited (Meta). Als Betreiber des Kanals sehen wir die Telefonnummern der Abonnenten nicht.</p>
-<h2>6. Ihre Rechte</h2>
+<h2>7. Ihre Rechte</h2>
 <p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen Verarbeitungen auf Grundlage berechtigter Interessen (Art. 15–21 DSGVO). Wenden Sie sich dazu an die oben genannte Kontaktadresse. Außerdem können Sie sich bei einer Datenschutz-Aufsichtsbehörde beschweren, zum Beispiel beim Hessischen Beauftragten für Datenschutz und Informationsfreiheit, Gustav-Stresemann-Ring 1, 65189 Wiesbaden.</p>"""
 
 
@@ -393,7 +400,7 @@ def themen_seiten(ausgaben):
 .dt{{color:{A};font-weight:800}} .st{{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:{B}}} .g{{font-size:11px;font-weight:800;color:#fff;background:{B};border-radius:3px;padding:1px 5px}}</style></head>
 <body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>{e(titel)}</h1><p>{e(intro)}</p>{liste(ts)}
 <p style="margin-top:24px"><a href="./">Zur aktuellen Wochenausgabe</a> · <a href="archiv/">Archiv</a></p>
-<p style="font-size:12px;color:#666">Alle Angaben ohne Gewähr. Maßgeblich sind die Seiten der Veranstalter. · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
+<p style="font-size:12px;color:#666">Alle Angaben ohne Gewähr. Maßgeblich sind die Seiten der Veranstalter. · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div>{BEACON}</body></html>""", encoding="utf-8")
 
 def sitemap(archiv_keys):
     heute = datetime.date.today().isoformat()
@@ -434,7 +441,7 @@ def archivieren(png_vorhanden):
 <base href="../"><title>Archiv – Gude Laune</title><link rel="canonical" href="https://gude-laune.de/archiv/"><meta name="description" content="Alle bisherigen Ausgaben von Gude Laune, der Wochenzeitung für Frankfurter Familien.">{FONTS}
 <style>{RECHT_CSS} .r ul{{list-style:none;padding:0}} .r li{{padding:10px 0;border-bottom:1px solid #D8D2C6}} .r li span{{font-size:13px;color:#555}} .r li a{{text-decoration:none}}</style></head>
 <body><div class="r"><a class="logo" href="./">Gude Laune</a><h1>Archiv</h1><p>Alle bisherigen Ausgaben der Wochenzeitung für Frankfurter Familien.</p><ul>{liste}</ul>
-<p><a href="./">← Zur aktuellen Ausgabe</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div></body></html>""", encoding="utf-8")
+<p><a href="./">← Zur aktuellen Ausgabe</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p></div>{BEACON}</body></html>""", encoding="utf-8")
 
 def teilen_menue(url, png):
     text = urllib.parse.quote(f"Gude Laune – die Kinder-Events der Woche in Frankfurt: {url}")
@@ -533,7 +540,7 @@ body{{background:#E9E4D8}}
 <div class="archivlink"><a href="archiv/">Alle bisherigen Ausgaben im Archiv →</a></div>
 {themen_links()}
 <div class="legal">Ein Angebot von <a href="https://nordend-spieleverleih.de/">Nordend-Spieleverleih</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></div>
-</div>{rotation_js(png)}</body></html>'''
+</div>{rotation_js(png)}{BEACON}</body></html>'''
 
 if __name__ == "__main__":
     if "--wetter" in ARGS:
