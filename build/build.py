@@ -10,7 +10,7 @@ Optionen:
   --bilder   lädt Bilder mit http-Adresse herunter nach img/
   --png      rendert ausgabe.png mit Playwright
 """
-import json, sys, datetime, html, re, urllib.request, hashlib
+import json, urllib.parse, sys, datetime, html, re, urllib.request, hashlib
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -304,9 +304,28 @@ def jsonld():
               "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode", "eventStatus": "https://schema.org/EventScheduled",
               "location": {"@type": "Place", "name": f'{t.get("stadtteil") or "Frankfurt"}, Frankfurt am Main',
                            "address": {"@type": "PostalAddress", "addressLocality": "Frankfurt am Main", "addressRegion": "Hessen", "addressCountry": "DE"}}}
+        ev["endDate"] = t.get("ende") or t["datum"]
         if t.get("link"): ev["url"] = t["link"]
-        if t.get("gratis"): ev["isAccessibleForFree"] = True
-        if t.get("bild") and not str(t["bild"]).startswith("http"): ev["image"] = SITE + t["bild"]
+        # Veranstalter: aus den Daten, sonst aus der Webseite des Termins abgeleitet
+        if t.get("veranstalter"):
+            org = {"@type": "Organization", "name": t["veranstalter"]}
+            if t.get("link"): org["url"] = t["link"]
+        elif t.get("link"):
+            host = urllib.parse.urlparse(t["link"]).netloc.removeprefix("www.")
+            org = {"@type": "Organization", "name": host, "url": f"https://{urllib.parse.urlparse(t['link']).netloc}/"}
+        else:
+            org = {"@type": "Organization", "name": f'{t.get("stadtteil") or "Frankfurt"}, Frankfurt am Main'}
+        ev["organizer"] = org
+        ev["performer"] = {"@type": "PerformingGroup", "name": t.get("mitwirkende") or org["name"]}
+        offer = {"@type": "Offer", "priceCurrency": "EUR", "availability": "https://schema.org/InStock", "validFrom": t["datum"]}
+        if t.get("link"): offer["url"] = t["link"]
+        if t.get("gratis"):
+            ev["isAccessibleForFree"] = True; offer["price"] = 0
+        elif t.get("preis") is not None:
+            offer["price"] = t["preis"]
+        ev["offers"] = offer
+        bild = t.get("bild")
+        ev["image"] = bild if bild and str(bild).startswith("http") else SITE + (bild or "marke/gude-laune-profilbild-rot.png")
         items.append(ev)
     data = [{"@context": "https://schema.org", "@type": "WebSite", "name": "Gude Laune", "url": SITE,
              "description": "Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter."}]
