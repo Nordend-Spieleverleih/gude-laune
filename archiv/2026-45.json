@@ -122,22 +122,22 @@
   },
   {
    "datum": "2026-11-04",
-   "temp": 11,
-   "symbol": "heiter"
+   "temp": 12,
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-05",
    "temp": 10,
-   "symbol": "sonne"
+   "symbol": "heiter"
   },
   {
    "datum": "2026-11-06",
    "temp": 9,
-   "symbol": "heiter"
+   "symbol": "wolke"
   },
   {
    "datum": "2026-11-07",
-   "temp": 9,
+   "temp": 8,
    "symbol": "wolke"
   },
   {
