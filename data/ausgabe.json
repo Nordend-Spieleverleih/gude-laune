@@ -1,112 +1,132 @@
 {
-  "nr": 45,
+  "nr": 46,
   "jahr": 2026,
-  "von": "2026-11-02",
-  "bis": "2026-11-08",
-  "anzeige": "stakk",
+  "von": "2026-11-09",
+  "bis": "2026-11-15",
+  "anzeige": "schnitzeljagd",
   "wochenende": {
     "samstag": {
-      "stadtteil": "Bornheim",
-      "titel": "Family on Ice",
-      "gratis": true,
-      "text": "Tag der offenen Tür in der Eissporthalle: Eiskunstlauf, Eishockey und Curling zum Reinschnuppern. Ab 9 Uhr.",
-      "link": "https://www.eissporthalle-ffm.de/",
-      "bild": "img/eissporthalle.jpg",
-      "bildquelle": "Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons",
+      "stadtteil": "Westend",
+      "titel": "Tropenwärme im Palmengarten",
+      "gratis": false,
+      "drinnen": true,
+      "text": "Wenn's draußen grau ist, warten in den Gewächshäusern Palmen, Kakteen und Tropenluft. 9–16 Uhr, Kinder bis 17 frei, Erwachsene 9 €.",
+      "link": "https://www.palmengarten.de/",
+      "bild": "",
+      "bildquelle": "",
       "weitere": [
         {
-          "titel": "Donnerblech und Fliegenfang",
-          "text": "Konzert zum Mitmachen für 3- bis 6-Jährige, 10 & 11.30 Uhr, Kind 5 €, mit Reservierung.",
-          "link": "https://soundport-frankfurt.com/",
-          "drinnen": true,
-          "stadtteil": "Ostend"
+          "titel": "Forschungswerkstatt: Unsere Sinne",
+          "stadtteil": "Westend",
+          "text": "Mitmachen im Senckenberg, 14–15 Uhr, ohne Anmeldung, im Museumseintritt enthalten.",
+          "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
+          "gratis": false,
+          "drinnen": true
+        },
+        {
+          "titel": "Mona ist ein Vampir",
+          "stadtteil": "Nordweststadt",
+          "text": "Kindertheater im Titusforum, 16 Uhr, ab 18,95 €.",
+          "link": "http://www.kiju-theater.de/spielplan/",
+          "gratis": false,
+          "drinnen": true
         }
-      ],
-      "drinnen": true
+      ]
     },
     "sonntag": {
       "stadtteil": "Westend",
-      "titel": "Frau Holle im Papageno",
+      "titel": "Rumpelstilzchen im Papageno",
       "gratis": false,
-      "text": "Das Grimm-Märchen als Musiktheater am Palmengarten, 16 Uhr, Karten ab 20,05 €.",
+      "drinnen": true,
+      "text": "Das Grimm-Märchen als Musiktheater am Palmengarten, ab 5 Jahren, 13.30 und 16 Uhr, Kinder ab 15 €.",
       "link": "https://papageno-theater.de/",
       "bild": "img/papageno.jpg",
       "bildquelle": "Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons",
       "weitere": [
         {
-          "titel": "Herr Müller und seine Gitarre",
-          "stadtteil": "Kalbach",
-          "text": "Mitsing-Konzert ab 3 Jahren, Einlass 10.30 Uhr, Erw. 4 €, Kind 2 €.",
-          "link": "https://www.kinderverein-kalbach.de/",
+          "titel": "Familienworkshop „Hänsel und Gretel“",
+          "stadtteil": "Innenstadt",
+          "text": "Die Oper spielerisch entdecken, 11 Uhr, Treffpunkt Opernpforte.",
+          "link": "https://oper-frankfurt.de/de/jetzt/",
+          "gratis": false,
           "drinnen": true
         },
         {
-          "titel": "Der kleine Wassermann",
-          "stadtteil": "Nordweststadt",
-          "text": "Kindertheater im Titusforum, 16 Uhr, ab 18,95 €.",
-          "link": "https://www.mvp.de/frankfurt-am-main/veranstaltungen/der-kleine-wassermann-frankfurt-am-main/",
+          "titel": "Kinderstunde in der Schirn",
+          "stadtteil": "Altstadt",
+          "text": "Kunst gucken und gestalten für 4- bis 6-Jährige mit einem Erwachsenen, 11 Uhr, Plätze begrenzt.",
+          "link": "https://www.schirn.de/",
+          "gratis": false,
           "drinnen": true
         }
-      ],
-      "drinnen": true
+      ]
     }
   },
   "woche": [
     {
-      "datum": "2026-11-02",
+      "datum": "2026-11-09",
       "stadtteil": "Westend",
       "titel": "Dinosaurier im Senckenberg",
-      "text": "Der Klassiker für graue Tage, 9–17 Uhr.",
+      "text": "Auch montags geöffnet: T. rex, Wale und Edelsteine, 9–17 Uhr.",
       "gratis": false,
       "link": "https://museumfrankfurt.senckenberg.de/",
       "drinnen": true
     },
     {
-      "datum": "2026-11-03",
-      "stadtteil": "Altstadt",
-      "titel": "Bilderbücher zum Anfassen",
-      "text": "Pop-up-Bücher im Struwwelpeter-Museum, 8 / 4 €.",
-      "gratis": false,
-      "link": "https://www.struwwelpeter-museum.de/sonderausstellungen/",
-      "drinnen": true
+      "datum": "2026-11-10",
+      "stadtteil": "Ostend",
+      "titel": "Martinsfeier an Allerheiligen",
+      "text": "Andacht, Laternenzug mit St. Martin zu Pferd und Martinsfeuer, 17 Uhr, Thüringer Straße.",
+      "gratis": true,
+      "link": "https://www.rheinmain4family.de/landinpages/sanktmartin.html",
+      "drinnen": false
     },
     {
-      "datum": "2026-11-04",
-      "stadtteil": "Sachsenhausen",
-      "titel": "Offene Kinderwerkstatt",
-      "text": "Museum für Kommunikation, ab 4, 15–17 Uhr.",
-      "gratis": false,
-      "link": "https://www.mfk-frankfurt.de/",
-      "drinnen": true
+      "datum": "2026-11-11",
+      "stadtteil": "Nordend",
+      "titel": "Großes Martinsfeuer im Günthersburgpark",
+      "text": "Frankfurts größtes Martinsfeuer feiert seinen 30.! Schattenspiel, Bläser und Kinderpunsch, 18 Uhr – Laterne mitbringen.",
+      "gratis": true,
+      "link": "https://abenteuerspielplatz.de/startseite/termine-2018/terminausgabe.html?event=33",
+      "drinnen": false
     },
     {
-      "datum": "2026-11-05",
+      "datum": "2026-11-12",
       "stadtteil": "Altstadt",
       "titel": "Junges Museum am Römer",
-      "text": "Mitmach-Ausstellungen, bis 18 Jahre gratis.",
+      "text": "Mitmach-Ausstellungen zur Stadtgeschichte, 11–18 Uhr, bis 18 Jahre gratis.",
       "gratis": true,
       "link": "https://junges-museum-frankfurt.de/",
       "drinnen": true
     },
     {
-      "datum": "2026-11-06",
-      "stadtteil": "Bornheim",
-      "titel": "TechnoTHEK in der KiBi",
-      "text": "Technik ausprobieren, ab 6, 15 Uhr, gratis.",
-      "gratis": true,
-      "link": "https://www.kindaling.de/veranstaltungen/frankfurt",
+      "datum": "2026-11-13",
+      "stadtteil": "Westend",
+      "titel": "Nachts im Senckenberg",
+      "text": "Mit der Taschenlampe zu den Dinos, 19 oder 20.30 Uhr, Kind 15 €, Erw. 18 €.",
+      "gratis": false,
+      "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
       "drinnen": true
     }
   ],
   "flohmarkt": [
     {
-      "datum": "2026-11-07",
-      "titel": "Flohmarkt am Mainufer",
-      "text": "Schaumainkai, ab 9 Uhr – oft auch Spielzeug und Kinderkleidung.",
+      "datum": "2026-11-12",
+      "titel": "Flohmarkt an der Jahrhunderthalle",
+      "stadtteil": "Unterliederbach",
+      "text": "Trödel unter freiem Himmel, 8–14 Uhr, auch am Samstag.",
       "gratis": true,
-      "link": "https://www.kindaling.de/flohmaerkte/frankfurt",
       "drinnen": false,
-      "stadtteil": "Sachsenhausen"
+      "link": "https://www.weiss-maerkte.de/"
+    },
+    {
+      "datum": "2026-11-14",
+      "titel": "Flohmarkt am Mainufer",
+      "stadtteil": "Sachsenhausen",
+      "text": "Schaumainkai, 9–14 Uhr – oft auch Spielzeug und Kinderkleidung.",
+      "gratis": true,
+      "drinnen": false,
+      "link": "https://www.hfm-frankfurt.de/flohmaerkte"
     }
   ],
   "wetter": [
