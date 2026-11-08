@@ -218,7 +218,13 @@ def fonts_link():
         return '<link href="fonts/fonts.css" rel="stylesheet">'
     return f'<link href="{GOOGLE_CSS}" rel="stylesheet">'
 
-FONTS = fonts_link()
+# Markenzeichen: Browser-Symbol (GL) und iPhone-Symbol (Profilbild), liegen im Hauptordner
+ICONS = ('<link rel="icon" href="/favicon.ico" sizes="any">'
+         '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">'
+         '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
+         '<meta name="theme-color" content="#14452F">')
+
+FONTS = fonts_link() + ICONS
 
 def seite_bild():
     return f'''<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">{FONTS}<style>{CSS}
@@ -351,7 +357,7 @@ def jsonld():
             offer["price"] = t["preis"]
         ev["offers"] = offer
         bild = t.get("bild")
-        ev["image"] = bild if bild and str(bild).startswith("http") else SITE + (bild or "marke/gude-laune-profilbild-rot.png")
+        ev["image"] = bild if bild and str(bild).startswith("http") else SITE + (bild or "marke/gude-laune-profilbild.png")
         items.append(ev)
     data = [{"@context": "https://schema.org", "@type": "WebSite", "name": "Gude Laune", "url": SITE,
              "description": "Die Wochenzeitung für Frankfurter Familien: Kinder-Events, Flohmärkte und Wetter."}]
