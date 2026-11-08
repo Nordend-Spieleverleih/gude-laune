@@ -69,7 +69,7 @@
    "stadtteil": "Bornheim",
    "titel": "Meet & Greet mit Roboter Ada",
    "text": "Die humanoide Roboterdame Ada zeigt in der KiBi, was sie kann. 16–17 Uhr, ab 4, ohne Anmeldung.",
-   "gratis": false,
+   "gratis": true,
    "link": "https://frankfurt.de/service-und-rathaus/verwaltung/aemter-und-institutionen/stadtbuecherei/veranstaltungen/robotics-und-coding",
    "drinnen": true
   },
