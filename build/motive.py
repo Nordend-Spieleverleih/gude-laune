@@ -64,6 +64,11 @@ MOTIVE = {
 <path d="M17 12.5l4 10M29 10.5l4 10M41 8.5l4 10" stroke="{K}" stroke-width="4"/><path d="M28 32v14l12-7z" fill="{Y}"/>''',
     "feuer": f'''<path d="M32 6q14 14 12 28 4-4 4-10 8 10 4 22-4 10-20 10T12 46q-4-12 4-22 0 6 4 10-2-14 12-28z" fill="{R}" {S}/>
 <path d="M32 26q8 8 6 18-1 6-6 6t-6-6q-2-10 6-18z" fill="{Y}"/><path d="M10 58l44-6M10 52l44 6" stroke="{BR}" stroke-width="4" stroke-linecap="round"/>''',
+    "roboter": f'''<path d="M32 6v6" stroke="{K}" stroke-width="2"/><circle cx="32" cy="5" r="3" fill="{R}" {S}/>
+<rect x="16" y="12" width="32" height="22" rx="6" fill="#FFFFFF" {S}/><circle cx="25" cy="23" r="4" fill="{BL}"/><circle cx="39" cy="23" r="4" fill="{BL}"/>
+<path d="M27 30h10" stroke="{K}" stroke-width="2"/><rect x="12" y="20" width="4" height="8" rx="2" fill="{R}" {S}/><rect x="48" y="20" width="4" height="8" rx="2" fill="{R}" {S}/>
+<rect x="20" y="36" width="24" height="18" rx="4" fill="{BL}" {S}/><circle cx="32" cy="45" r="4" fill="{Y}"/>
+<path d="M20 40l-8 8M44 40l8 8" stroke="{K}" stroke-width="3" stroke-linecap="round"/><path d="M26 54v5M38 54v5" stroke="{K}" stroke-width="3" stroke-linecap="round"/>''',
     "ballon": f'''<path d="M24 40q-2 8 4 18M42 36q2 10-6 22" fill="none" stroke="{K}" stroke-width="1.5"/>
 <ellipse cx="24" cy="24" rx="12" ry="15" fill="{R}" {S}/><ellipse cx="42" cy="21" rx="11" ry="14" fill="{BL}" {S}/>
 <path d="M22 39l2 2 2-2zM40 35l2 2 2-2z" fill="{K}"/><path d="M19 17q2-5 6-6M38 14q2-4 5-5" fill="none" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>''',
@@ -77,6 +82,7 @@ REGELN = [
     ("ostern", r"oster"),
     ("teddy", r"floh|trödel|basar|kindersachen"),
     ("feuer", r"lagerfeuer|stockbrot|feuer"),
+    ("roboter", r"robot|coding|programmier|\bki\b|künstliche intelligenz"),
     ("eis", r"\beis\b|eislauf|schlittschuh|eishalle|eissport|on ice"),
     ("kino", r"kino|film"),
     ("theater", r"theater|märchen|puppen|bühne|papageno|vorstellung|\boper\b|zirkus|zauber"),
@@ -111,7 +117,7 @@ def icon(ev, size=34):
 # Hintergrundfarben für die große Illustration (wenn ein Wochenend-Tipp kein Foto hat)
 FLAECHE = {"laterne": "#1B3B73", "feuer": "#1B3B73", "weihnacht": "#1B3B73", "kino": "#F2B33D",
            "theater": "#FBE3DE", "musik": "#FBE3DE", "dino": "#E6F0E4", "palme": "#E6F0E4", "baum": "#E6F0E4",
-           "tier": "#E3EAF5", "eis": "#E3EAF5", "buch": "#F7EBCB", "basteln": "#F7EBCB", "forschen": "#E3EAF5"}
+           "tier": "#E3EAF5", "eis": "#E3EAF5", "buch": "#F7EBCB", "basteln": "#F7EBCB", "forschen": "#E3EAF5", "roboter": "#E3EAF5"}
 
 def illustration(ev):
     """Breite Illustration als Ersatz für ein fehlendes Foto: großes Motiv mit Konfetti."""
