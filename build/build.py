@@ -458,7 +458,7 @@ def archivieren(png_vorhanden):
         (arch / f"{k}.html").write_text(seite_web(base="../", png=png, canonical=f"{SITE}archiv/{k}.html"), encoding="utf-8")
         von, bis = d(D["von"]), d(D["bis"])
         sa = D["wochenende"]["samstag"]["titel"]; so = D["wochenende"]["sonntag"]["titel"]
-        eintraege.append(f'<li><a href="{k}.html"><b>Ausgabe {D["nr"]} / {D["jahr"]}</b> · {von.day}.{von.month}. – {bis.day}.{bis.month}.{bis.year}</a><br><span>Wochenende: {e(sa)} · {e(so)}</span></li>')
+        eintraege.append(f'<li><a href="archiv/{k}.html"><b>Ausgabe {D["nr"]} / {D["jahr"]}</b> · {von.day}.{von.month}. – {bis.day}.{bis.month}.{bis.year}</a><br><span>Wochenende: {e(sa)} · {e(so)}</span></li>')
     D = aktuell
     (ROOT / "index.html").write_text(seite_web(), encoding="utf-8")  # neu, damit die Themen-Links drin sind
     sitemap(keys)
