@@ -572,7 +572,7 @@ if __name__ == "__main__":
         try: wetter_holen()
         except Exception as ex: print("Wetter nicht geladen:", ex)
     if "--fonts" in ARGS:
-        try: fonts_laden(); FONTS = fonts_link()
+        try: fonts_laden(); FONTS = fonts_link() + ICONS
         except Exception as ex: print("Schriften nicht geladen:", ex)
     if "--bilder" in ARGS:
         bilder_laden()
