@@ -22,6 +22,7 @@ SPIELE = json.loads((ROOT / "data/spiele.json").read_text(encoding="utf-8"))["sp
 ARGS = set(sys.argv[1:])
 
 B, A, PAPER = "#1B3B73", "#E25D4A", "#F5F2EA"
+LOGO = "#14452F"  # Dunkelgrün aus dem Profilbild (Schriftzug Gude Laune)
 WD = ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"]
 WDS = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
 MON = ["", "Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
@@ -165,8 +166,8 @@ a{{color:inherit;text-decoration:none}}
 .ear{{border:1px solid #161616;border-radius:4px;padding:8px 10px}} .ear.r{{text-align:right}}
 .ex{{font-size:13px;line-height:1.35;margin-top:4px}}
 .logo-wrap{{text-align:center}}
-.logo{{font-family:'Caveat Brush',cursive;font-size:78px;line-height:.95;color:{A};transform:rotate(-3deg);display:inline-block;letter-spacing:.5px}}
-.claim{{font-family:'Libre Caslon Text',Georgia,serif;font-style:italic;font-size:15px;color:{B}}}
+.logo{{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:68px;line-height:1;color:{LOGO};display:inline-block;letter-spacing:-1.5px;white-space:nowrap}}
+.claim{{font-family:Nunito,system-ui,sans-serif;font-weight:800;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:{LOGO};border-top:1.5px solid {LOGO};display:inline-block;padding-top:6px;margin-top:6px}}
 .dateline{{margin-top:12px;border-top:3px solid #161616;border-bottom:1px solid #161616;padding:5px 0;display:flex;justify-content:space-between;font-size:12px;font-weight:700;gap:8px}}
 .weather{{margin-top:10px;display:grid;grid-template-columns:repeat(7,1fr);gap:4px;border-bottom:1px solid #161616;padding-bottom:8px}}
 .wt{{text-align:center;padding:6px 0;border-radius:4px}} .wt.we{{background:#FBE3DE}}
@@ -174,7 +175,7 @@ a{{color:inherit;text-decoration:none}}
 .tp{{font-size:17px;font-weight:800;margin:2px 0}} .wi{{display:block;margin:0 auto}}
 .weekend{{margin-top:14px;border:2.5px solid {A};border-radius:6px;background:#fff;padding-bottom:14px}}
 .wehead{{background:{A};color:#fff;padding:6px 14px;display:flex;justify-content:space-between;align-items:baseline;gap:8px}}
-.brush{{font-family:'Caveat Brush',cursive;font-size:30px;line-height:1}}
+.brush{{font-family:'Fraunces',Georgia,serif;font-style:italic;font-weight:400;font-size:32px;line-height:1}}
 .wgrid{{display:grid;grid-template-columns:1fr 1fr;padding:12px 14px 0}}
 .wcol:first-child{{padding-right:14px}} .wcol+.wcol{{padding-left:14px;border-left:1px solid #D8D2C6}}
 .pic{{margin:6px 0 4px;border-radius:4px;overflow:hidden;height:120px}} .pic img{{width:100%;height:120px;object-fit:cover;display:block}}
@@ -194,7 +195,7 @@ a{{color:inherit;text-decoration:none}}
 .adt{{padding:12px 16px}} .adh{{font-weight:800;font-size:23px;line-height:1.1;margin:5px 0}} .adx{{font-size:13.5px;line-height:1.4}} .adl{{font-weight:800;font-size:12.5px;margin-top:6px;color:#FFC9BF}}
 .foot{{margin-top:8px;display:flex;justify-content:space-between;font-size:11px;color:#555;gap:8px}}
 '''
-GOOGLE_CSS = "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Libre+Caslon+Text:ital@1&family=Nunito:wght@400;600;700;800;900&display=swap"
+GOOGLE_CSS = "https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Fraunces:ital,wght@1,400&family=Libre+Caslon+Text:ital@1&family=Nunito:wght@400;600;700;800;900&display=swap"
 
 def fonts_laden():
     """Lädt die Schriften einmalig nach fonts/ – danach werden sie von gude-laune.de selbst ausgeliefert (keine Verbindung zu Google)."""
@@ -263,7 +264,7 @@ def banner():
 RECHT_CSS = f"""*{{box-sizing:border-box}} body{{margin:0;background:#E9E4D8;font-family:Nunito,system-ui,sans-serif;color:#161616}}
 .r{{max-width:760px;margin:20px auto;background:{PAPER};padding:30px 36px;border-radius:4px;line-height:1.55;font-size:15px}}
 .r h1{{font-size:28px;margin:0 0 4px}} .r h2{{font-size:18px;margin:24px 0 6px}} .r a{{color:{B}}}
-.r a.logo{{font-family:'Caveat Brush',cursive;font-size:48px;color:{A};text-decoration:none;display:inline-block;transform:rotate(-3deg)}}
+.r a.logo{{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:50px;color:{LOGO};text-decoration:none;display:inline-block;letter-spacing:-1px}}
 @media (max-width:640px){{.r{{margin:0;padding:20px 16px}}}}"""
 
 # Cloudflare Web Analytics: cookielose Besucherzählung (Token aus dem Cloudflare-Dashboard)
@@ -552,7 +553,7 @@ body{{background:#E9E4D8}}
 .archivlink{{text-align:center;margin-top:16px;font-weight:800}} .archivlink a{{color:{B};text-decoration:underline}}
 .wk a:hover,.wh a:hover,.mt a:hover{{text-decoration:underline}}
 @media (max-width:640px){{
- .paper{{padding:18px 14px}} .mast{{grid-template-columns:1fr}} .ear{{display:none}} .logo{{font-size:60px}}
+ .paper{{padding:18px 14px}} .mast{{grid-template-columns:1fr}} .ear{{display:none}} .logo{{font-size:52px}}
  .dateline{{flex-direction:column;align-items:center;text-align:center}} .weather{{gap:1px}} .wd span{{display:block}}
  .wgrid,.wkgrid{{grid-template-columns:1fr}} .wcol+.wcol{{padding-left:0;border-left:0;border-top:1px solid #D8D2C6;margin-top:12px;padding-top:12px}} .wcol:first-child{{padding-right:0}}
  .ad{{grid-template-columns:110px 1fr}} .banners{{grid-template-columns:1fr}} .sharemenu{{left:auto;right:0;transform:none}} .wrap{{padding:10px 8px 30px}}
