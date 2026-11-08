@@ -24,3 +24,6 @@ Ein Angebot von [Nordend-Spieleverleih](https://nordend-spieleverleih.de/).
 - `data/bilder.json` + `img/bib/` – Bildbibliothek: frei lizenzierte Fotos (Wikimedia Commons) von Orten, die oft vorkommen (Museen, Parks, Palmengarten, Zoo, Oper …), mit Urheber und Lizenz. Für die Wochenend-Haupt-Tipps zuerst hier nachsehen.
 - `build/motive.py` – eigene Illustrationen (SVG): Jeder Tipp bekommt automatisch ein kleines Motiv (Laterne, Theater, Dino, Teddy …), passend zu Titel und Text. Optional per `"motiv": "<name>"` im Eintrag festlegen. Hat ein Wochenend-Tipp kein Foto, erscheint eine große Illustration.
 - Das Wochenbild ist 800 px breit und mindestens 1130 px hoch; bei viel Text wird es länger (bis 1360 px), damit Anzeige und Fußzeile nie abgeschnitten werden.
+
+## Redaktionelle Leitlinie
+Vorrang haben pädagogisch wertvolle Angebote, die Kinder fördern – an erster Stelle Robotik, Coding und KI für Kinder, danach Mitmachen, Forschen, Lesen, Kreativ-Workshops, Natur und Sprache. Konzerte, reine Unterhaltung und Dauerangebote, die ohnehin jede Woche stattfinden, nur als Lückenfüller.
