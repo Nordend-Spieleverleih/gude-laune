@@ -10,15 +10,15 @@
    "titel": "Tropenwärme im Palmengarten",
    "gratis": false,
    "drinnen": true,
-   "text": "Wenn's draußen grau ist, warten in den Gewächshäusern Palmen, Kakteen und Tropenluft. 9–16 Uhr, Kinder bis 17 frei, Erwachsene 9 €.",
+   "text": "Palmen, Kakteen und Tropenluft in den Gewächshäusern, 9–16 Uhr. Kinder bis 17 frei, Erwachsene 9 €.",
    "link": "https://www.palmengarten.de/",
-   "bild": "",
-   "bildquelle": "",
+   "bild": "img/bib/palmengarten-tropicarium.jpg",
+   "bildquelle": "Foto: Dr. Thomas Liptak, CC BY-SA 4.0, Wikimedia Commons",
    "weitere": [
     {
      "titel": "Forschungswerkstatt: Unsere Sinne",
      "stadtteil": "Westend",
-     "text": "Mitmachen im Senckenberg, 14–15 Uhr, ohne Anmeldung, im Museumseintritt enthalten.",
+     "text": "Mitmachen im Senckenberg, 14 Uhr, im Eintritt enthalten.",
      "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
      "gratis": false,
      "drinnen": true
@@ -46,16 +46,8 @@
     {
      "titel": "Familienworkshop „Hänsel und Gretel“",
      "stadtteil": "Innenstadt",
-     "text": "Die Oper spielerisch entdecken, 11 Uhr, Treffpunkt Opernpforte.",
+     "text": "Die Oper spielerisch entdecken, 11 Uhr.",
      "link": "https://oper-frankfurt.de/de/jetzt/",
-     "gratis": false,
-     "drinnen": true
-    },
-    {
-     "titel": "Kinderstunde in der Schirn",
-     "stadtteil": "Altstadt",
-     "text": "Kunst gucken und gestalten für 4- bis 6-Jährige mit einem Erwachsenen, 11 Uhr, Plätze begrenzt.",
-     "link": "https://www.schirn.de/",
      "gratis": false,
      "drinnen": true
     }
@@ -67,7 +59,7 @@
    "datum": "2026-11-09",
    "stadtteil": "Westend",
    "titel": "Dinosaurier im Senckenberg",
-   "text": "Auch montags geöffnet: T. rex, Wale und Edelsteine, 9–17 Uhr.",
+   "text": "T. rex, Wale und Edelsteine, auch montags 9–17 Uhr.",
    "gratis": false,
    "link": "https://museumfrankfurt.senckenberg.de/",
    "drinnen": true
@@ -76,7 +68,7 @@
    "datum": "2026-11-10",
    "stadtteil": "Ostend",
    "titel": "Martinsfeier an Allerheiligen",
-   "text": "Andacht, Laternenzug mit St. Martin zu Pferd und Martinsfeuer, 17 Uhr, Thüringer Straße.",
+   "text": "Laternenzug mit St. Martin zu Pferd und Martinsfeuer, 17 Uhr.",
    "gratis": true,
    "link": "https://www.rheinmain4family.de/landinpages/sanktmartin.html",
    "drinnen": false
@@ -84,8 +76,8 @@
   {
    "datum": "2026-11-11",
    "stadtteil": "Nordend",
-   "titel": "Großes Martinsfeuer im Günthersburgpark",
-   "text": "Frankfurts größtes Martinsfeuer feiert seinen 30.! Schattenspiel, Bläser und Kinderpunsch, 18 Uhr – Laterne mitbringen.",
+   "titel": "Großes Martinsfeuer",
+   "text": "Im Günthersburgpark zum 30. Mal: Schattenspiel, Bläser, Kinderpunsch, 18 Uhr. Laterne mitbringen!",
    "gratis": true,
    "link": "https://abenteuerspielplatz.de/startseite/termine-2018/terminausgabe.html?event=33",
    "drinnen": false
@@ -94,7 +86,7 @@
    "datum": "2026-11-12",
    "stadtteil": "Altstadt",
    "titel": "Junges Museum am Römer",
-   "text": "Mitmach-Ausstellungen zur Stadtgeschichte, 11–18 Uhr, bis 18 Jahre gratis.",
+   "text": "Mitmach-Ausstellungen, 11–18 Uhr, bis 18 Jahre gratis.",
    "gratis": true,
    "link": "https://junges-museum-frankfurt.de/",
    "drinnen": true
@@ -114,7 +106,7 @@
    "datum": "2026-11-12",
    "titel": "Flohmarkt an der Jahrhunderthalle",
    "stadtteil": "Unterliederbach",
-   "text": "Trödel unter freiem Himmel, 8–14 Uhr, auch am Samstag.",
+   "text": "8–14 Uhr, auch am Samstag.",
    "gratis": true,
    "drinnen": false,
    "link": "https://www.weiss-maerkte.de/"
@@ -123,7 +115,7 @@
    "datum": "2026-11-14",
    "titel": "Flohmarkt am Mainufer",
    "stadtteil": "Sachsenhausen",
-   "text": "Schaumainkai, 9–14 Uhr – oft auch Spielzeug und Kinderkleidung.",
+   "text": "Schaumainkai, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
    "gratis": true,
    "drinnen": false,
    "link": "https://www.hfm-frankfurt.de/flohmaerkte"
@@ -132,8 +124,8 @@
  "wetter": [
   {
    "datum": "2026-11-09",
-   "temp": 8,
-   "symbol": "wolke"
+   "temp": 9,
+   "symbol": "regen"
   },
   {
    "datum": "2026-11-10",
