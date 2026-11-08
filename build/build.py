@@ -12,6 +12,8 @@ Optionen:
 """
 import json, urllib.parse, sys, datetime, html, re, urllib.request, hashlib
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import motive
 
 ROOT = Path(__file__).resolve().parent.parent
 D = json.loads((ROOT / "data/ausgabe.json").read_text(encoding="utf-8"))
@@ -98,21 +100,21 @@ def wetterleiste():
     return "".join(out)
 
 def wochenend_spalte(tag, ev, dt):
-    weitere = "".join(f'<div class="more"><div class="mt">{link(x, e(x["titel"]))}{(" <span style='font-weight:600;color:#666;font-size:13px'>· " + e(x["stadtteil"]) + "</span>") if x.get("stadtteil") else ""}</div><div class="mx">{e(x["text"])}</div></div>' for x in ev.get("weitere", []))
+    weitere = "".join(f'<div class="more">{motive.icon(x, 30)}<div class="mt">{link(x, e(x["titel"]))}{(" <span style='font-weight:600;color:#666;font-size:13px'>· " + e(x["stadtteil"]) + "</span>") if x.get("stadtteil") else ""}</div><div class="mx">{e(x["text"])}</div></div>' for x in ev.get("weitere", []))
     bild = (f'<div class="pic"><img src="{e(ev["bild"])}" alt="{e(ev["titel"])}"></div><div class="credit">{e(ev.get("bildquelle"))}</div>'
-            if ev.get("bild") else "")
+            if ev.get("bild") else f'<div class="pic">{motive.illustration(ev)}</div><div class="credit">Illustration: Gude Laune</div>')
     return (f'<div class="wcol"><div class="k acc">{tag} · {e(ev["stadtteil"])}</div>{bild}'
             f'<div class="wh">{link(ev, e(ev["titel"]))}{gratis(ev.get("gratis"))}</div>'
             f'<div class="t">{e(ev["text"])}</div>{weitere}</div>')
 
 def woche_eintrag(ev):
     dt = d(ev["datum"])
-    return (f'<div class="wk"><div class="k blue">{WD[dt.weekday()]} · {e(ev["stadtteil"])}</div>'
+    return (f'<div class="wk">{motive.icon(ev, 32)}<div class="k blue">{WD[dt.weekday()]} · {e(ev["stadtteil"])}</div>'
             f'<div class="kh">{link(ev, e(ev["titel"]))}{gratis(ev.get("gratis"))}</div><div class="kx">{e(ev["text"])}</div></div>')
 
 def flohmarkt():
     rows = "".join(f'<div class="fh">{WDS[d(f["datum"]).weekday()]} {d(f["datum"]).day}.{d(f["datum"]).month}. · {link(f, e(f["titel"]))}</div><div class="fx">{e(f["text"])}</div>' for f in D.get("flohmarkt", []))
-    return f'<div class="floh"><div class="k acc">Flohmarkt-Ecke</div>{rows}<div class="fx">Weitere Flohmärkte auf gude-laune.de</div></div>' if rows else ""
+    return f'<div class="floh">{motive.svg("teddy", 30)}<div class="k acc">Flohmarkt-Ecke</div>{rows}<div class="fx">Weitere Flohmärkte auf gude-laune.de</div></div>' if rows else ""
 
 def anzeige():
     key = D.get("anzeige") or ADS["reihenfolge"][D["nr"] % len(ADS["reihenfolge"])]
@@ -180,6 +182,7 @@ a{{color:inherit;text-decoration:none}}
 .wh{{font-weight:800;font-size:21px;line-height:1.15}}
 .t{{font-size:13.5px;line-height:1.45;margin-top:4px}}
 .more{{border-top:1px dashed #B9B3A6;margin-top:10px;padding-top:8px}} .mt{{font-weight:800;font-size:16px;line-height:1.2}} .mx{{font-size:13px;line-height:1.4}}
+.mo{{float:right;margin:0 0 2px 8px}} .pic .illu{{width:100%;height:120px;display:block}}
 .gratis{{font-size:11px;font-weight:800;color:#fff;background:{B};border-radius:3px;padding:2px 6px;vertical-align:3px;letter-spacing:.04em}}
 .week{{margin-top:14px;margin-bottom:10px}}
 .weekhead{{display:flex;align-items:baseline;gap:10px;border-bottom:2px solid #161616;padding-bottom:4px}} .weekhead .h{{font-weight:800;font-size:19px}}
@@ -219,7 +222,23 @@ FONTS = fonts_link()
 
 def seite_bild():
     return f'''<!DOCTYPE html><html lang="de"><head><meta charset="utf-8">{FONTS}<style>{CSS}
-body{{width:800px;height:1130px}} .paper{{width:800px;height:1130px}}</style></head><body>{zeitung()}</body></html>'''
+body{{width:800px}} .paper{{width:800px;min-height:1130px}}</style></head><body>{zeitung()}{EINPASSEN}</body></html>'''
+
+# Die Zeitungsseite ist 800 px breit und mindestens 1130 px hoch; bei viel Text wächst sie mit
+# (bis 1360 px). Erst darüber werden Bilder flacher und Schriften etwas kleiner.
+EINPASSEN = '''<script>window.einpassen=function(){
+var p=document.querySelector('.paper'),ft=document.querySelector('.foot')||document.querySelector('.ad');
+function voll(){return p.getBoundingClientRect().height>1360;}
+var els=[].slice.call(document.querySelectorAll('.t,.mx,.kx,.fx,.mt,.kh,.wh,.fh'));
+var orig=els.map(function(x){if(!x.dataset.fs)x.dataset.fs=parseFloat(getComputedStyle(x).fontSize);return +x.dataset.fs;});
+els.forEach(function(x,i){x.style.fontSize=orig[i]+'px';});
+document.querySelectorAll('.pic,.pic img,.pic .illu').forEach(function(x){x.style.height='';});
+var n=0;
+while(voll()&&n<12){n++;
+ if(n<=3){document.querySelectorAll('.pic,.pic img,.pic .illu').forEach(function(x){x.style.height=(120-n*10)+'px';});continue;}
+ var f=1-0.02*(n-3);els.forEach(function(x,i){x.style.fontSize=(orig[i]*f)+'px';});}
+document.body.setAttribute('data-einpassen',n);return voll()?-n:n;};
+(document.fonts?document.fonts.ready:Promise.resolve()).then(function(){window.einpassen();});</script>'''
 
 
 WHATSAPP = "https://whatsapp.com/channel/0029VbDjF5W4inos5DFyo101"
@@ -562,8 +581,16 @@ if __name__ == "__main__":
             pg.goto((ROOT / "ausgabe.html").as_uri())
             pg.wait_for_load_state("networkidle")
             pg.evaluate("document.fonts.ready")
-            pg.wait_for_timeout(500)
-            pg.screenshot(path=str(ROOT / "ausgabe.png"))
+            pg.wait_for_timeout(300)
+            stufe = pg.evaluate("window.einpassen()")
+            if stufe < 0:
+                print("WARNUNG: ZU VIEL TEXT – das Bild wird sehr lang. Texte kürzen oder Tipps streichen!")
+            elif stufe > 3:
+                print(f"Hinweis: Schrift wurde verkleinert (Stufe {stufe}) – lieber Texte kürzen.")
+            else:
+                print("Einpassen-Stufe:", stufe)
+            pg.wait_for_timeout(200)
+            pg.screenshot(path=str(ROOT / "ausgabe.png"), full_page=True)
             b.close()
     (ROOT / "impressum.html").write_text(rechtsseite("Impressum", IMPRESSUM), encoding="utf-8")
     (ROOT / "datenschutz.html").write_text(rechtsseite("Datenschutz", DATENSCHUTZ), encoding="utf-8")

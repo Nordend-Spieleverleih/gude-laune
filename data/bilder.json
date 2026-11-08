@@ -1,0 +1,339 @@
+{
+ "_info": "Bildbibliothek: frei lizenzierte Fotos (Wikimedia Commons) für die Wochenend-Haupt-Tipps. In data/ausgabe.json als \"bild\": \"<datei>\" und \"bildquelle\": \"<bildquelle>\" verwenden. Neue Fotos nur mit Lizenz CC0, gemeinfrei, CC BY oder CC BY-SA.",
+ "bilder": [
+  {
+   "id": "senckenberg-diplodocus",
+   "datei": "img/bib/senckenberg-diplodocus.jpg",
+   "ort": "Senckenberg Naturmuseum",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "senckenberg",
+    "dino",
+    "dinosaurier",
+    "naturmuseum"
+   ],
+   "bildquelle": "Foto: Yair Haklai, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Diplodocus longus dinosaur model in front of the Senckenberg Museum, Frankfurt, Germany.jpg",
+   "breite": 960,
+   "hoehe": 454
+  },
+  {
+   "id": "senckenberg-atrium",
+   "datei": "img/bib/senckenberg-atrium.jpg",
+   "ort": "Senckenberg Naturmuseum (Lichthof)",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "senckenberg",
+    "dino",
+    "skelett",
+    "museum"
+   ],
+   "bildquelle": "Foto: Dr. Thomas Liptak, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Frankfurt, Senckenberg Naturmuseum, Atrium.jpg",
+   "breite": 960,
+   "hoehe": 640
+  },
+  {
+   "id": "palmengarten-tropicarium",
+   "datei": "img/bib/palmengarten-tropicarium.jpg",
+   "ort": "Palmengarten, Tropicarium",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "palmengarten",
+    "tropicarium",
+    "gewächshaus",
+    "tropen"
+   ],
+   "bildquelle": "Foto: Dr. Thomas Liptak, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Frankfurt am Main, Palmengarten Frankfurt, Tropicarium (entrance hall).jpg",
+   "breite": 960,
+   "hoehe": 540
+  },
+  {
+   "id": "palmengarten-palmenhaus",
+   "datei": "img/bib/palmengarten-palmenhaus.jpg",
+   "ort": "Palmengarten, Palmenhaus",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "palmengarten",
+    "palmenhaus",
+    "palmen"
+   ],
+   "bildquelle": "Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons",
+   "commons": "File:Palmengarten-ffm-palmenhaus-001.jpg",
+   "breite": 960,
+   "hoehe": 697
+  },
+  {
+   "id": "palmengarten-weiher",
+   "datei": "img/bib/palmengarten-weiher.jpg",
+   "ort": "Palmengarten, Weiher mit Ruderbooten",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "palmengarten",
+    "garten",
+    "boot",
+    "sommer"
+   ],
+   "bildquelle": "Foto: Sdkb, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Palmengarten Frankfurt in May 2026 16.jpg",
+   "breite": 960,
+   "hoehe": 723
+  },
+  {
+   "id": "zoo-gesellschaftshaus",
+   "datei": "img/bib/zoo-gesellschaftshaus.jpg",
+   "ort": "Zoo Frankfurt, Gesellschaftshaus",
+   "stadtteil": "Ostend",
+   "stichworte": [
+    "zoo",
+    "gesellschaftshaus",
+    "tiere"
+   ],
+   "bildquelle": "Foto: EvaK, CC BY-SA 2.5, Wikimedia Commons",
+   "commons": "File:Zoo Frankfurt Gesellschaftshaus.jpg",
+   "breite": 960,
+   "hoehe": 638
+  },
+  {
+   "id": "historisches-museum",
+   "datei": "img/bib/historisches-museum.jpg",
+   "ort": "Historisches Museum / Junges Museum (Saalhof)",
+   "stadtteil": "Altstadt",
+   "stichworte": [
+    "junges museum",
+    "historisches museum",
+    "saalhof",
+    "römer"
+   ],
+   "bildquelle": "Foto: Fred Romero, CC BY 2.0, Wikimedia Commons",
+   "commons": "File:Frankfurt am Main - Saalhof Historisches Museum.jpg",
+   "breite": 960,
+   "hoehe": 721
+  },
+  {
+   "id": "staedel",
+   "datei": "img/bib/staedel.jpg",
+   "ort": "Städel Museum",
+   "stadtteil": "Sachsenhausen",
+   "stichworte": [
+    "städel",
+    "kunst",
+    "museumsufer"
+   ],
+   "bildquelle": "Foto: Städel Museum, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Städel Museum, Frankfurt am Main, Außenansicht (cropped).jpg",
+   "breite": 960,
+   "hoehe": 651
+  },
+  {
+   "id": "museum-kommunikation",
+   "datei": "img/bib/museum-kommunikation.jpg",
+   "ort": "Museum für Kommunikation",
+   "stadtteil": "Sachsenhausen",
+   "stichworte": [
+    "museum für kommunikation",
+    "mfk",
+    "museumsufer"
+   ],
+   "bildquelle": "Foto: Konrad Kurzacz, CC BY-SA 3.0, Wikimedia Commons",
+   "commons": "File:Museum für Kommunikation Frankfurt (2007).jpg",
+   "breite": 960,
+   "hoehe": 637
+  },
+  {
+   "id": "schirn",
+   "datei": "img/bib/schirn.jpg",
+   "ort": "Schirn Kunsthalle",
+   "stadtteil": "Altstadt",
+   "stichworte": [
+    "schirn",
+    "kunsthalle",
+    "kunst"
+   ],
+   "bildquelle": "Foto: PantaRhei, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Frankfurt am Main Schirn Kunsthalle Eingang.jpg",
+   "breite": 960,
+   "hoehe": 640
+  },
+  {
+   "id": "oper",
+   "datei": "img/bib/oper.jpg",
+   "ort": "Oper Frankfurt (Willy-Brandt-Platz)",
+   "stadtteil": "Innenstadt",
+   "stichworte": [
+    "oper",
+    "schauspiel",
+    "willy-brandt-platz"
+   ],
+   "bildquelle": "Foto: Gerda Arendt, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Oper Frankfurt, fountain.jpg",
+   "breite": 960,
+   "hoehe": 720
+  },
+  {
+   "id": "alte-oper",
+   "datei": "img/bib/alte-oper.jpg",
+   "ort": "Alte Oper",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "alte oper",
+    "konzert",
+    "opernplatz"
+   ],
+   "bildquelle": "Foto: Norbert Nagel, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Alte Oper front facade - Frankfurt am Main - 2026-10-17.jpg",
+   "breite": 960,
+   "hoehe": 644
+  },
+  {
+   "id": "guenthersburgpark",
+   "datei": "img/bib/guenthersburgpark.jpg",
+   "ort": "Günthersburgpark",
+   "stadtteil": "Nordend",
+   "stichworte": [
+    "günthersburgpark",
+    "park",
+    "nordend",
+    "martinsfeuer"
+   ],
+   "bildquelle": "Foto: DerHexer, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Günthersburgpark (DerHexer) 2012-05-11 02.jpg",
+   "breite": 960,
+   "hoehe": 638
+  },
+  {
+   "id": "guenthersburgpark-wasserspiele",
+   "datei": "img/bib/guenthersburgpark-wasserspiele.jpg",
+   "ort": "Günthersburgpark, Wasserspielplatz",
+   "stadtteil": "Nordend",
+   "stichworte": [
+    "günthersburgpark",
+    "wasserspiel",
+    "spielplatz",
+    "sommer"
+   ],
+   "bildquelle": "Foto: Karsten11, gemeinfrei, Wikimedia Commons",
+   "commons": "File:Frankfurt, Günthersburgpark, Wasserspiele.JPG",
+   "breite": 960,
+   "hoehe": 638
+  },
+  {
+   "id": "holzhausenpark",
+   "datei": "img/bib/holzhausenpark.jpg",
+   "ort": "Holzhausenpark",
+   "stadtteil": "Nordend",
+   "stichworte": [
+    "holzhausenpark",
+    "holzhausenschlösschen",
+    "park"
+   ],
+   "bildquelle": "Foto: GeorgDerReisende, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Holzhausenpark, 1, Nordend, Frankfurt am Main.jpg",
+   "breite": 960,
+   "hoehe": 720
+  },
+  {
+   "id": "bethmannpark",
+   "datei": "img/bib/bethmannpark.jpg",
+   "ort": "Bethmannpark",
+   "stadtteil": "Nordend",
+   "stichworte": [
+    "bethmannpark",
+    "chinesischer garten",
+    "park"
+   ],
+   "bildquelle": "Foto: Epizentrum, CC BY 3.0, Wikimedia Commons",
+   "commons": "File:Frankfurt Bethmannpark.2.20130508.jpg",
+   "breite": 960,
+   "hoehe": 550
+  },
+  {
+   "id": "grueneburgpark",
+   "datei": "img/bib/grueneburgpark.jpg",
+   "ort": "Grüneburgpark",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "grüneburgpark",
+    "park",
+    "westend"
+   ],
+   "bildquelle": "Foto: Leonhard Lenz, CC0, Wikimedia Commons",
+   "commons": "File:Grüneburgpark Frankfurt am Main 2021-08-17 01.jpg",
+   "breite": 960,
+   "hoehe": 641
+  },
+  {
+   "id": "weihnachtsmarkt-roemerberg",
+   "datei": "img/bib/weihnachtsmarkt-roemerberg.jpg",
+   "ort": "Weihnachtsmarkt auf dem Römerberg",
+   "stadtteil": "Altstadt",
+   "stichworte": [
+    "weihnachtsmarkt",
+    "advent",
+    "karussell",
+    "römerberg"
+   ],
+   "bildquelle": "Foto: Dr. Thomas Liptak, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Frankfurt am Main - Frankfurter Weihnachtsmarkt (2025) 4.jpg",
+   "breite": 960,
+   "hoehe": 640
+  },
+  {
+   "id": "mainufer",
+   "datei": "img/bib/mainufer.jpg",
+   "ort": "Mainufer / Museumsufer",
+   "stadtteil": "Sachsenhausen",
+   "stichworte": [
+    "mainufer",
+    "main",
+    "schaumainkai",
+    "flohmarkt"
+   ],
+   "bildquelle": "Foto: Kasa Fue, CC BY-SA 4.0, Wikimedia Commons",
+   "commons": "File:Frankfurt Main August 2020 2.jpg",
+   "breite": 960,
+   "hoehe": 640
+  },
+  {
+   "id": "kaiserdom",
+   "datei": "img/bib/kaiserdom.jpg",
+   "ort": "Kaiserdom St. Bartholomäus",
+   "stadtteil": "Altstadt",
+   "stichworte": [
+    "dom",
+    "kaiserdom",
+    "kirche"
+   ],
+   "bildquelle": "Foto: Norbert Nagel, CC BY-SA 3.0, Wikimedia Commons",
+   "commons": "File:Kaiserdom St. Bartholomäus - Frankfurt - Germany - 01.jpg",
+   "breite": 960,
+   "hoehe": 636
+  },
+  {
+   "id": "papageno",
+   "datei": "img/papageno.jpg",
+   "ort": "Papageno Musiktheater am Palmengarten",
+   "stadtteil": "Westend",
+   "stichworte": [
+    "papageno",
+    "musiktheater",
+    "märchen",
+    "theater"
+   ],
+   "bildquelle": "Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons"
+  },
+  {
+   "id": "eissporthalle",
+   "datei": "img/eissporthalle.jpg",
+   "ort": "Eissporthalle Frankfurt",
+   "stadtteil": "Bornheim",
+   "stichworte": [
+    "eissporthalle",
+    "eislaufen",
+    "schlittschuh"
+   ],
+   "bildquelle": "Foto: Dontworry, CC BY-SA 3.0, Wikimedia Commons"
+  }
+ ]
+}
