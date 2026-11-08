@@ -66,12 +66,12 @@
     },
     {
       "datum": "2026-11-10",
-      "stadtteil": "Ostend",
-      "titel": "Martinsfeier an Allerheiligen",
-      "text": "Laternenzug mit St. Martin zu Pferd und Martinsfeuer, 17 Uhr.",
-      "gratis": true,
-      "link": "https://www.rheinmain4family.de/landinpages/sanktmartin.html",
-      "drinnen": false
+      "stadtteil": "Bornheim",
+      "titel": "Meet & Greet mit Roboter Ada",
+      "text": "Die humanoide Roboterdame Ada zeigt in der KiBi, was sie kann. 16–17 Uhr, ab 4, ohne Anmeldung.",
+      "gratis": false,
+      "link": "https://frankfurt.de/service-und-rathaus/verwaltung/aemter-und-institutionen/stadtbuecherei/veranstaltungen/robotics-und-coding",
+      "drinnen": true
     },
     {
       "datum": "2026-11-11",
