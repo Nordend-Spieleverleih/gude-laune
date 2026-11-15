@@ -23,6 +23,8 @@ jobs:
           python -m playwright install --with-deps chromium
       - name: Ausgabe bauen (Wetter, Bilder, PNG)
         run: python build/build.py --wetter --fonts --bilder --png
+      - name: Social-Media-Bilder und Bildtext (Instagram/Facebook)
+        run: python build/social.py
       - name: Ergebnis speichern
         run: |
           git config user.name "gude-laune-bot"
