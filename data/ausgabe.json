@@ -1,53 +1,55 @@
 {
-  "nr": 46,
+  "nr": 47,
   "jahr": 2026,
-  "von": "2026-11-09",
-  "bis": "2026-11-15",
-  "anzeige": "schnitzeljagd",
+  "von": "2026-11-16",
+  "bis": "2026-11-22",
+  "anzeige": "cornhole",
   "wochenende": {
     "samstag": {
       "stadtteil": "Westend",
-      "titel": "Tropenwärme im Palmengarten",
+      "titel": "Algen-Workshop im Senckenberg",
       "gratis": false,
       "drinnen": true,
-      "text": "Palmen, Kakteen und Tropenluft in den Gewächshäusern, 9–16 Uhr. Kinder bis 17 frei, Erwachsene 9 €.",
-      "link": "https://www.palmengarten.de/",
-      "bild": "img/bib/palmengarten-tropicarium.jpg",
-      "bildquelle": "Foto: Dr. Thomas Liptak, CC BY-SA 4.0, Wikimedia Commons",
+      "text": "Algen als Superhelden erforschen: 10 Uhr für 5–7 J., 12 Uhr für 8–12 J., je 15 €, Online-Ticket nötig.",
+      "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
+      "bild": "img/bib/senckenberg-diplodocus.jpg",
+      "bildquelle": "Foto: Yair Haklai, CC BY-SA 4.0, Wikimedia Commons",
+      "motiv": "forschen",
       "weitere": [
         {
-          "titel": "Forschungswerkstatt: Unsere Sinne",
+          "titel": "Kinderlieder mit Fredrik Vahle",
           "stadtteil": "Westend",
-          "text": "Mitmachen im Senckenberg, 14 Uhr, im Eintritt enthalten.",
-          "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
-          "gratis": false,
-          "drinnen": true
-        },
-        {
-          "titel": "Mona ist ein Vampir",
-          "stadtteil": "Nordweststadt",
-          "text": "Kindertheater im Titusforum, 16 Uhr, ab 18,95 €.",
-          "link": "http://www.kiju-theater.de/spielplan/",
+          "text": "Mitsing-Konzert im Gesellschaftshaus Palmengarten, 10 und 15 Uhr, Tickets vorab.",
+          "link": "https://frankfurt-mit-kids.de/event/kinderliederkonzert-mit-fredrik-vahle-im-festsaal-des-gesellschaftshauses-palmengarten/",
           "gratis": false,
           "drinnen": true
         }
       ]
     },
     "sonntag": {
-      "stadtteil": "Westend",
-      "titel": "Rumpelstilzchen im Papageno",
+      "stadtteil": "Sachsenhausen",
+      "titel": "Offene Kinderwerkstatt",
       "gratis": false,
       "drinnen": true,
-      "text": "Das Grimm-Märchen als Musiktheater am Palmengarten, ab 5 Jahren, 13.30 und 16 Uhr, Kinder ab 15 €.",
-      "link": "https://papageno-theater.de/",
-      "bild": "img/papageno.jpg",
-      "bildquelle": "Foto: Andreas Praefcke, CC BY 3.0, Wikimedia Commons",
+      "text": "Basteln und Tüfteln im Museum für Kommunikation, Start 10.15, 11.15 oder 12.15 Uhr, ab 4, Kind 4 €.",
+      "link": "https://www.mfk-frankfurt.de/",
+      "bild": "img/bib/museum-kommunikation.jpg",
+      "bildquelle": "Foto: Konrad Kurzacz, CC BY-SA 3.0, Wikimedia Commons",
+      "motiv": "basteln",
       "weitere": [
         {
-          "titel": "Familienworkshop „Hänsel und Gretel“",
+          "titel": "Minimal Animal",
           "stadtteil": "Innenstadt",
-          "text": "Die Oper spielerisch entdecken, 11 Uhr.",
-          "link": "https://oper-frankfurt.de/de/jetzt/",
+          "text": "Theaterspielkonzert ab 3 im Theaterhaus, 11 Uhr, 7–10 €.",
+          "link": "https://frankfurt-mit-kids.de/event/minimal-animal-theaterspielkonzert-ab-3/",
+          "gratis": false,
+          "drinnen": true
+        },
+        {
+          "titel": "Frau Holle im Papageno",
+          "stadtteil": "Westend",
+          "text": "Musikalisches Wintermärchen am Palmengarten, ab 5, 13.30 und 16 Uhr.",
+          "link": "https://papageno-theater.de/",
           "gratis": false,
           "drinnen": true
         }
@@ -56,66 +58,61 @@
   },
   "woche": [
     {
-      "datum": "2026-11-09",
-      "stadtteil": "Westend",
-      "titel": "Dinosaurier im Senckenberg",
-      "text": "T. rex, Wale und Edelsteine, auch montags 9–17 Uhr.",
+      "datum": "2026-11-16",
+      "stadtteil": "Ostend",
+      "titel": "Die mutige Martina",
+      "text": "Kindertheater in der Katakombe, 10 Uhr, ab 4, 2–4 €, Karten reservieren.",
       "gratis": false,
-      "link": "https://museumfrankfurt.senckenberg.de/",
-      "drinnen": true
+      "link": "https://frankfurt-mit-kids.de/event/die-mutige-martina-2/",
+      "drinnen": true,
+      "motiv": "theater"
     },
     {
-      "datum": "2026-11-10",
+      "datum": "2026-11-17",
       "stadtteil": "Bornheim",
-      "titel": "Meet & Greet mit Roboter Ada",
-      "text": "Die humanoide Roboterdame Ada zeigt in der KiBi, was sie kann. 16–17 Uhr, ab 4, ohne Anmeldung.",
+      "titel": "Roboter Ada hört zu",
+      "text": "LautLesen 4.0: Kinder lesen Roboter Ada vor, dann Quiz. KiBi, 16 Uhr, 8–10 J., Anmeldung.",
       "gratis": true,
       "link": "https://frankfurt.de/service-und-rathaus/verwaltung/aemter-und-institutionen/stadtbuecherei/veranstaltungen/robotics-und-coding",
-      "drinnen": true
+      "drinnen": true,
+      "motiv": "roboter"
     },
     {
-      "datum": "2026-11-11",
-      "stadtteil": "Nordend",
-      "titel": "Großes Martinsfeuer",
-      "text": "Im Günthersburgpark zum 30. Mal: Schattenspiel, Bläser, Kinderpunsch, 18 Uhr. Laterne mitbringen!",
-      "gratis": true,
-      "link": "https://abenteuerspielplatz.de/startseite/termine-2018/terminausgabe.html?event=33",
-      "drinnen": false
+      "datum": "2026-11-18",
+      "stadtteil": "Westend",
+      "titel": "Aha?! Forschungswerkstatt",
+      "text": "Forschen und Experimentieren im Senckenberg, mittwochs 10–18 Uhr, Kinder 6 €.",
+      "gratis": false,
+      "link": "https://museumfrankfurt.senckenberg.de/de/besuch/",
+      "drinnen": true,
+      "motiv": "forschen"
     },
     {
-      "datum": "2026-11-12",
+      "datum": "2026-11-19",
       "stadtteil": "Altstadt",
       "titel": "Junges Museum am Römer",
-      "text": "Mitmach-Ausstellungen, 11–18 Uhr, bis 18 Jahre gratis.",
+      "text": "Mitmach-Ausstellungen zur Stadtgeschichte, bis 18 Jahre gratis.",
       "gratis": true,
       "link": "https://junges-museum-frankfurt.de/",
       "drinnen": true
     },
     {
-      "datum": "2026-11-13",
-      "stadtteil": "Westend",
-      "titel": "Nachts im Senckenberg",
-      "text": "Mit der Taschenlampe zu den Dinos, 19 oder 20.30 Uhr, Kind 15 €, Erw. 18 €.",
-      "gratis": false,
-      "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
-      "drinnen": true
+      "datum": "2026-11-20",
+      "stadtteil": "Bornheim",
+      "titel": "TechnoTHEK in der KiBi",
+      "text": "Technik und Coding ausprobieren, 15–18 Uhr, ab 6, gratis, ohne Anmeldung.",
+      "gratis": true,
+      "link": "https://www.kindaling.de/sonstige-veranstaltungen/technothek-in-der-zentralen-kinder-und-jugendbibliothek/frankfurt-bornheim-ostend",
+      "drinnen": true,
+      "motiv": "roboter"
     }
   ],
   "flohmarkt": [
     {
-      "datum": "2026-11-12",
-      "titel": "Flohmarkt an der Jahrhunderthalle",
-      "stadtteil": "Unterliederbach",
-      "text": "8–14 Uhr, auch am Samstag.",
-      "gratis": true,
-      "drinnen": false,
-      "link": "https://www.weiss-maerkte.de/"
-    },
-    {
-      "datum": "2026-11-14",
-      "titel": "Flohmarkt am Mainufer",
-      "stadtteil": "Sachsenhausen",
-      "text": "Schaumainkai, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
+      "datum": "2026-11-21",
+      "titel": "Flohmarkt am Osthafen",
+      "stadtteil": "Ostend",
+      "text": "Lindleystraße, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
       "gratis": true,
       "drinnen": false,
       "link": "https://www.hfm-frankfurt.de/flohmaerkte"
