@@ -1,0 +1,172 @@
+{
+ "nr": 48,
+ "jahr": 2026,
+ "von": "2026-11-23",
+ "bis": "2026-11-29",
+ "anzeige": "moelkky",
+ "wochenende": {
+  "samstag": {
+   "stadtteil": "Altstadt",
+   "titel": "Satourday im Jungen Museum",
+   "gratis": true,
+   "drinnen": true,
+   "text": "Eintritt frei am Satourday, dazu offene Werkstatt: Papierschöpfen und Musik, 14–17 Uhr, ab 8 Jahren.",
+   "link": "https://junges-museum-frankfurt.de/kalender",
+   "bild": "img/bib/historisches-museum.jpg",
+   "bildquelle": "Foto: Fred Romero, CC BY 2.0, Wikimedia Commons",
+   "motiv": "museum",
+   "weitere": [
+    {
+     "titel": "Adventskranz binden",
+     "stadtteil": "Innenstadt",
+     "text": "Offener Eltern-Kind-Treff in der Bleichstraße, 12.30–16 Uhr, Kranz selbst gestalten.",
+     "link": "https://www.rheinmain4family.de/events/show/event/offener-eltern-kind-treff-adventskranz-binden-frankfurt.html",
+     "gratis": false,
+     "drinnen": true,
+     "motiv": "weihnacht"
+    }
+   ]
+  },
+  "sonntag": {
+   "stadtteil": "Kalbach-Riedberg",
+   "titel": "Seifenwerkstatt",
+   "gratis": true,
+   "drinnen": true,
+   "text": "Upcycling für Weihnachten: Seife selbst machen am Alten Flugplatz, 15 und 16.30 Uhr, Anmeldung bis 26.11.",
+   "link": "https://www.rheinmain4family.de/events/show/event/seifenwerkstatt-upcycling-for-xmas-frankfurt.html",
+   "bild": "",
+   "bildquelle": "",
+   "motiv": "basteln",
+   "weitere": [
+    {
+     "titel": "Offene Kinderwerkstatt",
+     "stadtteil": "Sachsenhausen",
+     "text": "Basteln im Museum für Kommunikation, 10.15, 11.15 und 12.15 Uhr, ab 4, Kind 4 €.",
+     "link": "https://www.mfk-frankfurt.de/kalender/",
+     "gratis": false,
+     "drinnen": true,
+     "motiv": "basteln"
+    },
+    {
+     "titel": "Kinder-Weihnachtsmarkt",
+     "stadtteil": "Altstadt",
+     "text": "Am Mainkai beim Eisernen Steg: Bühne, Karussell und Mitmach-Ecken für Kinder.",
+     "link": "https://www.rheinmain4family.de/events/show/event/frankfurter-kinderweihnachtsmarkt.html",
+     "gratis": true,
+     "drinnen": false,
+     "motiv": "weihnacht"
+    }
+   ]
+  }
+ },
+ "woche": [
+  {
+   "datum": "2026-11-23",
+   "stadtteil": "Höchst",
+   "titel": "Vorlesegeschichten",
+   "text": "Das Bibliothekszentrum Höchst liest vor, 16 Uhr, ab 3, gratis, ohne Anmeldung.",
+   "gratis": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/vorlesegeschichten-im-bibliothekszentrum-hoechst.html",
+   "drinnen": true,
+   "motiv": "buch"
+  },
+  {
+   "datum": "2026-11-24",
+   "stadtteil": "Rödelheim",
+   "titel": "Wir gehen auf Bärenjagd",
+   "text": "Bilderbuch-Vorlesen in der Stadtteilbibliothek, 15.30 Uhr, ab 4, gratis, Anmeldung.",
+   "gratis": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/wir-gehen-auf-baerenjagd-in-roedelheim.html",
+   "drinnen": true,
+   "motiv": "buch"
+  },
+  {
+   "datum": "2026-11-25",
+   "stadtteil": "Bergen-Enkheim",
+   "titel": "Robo-Club mit Ozobot",
+   "text": "Mini-Roboter programmieren im Bibliothekszentrum, 16 Uhr, ab 7, gratis, Anmeldung.",
+   "gratis": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/robo-club-mit-ozobot-evo-in-bergen-enkheim.html",
+   "drinnen": true,
+   "motiv": "roboter"
+  },
+  {
+   "datum": "2026-11-26",
+   "stadtteil": "Seckbach",
+   "titel": "Lego-Bauspaß",
+   "text": "Vorlesen und Bauen in der Stadtteilbibliothek, 16 Uhr, ab 4, gratis.",
+   "gratis": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/lego-bauspass-mit-vorleseueberraschung-in-seckbach.html",
+   "drinnen": true,
+   "motiv": "basteln"
+  },
+  {
+   "datum": "2026-11-27",
+   "stadtteil": "Bornheim",
+   "titel": "TechnoTHEK in der KiBi",
+   "text": "Technik und MINT zum Anfassen, 15–18 Uhr, ab 6, gratis, ohne Anmeldung.",
+   "gratis": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/abgesagt-technothek.html",
+   "drinnen": true,
+   "motiv": "roboter"
+  }
+ ],
+ "flohmarkt": [
+  {
+   "datum": "2026-11-27",
+   "titel": "Skibasar Schule am Ried",
+   "stadtteil": "Bergen-Enkheim",
+   "text": "Ski, Schlitten, Schlittschuhe und Winterkleidung in der Aula, ab 17 Uhr.",
+   "gratis": false,
+   "drinnen": true,
+   "link": "https://www.rheinmain4family.de/events/show/event/skibasar-der-schule-am-ried-frankfurt.html"
+  },
+  {
+   "datum": "2026-11-28",
+   "titel": "Frankfurter Flohmarkt",
+   "stadtteil": "Sachsenhausen",
+   "text": "Am Schaumainkai, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
+   "gratis": true,
+   "drinnen": false,
+   "link": "https://www.hfm-frankfurt.de/flohmaerkte"
+  }
+ ],
+ "wetter": [
+  {
+   "datum": "2026-11-23",
+   "temp": 3,
+   "symbol": "heiter"
+  },
+  {
+   "datum": "2026-11-24",
+   "temp": 3,
+   "symbol": "wolke"
+  },
+  {
+   "datum": "2026-11-25",
+   "temp": 2,
+   "symbol": "wolke"
+  },
+  {
+   "datum": "2026-11-26",
+   "temp": 0,
+   "symbol": "schnee"
+  },
+  {
+   "datum": "2026-11-27",
+   "temp": 1,
+   "symbol": "wolke"
+  },
+  {
+   "datum": "2026-11-28",
+   "temp": 2,
+   "symbol": "wolke"
+  },
+  {
+   "datum": "2026-11-29",
+   "temp": 3,
+   "symbol": "wolke"
+  }
+ ],
+ "wetter_echt": true
+}
