@@ -1,118 +1,131 @@
 {
-  "nr": 47,
+  "nr": 48,
   "jahr": 2026,
-  "von": "2026-11-16",
-  "bis": "2026-11-22",
-  "anzeige": "cornhole",
+  "von": "2026-11-23",
+  "bis": "2026-11-29",
+  "anzeige": "moelkky",
   "wochenende": {
     "samstag": {
-      "stadtteil": "Westend",
-      "titel": "Algen-Workshop im Senckenberg",
-      "gratis": false,
+      "stadtteil": "Altstadt",
+      "titel": "Satourday im Jungen Museum",
+      "gratis": true,
       "drinnen": true,
-      "text": "Algen als Superhelden erforschen: 10 Uhr für 5–7 J., 12 Uhr für 8–12 J., je 15 €, Online-Ticket nötig.",
-      "link": "https://museumfrankfurt.senckenberg.de/de/kalender/",
-      "bild": "img/bib/senckenberg-diplodocus.jpg",
-      "bildquelle": "Foto: Yair Haklai, CC BY-SA 4.0, Wikimedia Commons",
-      "motiv": "forschen",
+      "text": "Eintritt frei am Satourday, dazu offene Werkstatt: Papierschöpfen und Musik, 14–17 Uhr, ab 8 Jahren.",
+      "link": "https://junges-museum-frankfurt.de/kalender",
+      "bild": "img/bib/historisches-museum.jpg",
+      "bildquelle": "Foto: Fred Romero, CC BY 2.0, Wikimedia Commons",
+      "motiv": "museum",
       "weitere": [
         {
-          "titel": "Kinderlieder mit Fredrik Vahle",
-          "stadtteil": "Westend",
-          "text": "Mitsing-Konzert im Gesellschaftshaus Palmengarten, 10 und 15 Uhr, Tickets vorab.",
-          "link": "https://frankfurt-mit-kids.de/event/kinderliederkonzert-mit-fredrik-vahle-im-festsaal-des-gesellschaftshauses-palmengarten/",
+          "titel": "Adventskranz binden",
+          "stadtteil": "Innenstadt",
+          "text": "Offener Eltern-Kind-Treff in der Bleichstraße, 12.30–16 Uhr, Kranz selbst gestalten.",
+          "link": "https://www.rheinmain4family.de/events/show/event/offener-eltern-kind-treff-adventskranz-binden-frankfurt.html",
           "gratis": false,
-          "drinnen": true
+          "drinnen": true,
+          "motiv": "weihnacht"
         }
       ]
     },
     "sonntag": {
-      "stadtteil": "Sachsenhausen",
-      "titel": "Offene Kinderwerkstatt",
-      "gratis": false,
+      "stadtteil": "Kalbach-Riedberg",
+      "titel": "Seifenwerkstatt",
+      "gratis": true,
       "drinnen": true,
-      "text": "Basteln und Tüfteln im Museum für Kommunikation, Start 10.15, 11.15 oder 12.15 Uhr, ab 4, Kind 4 €.",
-      "link": "https://www.mfk-frankfurt.de/",
-      "bild": "img/bib/museum-kommunikation.jpg",
-      "bildquelle": "Foto: Konrad Kurzacz, CC BY-SA 3.0, Wikimedia Commons",
+      "text": "Upcycling für Weihnachten: Seife selbst machen am Alten Flugplatz, 15 und 16.30 Uhr, Anmeldung bis 26.11.",
+      "link": "https://www.rheinmain4family.de/events/show/event/seifenwerkstatt-upcycling-for-xmas-frankfurt.html",
+      "bild": "",
+      "bildquelle": "",
       "motiv": "basteln",
       "weitere": [
         {
-          "titel": "Minimal Animal",
-          "stadtteil": "Innenstadt",
-          "text": "Theaterspielkonzert ab 3 im Theaterhaus, 11 Uhr, 7–10 €.",
-          "link": "https://frankfurt-mit-kids.de/event/minimal-animal-theaterspielkonzert-ab-3/",
+          "titel": "Offene Kinderwerkstatt",
+          "stadtteil": "Sachsenhausen",
+          "text": "Basteln im Museum für Kommunikation, 10.15, 11.15 und 12.15 Uhr, ab 4, Kind 4 €.",
+          "link": "https://www.mfk-frankfurt.de/kalender/",
           "gratis": false,
-          "drinnen": true
+          "drinnen": true,
+          "motiv": "basteln"
         },
         {
-          "titel": "Frau Holle im Papageno",
-          "stadtteil": "Westend",
-          "text": "Musikalisches Wintermärchen am Palmengarten, ab 5, 13.30 und 16 Uhr.",
-          "link": "https://papageno-theater.de/",
-          "gratis": false,
-          "drinnen": true
+          "titel": "Kinder-Weihnachtsmarkt",
+          "stadtteil": "Altstadt",
+          "text": "Am Mainkai beim Eisernen Steg: Bühne, Karussell und Mitmach-Ecken für Kinder.",
+          "link": "https://www.rheinmain4family.de/events/show/event/frankfurter-kinderweihnachtsmarkt.html",
+          "gratis": true,
+          "drinnen": false,
+          "motiv": "weihnacht"
         }
       ]
     }
   },
   "woche": [
     {
-      "datum": "2026-11-16",
-      "stadtteil": "Ostend",
-      "titel": "Die mutige Martina",
-      "text": "Kindertheater in der Katakombe, 10 Uhr, ab 4, 2–4 €, Karten reservieren.",
-      "gratis": false,
-      "link": "https://frankfurt-mit-kids.de/event/die-mutige-martina-2/",
+      "datum": "2026-11-23",
+      "stadtteil": "Höchst",
+      "titel": "Vorlesegeschichten",
+      "text": "Das Bibliothekszentrum Höchst liest vor, 16 Uhr, ab 3, gratis, ohne Anmeldung.",
+      "gratis": true,
+      "link": "https://www.rheinmain4family.de/events/show/event/vorlesegeschichten-im-bibliothekszentrum-hoechst.html",
       "drinnen": true,
-      "motiv": "theater"
+      "motiv": "buch"
     },
     {
-      "datum": "2026-11-17",
-      "stadtteil": "Bornheim",
-      "titel": "Roboter Ada hört zu",
-      "text": "LautLesen 4.0: Kinder lesen Roboter Ada vor, dann Quiz. KiBi, 16 Uhr, 8–10 J., Anmeldung.",
+      "datum": "2026-11-24",
+      "stadtteil": "Rödelheim",
+      "titel": "Wir gehen auf Bärenjagd",
+      "text": "Bilderbuch-Vorlesen in der Stadtteilbibliothek, 15.30 Uhr, ab 4, gratis, Anmeldung.",
       "gratis": true,
-      "link": "https://frankfurt.de/service-und-rathaus/verwaltung/aemter-und-institutionen/stadtbuecherei/veranstaltungen/robotics-und-coding",
+      "link": "https://www.rheinmain4family.de/events/show/event/wir-gehen-auf-baerenjagd-in-roedelheim.html",
+      "drinnen": true,
+      "motiv": "buch"
+    },
+    {
+      "datum": "2026-11-25",
+      "stadtteil": "Bergen-Enkheim",
+      "titel": "Robo-Club mit Ozobot",
+      "text": "Mini-Roboter programmieren im Bibliothekszentrum, 16 Uhr, ab 7, gratis, Anmeldung.",
+      "gratis": true,
+      "link": "https://www.rheinmain4family.de/events/show/event/robo-club-mit-ozobot-evo-in-bergen-enkheim.html",
       "drinnen": true,
       "motiv": "roboter"
     },
     {
-      "datum": "2026-11-18",
-      "stadtteil": "Westend",
-      "titel": "Aha?! Forschungswerkstatt",
-      "text": "Forschen und Experimentieren im Senckenberg, mittwochs 10–18 Uhr, Kinder 6 €.",
-      "gratis": false,
-      "link": "https://museumfrankfurt.senckenberg.de/de/besuch/",
-      "drinnen": true,
-      "motiv": "forschen"
-    },
-    {
-      "datum": "2026-11-19",
-      "stadtteil": "Altstadt",
-      "titel": "Junges Museum am Römer",
-      "text": "Mitmach-Ausstellungen zur Stadtgeschichte, bis 18 Jahre gratis.",
+      "datum": "2026-11-26",
+      "stadtteil": "Seckbach",
+      "titel": "Lego-Bauspaß",
+      "text": "Vorlesen und Bauen in der Stadtteilbibliothek, 16 Uhr, ab 4, gratis.",
       "gratis": true,
-      "link": "https://junges-museum-frankfurt.de/",
-      "drinnen": true
+      "link": "https://www.rheinmain4family.de/events/show/event/lego-bauspass-mit-vorleseueberraschung-in-seckbach.html",
+      "drinnen": true,
+      "motiv": "basteln"
     },
     {
-      "datum": "2026-11-20",
+      "datum": "2026-11-27",
       "stadtteil": "Bornheim",
       "titel": "TechnoTHEK in der KiBi",
-      "text": "Technik und Coding ausprobieren, 15–18 Uhr, ab 6, gratis, ohne Anmeldung.",
+      "text": "Technik und MINT zum Anfassen, 15–18 Uhr, ab 6, gratis, ohne Anmeldung.",
       "gratis": true,
-      "link": "https://www.kindaling.de/sonstige-veranstaltungen/technothek-in-der-zentralen-kinder-und-jugendbibliothek/frankfurt-bornheim-ostend",
+      "link": "https://www.rheinmain4family.de/events/show/event/abgesagt-technothek.html",
       "drinnen": true,
       "motiv": "roboter"
     }
   ],
   "flohmarkt": [
     {
-      "datum": "2026-11-21",
-      "titel": "Flohmarkt am Osthafen",
-      "stadtteil": "Ostend",
-      "text": "Lindleystraße, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
+      "datum": "2026-11-27",
+      "titel": "Skibasar Schule am Ried",
+      "stadtteil": "Bergen-Enkheim",
+      "text": "Ski, Schlitten, Schlittschuhe und Winterkleidung in der Aula, ab 17 Uhr.",
+      "gratis": false,
+      "drinnen": true,
+      "link": "https://www.rheinmain4family.de/events/show/event/skibasar-der-schule-am-ried-frankfurt.html"
+    },
+    {
+      "datum": "2026-11-28",
+      "titel": "Frankfurter Flohmarkt",
+      "stadtteil": "Sachsenhausen",
+      "text": "Am Schaumainkai, 9–14 Uhr – oft mit Spielzeug und Kinderkleidung.",
       "gratis": true,
       "drinnen": false,
       "link": "https://www.hfm-frankfurt.de/flohmaerkte"
